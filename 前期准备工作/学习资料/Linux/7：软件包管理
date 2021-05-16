@@ -1,0 +1,42 @@
+# dpkg 
+dpkg适用于Debian和Ubuntu系统  
+
+dpkg --help : 帮助文档  
+
+dpkg -i name.deb : 安装软件  
+-l ：查看所有安装软件（常配合管道搜索使用）  
+-S name ：查看软件所包含的文件  
+-r name ：卸载软件  
+
+# rpm
+rpm适用于其余Linux系统  
+
+-ivh name.rpm : 安装软件  
+-Uvh name.rpm : 升级软件包  
+-q name : 查询软件包  
+-qa ：查询所有已安装的软件包  
+-e ：卸载软件  
+-e -vv --test : 模拟卸载，输出调试信息  
+
+# apt
+
+apt-get install : 下载并安装软件包  
+update ：更新软件包信息  
+upgrade : 升级软件包  
+remove ：卸载特定软件包  
+source ：下载特定的软件源代码  
+clean ： 删除所有已下载的包文件  
+-h ：帮助文档  
+
+apt-cache search text : 在列表中搜索带text字样的软件包  
+depends name : 查看特定软件包的依赖关系  
+
+apt的安装源查看：etc/apt/source.list  
+
+# 从源代码编译软件  
+
+1. 下载解压软件包  
+2. configure配置（--prefix设置安装位置）  
+3. make编译安装  
+
+主要看安装文档
