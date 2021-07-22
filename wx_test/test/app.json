@@ -12,5 +12,5 @@
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
-  "debug": true,
+  "debug": true
   }
