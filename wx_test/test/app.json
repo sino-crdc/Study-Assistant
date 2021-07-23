@@ -40,6 +40,5 @@
   },
   
     
-  "sitemapLocation": "sitemap.json",
-  "debug": true
+  "sitemapLocation": "sitemap.json"
   }
