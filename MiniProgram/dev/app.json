@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/vocsearch/vocsearch",
+    "pages/profile/profile",
+    "pages/search/search",
+    "pages/vocdetail/vocdetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1296db",
+    "navigationBarTitleText": "学习助手",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#1296db",
+    "backgroundColor": "#fafafa",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "搜索",
+        "iconPath": "assets/icons/home.png",
+        "selectedIconPath": "assets/icons/home-p.png"
+      },
+      {
+        "pagePath": "pages/vocsearch/vocsearch",
+        "text": "词条",
+        "iconPath": "assets/icons/vocentry.png",
+        "selectedIconPath": "assets/icons/vocentry-p.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "assets/icons/my.png",
+        "selectedIconPath": "assets/icons/my-p.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
