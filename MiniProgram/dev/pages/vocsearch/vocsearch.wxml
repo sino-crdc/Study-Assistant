@@ -15,14 +15,15 @@
 
 <view
   class="result_list"
-  wx:for="{{ resultList }}"
-  wx:id="result_id">
+  >
      <navigator
        class="redsult_item"
        target=""
        url=""
        hover-class="navigator-hover"
-       open-type="navigate">
+       open-type="navigate"
+       wx:for="{{ resultList }}"
+       wx:id="result_id">
        
      </navigator>
 </view>
