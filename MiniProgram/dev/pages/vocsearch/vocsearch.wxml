@@ -13,17 +13,4 @@
     </view>
 </search>
 
-<view
-  class="result_list"
-  >
-     <navigator
-       class="redsult_item"
-       target=""
-       url=""
-       hover-class="navigator-hover"
-       open-type="navigate"
-       wx:for="{{ resultList }}"
-       wx:id="result_id">
-       
-     </navigator>
-</view>
+<rlist resultList="{{ resultList }}"></rlist>
