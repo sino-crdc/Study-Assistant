@@ -12,7 +12,7 @@ Page({
   },
   onSearch() {
     request({url: 'https://api.zzzsy.top/xxx/xxx',
-             data: value
+             data: this.value
     })
     .then(result =>{
       this.setData({
@@ -22,7 +22,7 @@ Page({
   },
   onClick() {
     request({url: 'https://api.zzzsy.top/xxx/xxx',
-             data: {value}
+             data: this.value
     })
     .then(result =>{
       this.setData({

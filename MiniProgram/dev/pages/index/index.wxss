@@ -1,0 +1,9 @@
+.title{
+    display: flex;
+    font-style: italic;
+    color: #675;
+    font-size: large;
+}
+.other{
+
+}

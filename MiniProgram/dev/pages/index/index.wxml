@@ -1,6 +1,11 @@
+<view class="title">
+  Study Assistant
+</view>
+
+
 <search 
   value="{{ value }}" 
-  placeholder="请输入搜索关键词" 
+  placeholder="Entrez votre mot à rechercher" 
   use-action-slot 
   bind:search="onSearch" 
   shape="round" 
@@ -10,3 +15,7 @@
     搜索
 </view>
 </search>
+
+<view class="other">
+  
+</view>
