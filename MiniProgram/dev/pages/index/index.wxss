@@ -1,9 +1,27 @@
-.title{
-    display: flex;
-    font-style: italic;
-    color: #675;
-    font-size: large;
+page {
+  margin: 20rpx;
+  background-color: #dedede;
 }
-.other{
-
+.search_bar {
+  height: 80rpx;
+  display: flex;
+  margin: 480rpx 25rpx;
+}
+.search_bar input {
+  height: 100%;
+  flex: 1;
+  width: 85%;
+  padding-left: 26rpx;
+  border: 1.2px solid var(--themeColor);
+  background-color: #fff;
+  border-radius: 32rpx;
+}
+.search_bar button {
+  height: 100%;
+  font-size: 26rpx;
+  padding: 0;
+  margin: 0 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

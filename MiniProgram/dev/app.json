@@ -26,12 +26,6 @@
         "selectedIconPath": "assets/icons/home-p.png"
       },
       {
-        "pagePath": "pages/vocsearch/vocsearch",
-        "text": "词条",
-        "iconPath": "assets/icons/vocentry.png",
-        "selectedIconPath": "assets/icons/vocentry-p.png"
-      },
-      {
         "pagePath": "pages/profile/profile",
         "text": "我的",
         "iconPath": "assets/icons/my.png",
