@@ -26,13 +26,14 @@ Page({
     })
     .then(result =>{
       this.setData({
-        resultList:result.message.resultList
+        resultList: result.message.resultList
       })
     });
   },
-  onShareAppMessage() {
-    return {
-      title: '',
-    };
+  onLoad: function(options) {
+    console.log(options);
+    this.setData({
+      value: options.keyword
+    })
   },
 });

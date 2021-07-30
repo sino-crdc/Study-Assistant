@@ -13,4 +13,8 @@
     </view>
 </search>
 
+<view>
+  {{ value }}
+</view>
+
 <rlist resultList="{{ resultList }}"></rlist>

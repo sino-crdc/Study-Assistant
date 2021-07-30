@@ -2,10 +2,13 @@
     <input
       value="{{ value }}"
       placeholder="Entrez votre mot à rechercher" 
+      bind:search="onSearch"
+      bind:change="onChange"
       />
     <button
       class="tap"
-      url="">
+      url=""
+      bind:tap="onClick">
       Search
     </button>
 </view>
