@@ -1,1 +1,11 @@
-<view>New Page</view>
+
+
+<cell-group inset>
+  <cell
+    is-link
+    link-type="navigateTo"
+    url="/pages/about/about"
+    title="About"
+    icon="info"
+    />
+</cell-group>

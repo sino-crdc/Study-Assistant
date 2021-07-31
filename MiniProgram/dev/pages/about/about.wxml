@@ -1,0 +1,40 @@
+<view class="profile_avanter">
+    <image class="avanter" src="" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+        
+    </image>
+</view>
+
+<view class="title">
+    学习助手
+</view>
+<view class="info">
+    version : 0.0.3
+</view>
+<view class="info">
+    developer : zzzsy
+</view>
+<view class="titleee">
+    声明
+</view>
+<view class="board">
+  <view class="content">
+    上课资料，打造出一款专业化的学习知识分享平台
+  </view>
+</view>
+<view class="titleee">
+    简介
+</view>
+<view class="board">
+  <view class="content">
+    一款专门面向大学生群体的学习助手软件，并且聚焦于非热门学科，针对其上课内容与专业特点，并融合学院上课资料，打造出一款专业化的学习知识分享平台
+  </view>
+</view>
+<view class="titleee">
+    联系方式
+</view>
+<view class="board">
+  <view class="content">
+    E-mail : zzzsy@bk.ru
+  </view>
+</view>
+
