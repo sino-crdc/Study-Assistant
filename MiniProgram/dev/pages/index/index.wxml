@@ -2,12 +2,12 @@
     <input
       value="{{ value }}"
       placeholder="Entrez votre mot à rechercher" 
-      bind:search="onSearch"
-      bind:change="onChange"
+      bind:confirm="onSearch"
+      bind:input="onChange"
+      placeholder-style="text-align: center"
       />
     <button
-      class="tap"
-      url=""
+      class="iconfont icon-sousuo"
       bind:tap="onClick">
       Search
     </button>

@@ -6,8 +6,12 @@ Page({
     resultList:[]
   },
   onChange(e) {
+    wx.setStorage({
+      data: e.detail.value,
+      key: 'keyword',
+    }),
     this.setData({
-      value: e.detail
+      value: e.detail.value
     });
   },
   onSearch() {
@@ -30,10 +34,15 @@ Page({
       })
     });
   },
-  onLoad: function(options) {
-    console.log(options);
-    this.setData({
-      value: options.keyword
+  onShow: function() {
+    var that = this;
+    wx.getStorage({
+      key: 'keyword',
+      success: function (res) {
+        that.setData({
+          value: res.data
+        });
+      },
     })
   },
 });
