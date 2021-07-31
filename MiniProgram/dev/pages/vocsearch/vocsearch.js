@@ -43,6 +43,14 @@ Page({
           value: res.data
         });
       },
+    });
+    request({url: 'https://api.zzzsy.top/xxx/xxx',
+             data: this.value
     })
+    .then(result =>{
+      this.setData({
+        resultList: result.message.resultList
+      })
+    });
   },
 });

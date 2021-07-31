@@ -1,15 +1,19 @@
-<view class="search_bar">
-    <input
-      value="{{ value }}"
-      placeholder="Entrez votre mot à rechercher" 
-      bind:confirm="onSearch"
-      bind:input="onChange"
-      placeholder-style="text-align: center"
-      />
-    <button
-      class="iconfont icon-sousuo"
-      bind:tap="onClick">
-      Search
-    </button>
-</view>
+
+
+<search
+  value="{{ value }}"
+  placeholder="Entrez votre mot à rechercher"
+  bind:search="onSearch"
+  bind:change="onChange"
+  field-class="field"
+  input-class="input"
+  custom-class="custom"
+  left-icon=''
+  input-align="center"
+  use-action-slot
+  >
+    <view class="iconfont icon-sousuo" slot="action" bind:tap="onClick">
+      搜索
+    </view>
+</search>
     
