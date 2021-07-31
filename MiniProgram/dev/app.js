@@ -1,5 +1,6 @@
 //app.js
 App({
+    towxml:require('/towxml/index'),
     //onLaunch,onShow: options(path,query,scene,shareTicket,referrerInfo(appId,extraData))
     onLaunch: function(options){
         

@@ -1,0 +1,20 @@
+<search 
+  value="{{ value }}"
+  placeholder="Entrez votre mot à rechercher"
+  use-action-slot
+  bind:search="onSearch"
+  bind:change="onChange"
+  shape="round"
+  background="#1296db"
+  left-icon=""
+  input-align="center">
+    <view class="iconfont icon-sousuo" slot="action" bind:tap="onClick">
+      搜索
+    </view>
+</search>
+
+<view>
+  {{ value }}
+</view>
+
+<rlist resultList="{{ resultList }}"></rlist>

@@ -1,9 +1,11 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/vocentry/vocentry",
+    "pages/vocsearch/vocsearch",
     "pages/profile/profile",
-    "pages/search/search"
+    "pages/vocdetail/vocdetail",
+    "pages/about/about",
+    "pages/favorites/favorites"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -25,19 +27,12 @@
         "selectedIconPath": "assets/icons/home-p.png"
       },
       {
-        "pagePath": "pages/vocentry/vocentry",
-        "text": "词条",
-        "iconPath": "assets/icons/vocentry.png",
-        "selectedIconPath": "assets/icons/vocentry-p.png"
-      },
-      {
         "pagePath": "pages/profile/profile",
         "text": "我的",
         "iconPath": "assets/icons/my.png",
         "selectedIconPath": "assets/icons/my-p.png"
       }
-
     ]
-  },    
+  },
   "sitemapLocation": "sitemap.json"
 }

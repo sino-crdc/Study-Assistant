@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "search":"../../components/search/index",
+    "rlist":"../../components/list/list"
+  }
+}
