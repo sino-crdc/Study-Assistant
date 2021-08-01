@@ -5,7 +5,8 @@
     "pages/profile/profile",
     "pages/vocdetail/vocdetail",
     "pages/about/about",
-    "pages/favorites/favorites"
+    "pages/favorites/favorites",
+    "pages/welcome/welcome"
   ],
   "window": {
     "backgroundTextStyle": "light",

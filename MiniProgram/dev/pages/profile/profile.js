@@ -1,25 +1,14 @@
 Page({
   data: {
-
+    avatarUrl:"../../assets/images/avatar.png"
   },
-  onLoad(options) {
-
+  onGetUserInfo(e){
+    const {userInfo}=e.detail;
+    wx.setStorageSync('userinfo', userInfo)
   },
-  onReady() {
-
-  },
-  onShow() {
-
-  },
-  onHide() {
-
-  },
-  onUnload() {
-
-  },
-  onShareAppMessage() {
-    return {
-      title: '',
-    };
-  },
+  onLogin(){
+    wx.navigateTo({
+      url: '../welcome/welcome',
+    })
+  }
 });

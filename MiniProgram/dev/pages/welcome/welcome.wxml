@@ -1,0 +1,33 @@
+<view class="title">
+  欢迎来到 学习助手 for ECPKN
+</view>
+
+
+<view class="ex">
+  要使用小程序，请允许我们访问您的用户信息。
+</view>
+
+<van-button
+  type="primary"
+  open-type="getUserInfo"
+  bind:getuserinfo="onGetUserInfo"
+  block
+>
+  允许访问用户信息
+</van-button>
+
+<van-button
+  type="default"
+  block
+  bind:click="onClick"
+>
+  先看看
+</van-button>
+
+<view class="ex">
+  您的信息仅用作收藏及上传功能。
+</view>
+
+<view class="foot">
+  Copyright :copyright 2021 École Centrale Pékin
+</view>

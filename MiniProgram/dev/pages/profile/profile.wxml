@@ -1,4 +1,15 @@
-
+<view class="login_wrap">
+  <view class="login" bind:tap="onLogin">
+    <view class="text_wrap">
+      <view class="ex1">点击登录</view>
+      <view class="ex2">登录后可以使用收藏、上传</view>
+    </view>
+    <view class="user_icon_wrap">
+      <image class="user_icon" src="{{ avatarUrl }}"/>
+    </view>
+  </view>
+  
+</view>
 
 <cell-group inset>
   <cell
