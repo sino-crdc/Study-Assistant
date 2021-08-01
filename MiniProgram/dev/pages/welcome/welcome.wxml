@@ -7,23 +7,22 @@
   要使用小程序，请允许我们访问您的用户信息。
 </view>
 
-<van-button
+<button
   type="primary"
-  open-type="getUserInfo"
-  bind:getuserinfo="onGetUserInfo"
-  block
+  open-type="getUserProfile"
+  bind:getuserprofile="onGetUserProfile"
+  class="btn"
 >
   允许访问用户信息
-</van-button>
-
-<van-button
+</button>
+<button
   type="default"
-  block
-  bind:click="onClick"
+  bind:tap="onClick"
+  class="btn"
 >
   先看看
-</van-button>
-
+</button>
+<view class="blank2"></view>
 <view class="ex">
   您的信息仅用作收藏及上传功能。
 </view>
