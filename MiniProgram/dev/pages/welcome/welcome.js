@@ -1,11 +1,20 @@
 Page({
   data: {
-
   },
   onGetUserProfile(e){
-    const {userInfo}=e.detail;
-    wx.setStorageSync('userinfo', userInfo);
-    console.log(userInfo);
+    wx.getUserProfile({
+      desc: '用于收藏等功能',
+      success: (res) => {
+        const userInfo = res.userInfo;
+        wx.setStorageSync('userinfo', userInfo);
+        console.log(userInfo);
+        const info = wx.getStorageSync('userinfo');
+        console.log(info);
+        wx.navigateBack({
+          delta: 1
+        })
+      }
+    })
   }, 
   onClick(){
     wx.switchTab({

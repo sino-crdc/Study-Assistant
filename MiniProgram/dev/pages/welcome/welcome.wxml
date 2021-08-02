@@ -9,8 +9,7 @@
 
 <button
   type="primary"
-  open-type="getUserProfile"
-  bind:getuserprofile="onGetUserProfile"
+  bind:tap="onGetUserProfile"
   class="btn"
 >
   允许访问用户信息
@@ -28,5 +27,5 @@
 </view>
 
 <view class="foot">
-  Copyright :copyright 2021 École Centrale Pékin
+  Copyright &copy 2021 École Centrale Pékin
 </view>
