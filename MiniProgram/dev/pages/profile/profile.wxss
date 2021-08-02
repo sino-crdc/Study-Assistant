@@ -29,7 +29,7 @@ page {
   margin-left: 20rpx;
   margin-top: 22rpx;
   height: 150rpx;
-  width: 60vw;
+  width: 58vw;
 }
 .login_wrap .login .text_wrap .ex1 {
   font-size: 46rpx;

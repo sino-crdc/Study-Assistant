@@ -26,4 +26,11 @@
     title="About"
     icon="info"
     />
+    <cell
+      is-link
+      link-type="navigateTo"
+      url="/pages/feedback/feedback"
+      title="Feedback"
+      icon="comment"
+    />
 </cell-group>
