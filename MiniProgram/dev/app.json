@@ -6,8 +6,7 @@
     "pages/vocdetail/vocdetail",
     "pages/about/about",
     "pages/favorites/favorites",
-    "pages/welcome/welcome",
-    "pages/feedback/feedback"
+    "pages/welcome/welcome"
   ],
   "window": {
     "backgroundTextStyle": "light",

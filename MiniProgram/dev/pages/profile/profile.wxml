@@ -5,7 +5,7 @@
       <view class="ex2">登录后可以使用收藏、上传</view>
     </view>
     <view class="user_icon_wrap">
-      <image class="user_icon" src="{{ avatarUrl }}"/>
+      <image class="user_icon" src="{{ avatarUrl }}" />
     </view>
   </view>
   <view wx:else class="login">
@@ -14,40 +14,42 @@
       <view class="ex2">可以使用收藏、上传功能</view>
     </view>
     <view class="user_icon_wrap">
-      <image class="user_icon" src="{{ userinfo.avatarUrl }}"/>
+      <image class="user_icon" src="{{ userinfo.avatarUrl }}" />
     </view>
   </view>
 </view>
 
 <view class="func_wrap">
-  <view class="func_item">
-    
-  </view>
+  <button bind:tap="onFav" hover-class="btn_hover">
+    <view class="func_item">
+      <view class="iconfont icon-Favoritestarrate1 itm1"></view>
+      <view class="itm_text t1">Favorite</view>
+    </view>
+  </button>
+  <button bind:tap="onUpload" hover-class="btn_hover">
+    <view class="func_item">
+      <view class="iconfont icon-Localupload itm2"></view>
+      <view class="itm_text t2">Upload</view>
+    </view>
+  </button>
 </view>
 
-<button
-  bind:tap="onAbout"
-  class="btn1"
->
-  <view class="iconfont icon-about myicon"></view>
-  <view class="title">About</view>
-  <van-icon class="arrow" name="arrow"></van-icon>
-</button>
+<view class="menu">
+  <button bind:tap="onAbout" class="btn1" hover-class="btn_hover">
+    <view class="iconfont icon-about myicon"></view>
+    <view class="title">About</view>
+    <van-icon class="arrow" name="arrow"></van-icon>
+  </button>
 
-<button
-  open-type="feedback"
-  class="btn"
->
-  <view class="iconfont icon-feedback myicon"></view>
-  <view class="title">Feedback</view>
-  <van-icon class="arrow" name="arrow"></van-icon>
-</button>
+  <button open-type="feedback" class="btn" hover-class="btn_hover">
+    <view class="iconfont icon-feedback myicon"></view>
+    <view class="title">Feedback</view>
+    <van-icon class="arrow" name="arrow"></van-icon>
+  </button>
 
-<button
-  open-type="share"
-  class="btn2"
->
-  <view class="iconfont icon-share myicon"></view>
-  <view class="title">Share</view>
-  <van-icon class="arrow" name="arrow"></van-icon>
-</button>
+  <button open-type="share" class="btn2" hover-class="btn_hover">
+    <view class="iconfont icon-share myicon"></view>
+    <view class="title">Share</view>
+    <van-icon class="arrow" name="arrow"></van-icon>
+  </button>
+</view>
