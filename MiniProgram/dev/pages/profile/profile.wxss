@@ -1,3 +1,113 @@
+@font-face {
+  font-family: "iconfont";
+  /* Project id 2694040 */
+  src: url('//at.alicdn.com/t/font_2694040_kvt9xkshhr.woff2?t=1627957900806') format('woff2'), url('//at.alicdn.com/t/font_2694040_kvt9xkshhr.woff?t=1627957900806') format('woff'), url('//at.alicdn.com/t/font_2694040_kvt9xkshhr.ttf?t=1627957900806') format('truetype');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-share:before {
+  content: "\e665";
+}
+.icon-feedback:before {
+  content: "\ebd2";
+}
+.icon-about:before {
+  content: "\e615";
+}
+.icon-sousuo:before {
+  content: "\e657";
+}
+.icon-shoucang:before {
+  content: "\e65a";
+}
+.icon-yonghu:before {
+  content: "\e77e";
+}
+.icon-bianzu:before {
+  content: "\e636";
+}
 page {
   background-color: #f4f4f4;
+}
+.login_wrap {
+  height: 220rpx;
+  margin: 20rpx 30rpx;
+  border: medium;
+  background-color: #fff;
+  border-radius: 16rpx 16rpx 0 0;
+  display: flex;
+}
+.login_wrap .login {
+  height: 100%;
+  display: flex;
+  margin: 20rpx 35rpx;
+}
+.login_wrap .login .user_icon_wrap {
+  margin-top: 16rpx;
+  width: 150rpx;
+  height: 150rpx;
+  display: flex;
+}
+.login_wrap .login .user_icon_wrap .user_icon {
+  height: 150rpx;
+  width: 150rpx;
+  border-radius: 50%;
+}
+.login_wrap .login .text_wrap {
+  margin-left: 20rpx;
+  margin-top: 22rpx;
+  height: 150rpx;
+  width: 58vw;
+}
+.login_wrap .login .text_wrap .ex1 {
+  font-size: 46rpx;
+}
+.login_wrap .login .text_wrap .ex2 {
+  margin-top: 30rpx;
+  color: #888888;
+  font-size: 28rpx;
+}
+.btn1 {
+  border-radius: 16rpx 16rpx 0 0;
+  margin: 4rpx 30rpx;
+  background-color: #fff;
+  display: flex;
+}
+.btn1::after {
+  border: 0;
+}
+.btn {
+  margin: 4rpx 30rpx;
+  background-color: #fff;
+  display: flex;
+  border-radius: 0;
+}
+.btn::after {
+  border: 0;
+}
+.btn2 {
+  margin: 4rpx 30rpx;
+  background-color: #fff;
+  display: flex;
+  border-radius: 0 0 16rpx 16rpx;
+}
+.btn2::after {
+  border: 0;
+}
+.arrow {
+  color: #b0b0b0;
+}
+.myicon {
+  margin-left: 10rpx;
+  margin-right: 20rpx;
+  margin-top: 8rpx;
+}
+.title {
+  width: 86%;
+  text-align: left;
 }

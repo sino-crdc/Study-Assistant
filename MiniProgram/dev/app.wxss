@@ -9,4 +9,5 @@ page,view,text,swiper,image,navigator{
 page{
     --themeColor:#1296db;
     font-size: 28rpx;
+    
 }

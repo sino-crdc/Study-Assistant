@@ -1,11 +1,53 @@
+<view class="login_wrap">
+  <view wx:if="{{ !userinfo.avatarUrl }}" class="login" bind:tap="onLogin">
+    <view class="text_wrap">
+      <view class="ex1">点击登录</view>
+      <view class="ex2">登录后可以使用收藏、上传</view>
+    </view>
+    <view class="user_icon_wrap">
+      <image class="user_icon" src="{{ avatarUrl }}"/>
+    </view>
+  </view>
+  <view wx:else class="login">
+    <view class="text_wrap">
+      <view class="ex1">{{ userinfo.nickName }}</view>
+      <view class="ex2">可以使用收藏、上传功能</view>
+    </view>
+    <view class="user_icon_wrap">
+      <image class="user_icon" src="{{ userinfo.avatarUrl }}"/>
+    </view>
+  </view>
+</view>
 
+<view class="func_wrap">
+  <view class="func_item">
+    
+  </view>
+</view>
 
-<cell-group inset>
-  <cell
-    is-link
-    link-type="navigateTo"
-    url="/pages/about/about"
-    title="About"
-    icon="info"
-    />
-</cell-group>
+<button
+  bind:tap="onAbout"
+  class="btn1"
+>
+  <view class="iconfont icon-about myicon"></view>
+  <view class="title">About</view>
+  <van-icon class="arrow" name="arrow"></van-icon>
+</button>
+
+<button
+  open-type="feedback"
+  class="btn"
+>
+  <view class="iconfont icon-feedback myicon"></view>
+  <view class="title">Feedback</view>
+  <van-icon class="arrow" name="arrow"></van-icon>
+</button>
+
+<button
+  open-type="share"
+  class="btn2"
+>
+  <view class="iconfont icon-share myicon"></view>
+  <view class="title">Share</view>
+  <van-icon class="arrow" name="arrow"></van-icon>
+</button>

@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "cell-group":"../../components/cell-group/index",
-    "cell":"../../components/cell/index"
+    "van-icon":"../../components/icon/index"
   }
 }
