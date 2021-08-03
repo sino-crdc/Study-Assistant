@@ -11,5 +11,10 @@ Page({
   onShow(){
     const userinfo = wx.getStorageSync('userinfo');
     this.setData({ userinfo })
+  },
+  onAbout(){
+    wx.navigateTo({
+      url: '../about/about',
+    })
   }
 });
