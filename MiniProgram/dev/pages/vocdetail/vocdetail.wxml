@@ -1,1 +1,1 @@
-<view>New Page</view>
+<towxml nodes="{{detail}}"/>
