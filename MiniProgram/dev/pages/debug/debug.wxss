@@ -1,0 +1,47 @@
+page {
+  background-color: #f4f4f4;
+}
+.title {
+  font-size: 40rpx;
+  margin: 90rpx 80rpx 0;
+}
+.menu .btn1 {
+  border-radius: 16rpx 16rpx 0 0;
+  margin: 4rpx 30rpx;
+  background-color: #fff;
+  display: flex;
+}
+.menu .btn1::after {
+  border: 0;
+}
+.menu .btn {
+  margin: 4rpx 30rpx;
+  background-color: #fff;
+  display: flex;
+  border-radius: 0;
+}
+.menu .btn::after {
+  border: 0;
+}
+.menu .btn2 {
+  margin: 4rpx 30rpx;
+  background-color: #fff;
+  display: flex;
+  border-radius: 0 0 16rpx 16rpx;
+}
+.menu .btn2::after {
+  border: 0;
+}
+.menu .arrow {
+  color: #b0b0b0;
+}
+.menu .title {
+  width: 86%;
+  text-align: left;
+  font-size: 32rpx;
+  margin-top: 14rpx;
+}
+.btn_hover {
+  background-color: #f4f4f4 !important;
+  opacity: 0.9 !important;
+}

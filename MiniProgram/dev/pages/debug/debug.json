@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "Debug",
+  "usingComponents": {
+    "van-icon":"../../components/icon/index"
+  }
+}

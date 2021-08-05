@@ -38,3 +38,11 @@
   </view>
 </view>
 
+<button
+  bind:tap="onDebug"
+  type="warn"
+  size="mini"
+>
+  Debug
+</button>
+
