@@ -35,7 +35,7 @@
 </view>
 
 <view class="menu">
-  <button bind:tap="onAbout" class="btn1" hover-class="btn_hover">
+  <button bind:tap="onAbout" class="btn" hover-class="btn_hover">
     <view class="iconfont icon-about myicon"></view>
     <view class="title">About</view>
     <van-icon class="arrow" name="arrow"></van-icon>
@@ -47,7 +47,7 @@
     <van-icon class="arrow" name="arrow"></van-icon>
   </button>
 
-  <button open-type="share" class="btn2" hover-class="btn_hover">
+  <button open-type="share" class="btn" hover-class="btn_hover">
     <view class="iconfont icon-share myicon"></view>
     <view class="title">Share</view>
     <van-icon class="arrow" name="arrow"></van-icon>

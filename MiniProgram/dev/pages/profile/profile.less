@@ -110,37 +110,23 @@ page {
 }
 
 .menu {
-  .btn1 {
-    border-radius: 16rpx 16rpx 0 0;
-    margin: 4rpx 30rpx;
-    background-color: #fff;
-    display: flex;
-  }
-
-  .btn1::after {
-    border: 0;
-  }
-
   .btn {
     margin: 4rpx 30rpx;
     background-color: #fff;
     display: flex;
     border-radius: 0;
-  }
 
-  .btn::after {
-    border: 0;
-  }
+    &::after{
+      border: 0;
+    }
 
-  .btn2 {
-    margin: 4rpx 30rpx;
-    background-color: #fff;
-    display: flex;
-    border-radius: 0 0 16rpx 16rpx;
-  }
+    &:nth-child(1){
+      border-radius: 16rpx 16rpx 0 0;
+    }
 
-  .btn2::after {
-    border: 0;
+    &:nth-last-child(1){
+      border-radius: 0 0 16rpx 16rpx;
+    }
   }
 
   .arrow {

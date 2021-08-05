@@ -3,7 +3,7 @@
 </view>
 
 <view class="menu">
-    <button bind:tap="onAbout" class="btn1" hover-class="btn_hover">
+    <button bind:tap="onAbout" class="btn" hover-class="btn_hover">
       <view class="title">page About</view>
       <van-icon class="arrow" name="arrow"></van-icon>
     </button>
@@ -33,7 +33,7 @@
         <van-icon class="arrow" name="arrow"></van-icon>
     </button>
 
-    <button bind:tap="onWelcome" class="btn2" hover-class="btn_hover">
+    <button bind:tap="onWelcome" class="btn" hover-class="btn_hover">
         <view class="title">page Welcome</view>
         <van-icon class="arrow" name="arrow"></van-icon>
     </button>

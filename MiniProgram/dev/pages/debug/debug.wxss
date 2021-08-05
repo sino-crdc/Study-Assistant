@@ -5,15 +5,6 @@ page {
   font-size: 40rpx;
   margin: 90rpx 80rpx 0;
 }
-.menu .btn1 {
-  border-radius: 16rpx 16rpx 0 0;
-  margin: 4rpx 30rpx;
-  background-color: #fff;
-  display: flex;
-}
-.menu .btn1::after {
-  border: 0;
-}
 .menu .btn {
   margin: 4rpx 30rpx;
   background-color: #fff;
@@ -23,14 +14,11 @@ page {
 .menu .btn::after {
   border: 0;
 }
-.menu .btn2 {
-  margin: 4rpx 30rpx;
-  background-color: #fff;
-  display: flex;
-  border-radius: 0 0 16rpx 16rpx;
+.menu .btn:nth-child(1) {
+  border-radius: 16rpx 16rpx 0 0;
 }
-.menu .btn2::after {
-  border: 0;
+.menu .btn:nth-last-child(1) {
+  border-radius: 0 0 16rpx 16rpx;
 }
 .menu .arrow {
   color: #b0b0b0;
