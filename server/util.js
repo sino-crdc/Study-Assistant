@@ -1,22 +1,14 @@
 // 工具库
 
-// 在用户数据库中查找，验证用户名是否存在
-var isUsernameExisted = function (username) {
-	return true;
-};
-
-// 从用户数据库中通过用户名获取用户
-var getPasswordByUsername = function (username) {
-	return "123";
-};
+var crypto = require("crypto");
 
 // 增加用户到用户数据库
-var addUserToDatabase = function (username, password) {
+var addUserToDatabase = function (mySessionKey, password) {
 	return;
 }
 
-// 从用户数据库中获取用户收藏
-var getUserFavoriteByUsername = function (username) {
+// 从用户数据库中获取用户收藏（简略信息）
+var getUserFavoriteBymySessionKey = function (mySessionKey) {
 	var uf = [
 		{
 			"id": 1,
@@ -24,6 +16,7 @@ var getUserFavoriteByUsername = function (username) {
 			"content": "blablabla..."
 		},
 		{
+			"id": 2,
 			"title": "Theoreme du milieu",
 			"content": "bla..."
 		}
@@ -31,20 +24,26 @@ var getUserFavoriteByUsername = function (username) {
 	return uf;
 }
 
-var searchByKeywords = function (keywords, username) {
+// 利用关键词从数据库中获取搜索结果（简略信息）
+var searchByKeywords = function (mySessionKey, keywords) {
 	var resultList = {};
 	return resultList;
 }
 
-var addItemToDatabase = function (username, item) {
+// 将新词条加入数据库中
+var addItemToDatabase = function (mySessionKey, item) {
 	return true;
 }
 
+// 制作自定义session_key
+var makeMySessionKey = function (session_key) {
+	return crypto.createHash('sha1').update(session_key, 'utf8').digest('hex');
+}
+
 module.exports = {
-	isUsernameExisted: isUsernameExisted,
-	getPasswordByUsername: getPasswordByUsername,
 	addUserToDatabase: addUserToDatabase,
-	getUserFavoriteByUsername: getUserFavoriteByUsername,
+	getUserFavoriteBymySessionKey: getUserFavoriteBymySessionKey,
 	searchByKeywords: searchByKeywords,
-	addItemToDatabase: addItemToDatabase
+	addItemToDatabase: addItemToDatabase,
+	makeMySessionKey: makeMySessionKey
 };

@@ -3,10 +3,10 @@
 var express = require('express');
 var config = require('./config');
 var login =  require('./login');
-var register = require('./register');
 var favorite = require('./favorite');
 var search = require('./search');
 var addItem = require('./addItem');
+var detail = require('./detail');
 
 var app = express();
 var port = config.port;
@@ -20,11 +20,11 @@ app.get('/', function(req, res){
 // 用户登陆
 app.get('/login', login);
 
-// // 用户注册
-// app.get('/register', register);
-
 // 用户收藏
 app.get('/favorite', favorite);
+
+// 详细信息展示
+app.get('/detail', detail);
 
 // 搜索内容
 app.get('/search', search);

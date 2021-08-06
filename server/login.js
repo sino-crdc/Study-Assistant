@@ -2,22 +2,38 @@
 
 var util = require('./util');
 var url = require('url');
+var request = require('request');
+var config = require('./config');
 
 module.exports = function (req, res) {
 	urlParser = url.parse(req.url, true);
-	var username = urlParser.query.username;
-	var password = urlParser.query.password;
+	var code = urlParser.query.code;
 
 	console.log("Login...");
+	
+	request({
+		url: config.wechatUrl,
+		method: "GET",
+		json: true,
+		qs: {
+			grant_type: 'authorization_code',
+      		appid: config.appid,
+      		secret: config.secret,
+      		js_code: code
+		}
+	}, function (err, rres, body){
+		if(!err && rres.statusCode == 200 && body.session_key) {
+			var mySessionKey = util.makeMySessionKey(body.session_key);
+			util.addUserToDatabase(body.session_key, body.openid);
+			var resData = {
+				mySessionKey: mySessionKey
+			};
+			res.end(JSON.stringify(mySessionKey));
+		}
+		else {
+			res.end('LF'); //login failed
+		}
 
-	if(util.isUsernameExisted(username)) { //检测username是否存在
-		if(util.getPasswordByUsername(username) === password) //检测密码是否正确
-			res.end("LS"); //login success
-		else
-			res.end("WP"); //wrong password
-	}
-	else
-		res.end("WU"); // wrong username
-
-	console.log("Login complete");
+		console.log("Login complete");
+	});
 };

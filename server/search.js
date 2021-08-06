@@ -6,11 +6,11 @@ var util = require('./util');
 module.exports = function (req, res) {
 	urlParser = url.parse(req.url, true);
 	var keywords = urlParser.query.keywords;
-	var username = urlParser.query.username;
+	var mySessionKey = urlParser.query.mySessionKey;
 
 	console.log("Search...");
 
-	var resultList = util.searchByKeywords(keywords, username);
+	var resultList = util.searchByKeywords(mySessionKey, keywords);
 	res.end(JSON.stringify(resultList));
 
 	console.log("Search complete");
