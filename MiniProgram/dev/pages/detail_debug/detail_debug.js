@@ -3,8 +3,8 @@ const app = getApp();
 Page({
   data: {
     detail: {},
-	detail_URL:"https://api.zzzsy.top/detail/",
-    voc:""
+	detail_URL:"https://zzzsy.top/wxp_test/",
+    voc:"test"
   },
   onLoad: function () {
 		const _ts = this;
