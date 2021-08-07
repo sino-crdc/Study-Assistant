@@ -11,6 +11,7 @@ module.exports = function (req, res) {
 
 	console.log("Login...");
 	
+	// 向微信第三方服务器发送申请，请求session_key和openid
 	request({
 		url: config.wechatUrl,
 		method: "GET",

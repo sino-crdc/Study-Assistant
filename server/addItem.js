@@ -10,10 +10,19 @@ module.exports = function (req, res) {
 
 	console.log('AddItem...');
 
-	if(util.addItemToDatabase(mySessionKey, item))
-		res.end('S'); //success
-	else
-		res.end('F'); //fail
+	var state = checkUserLoginState(mySessionKey);
+	if(state = "S") {
+		if(util.addItemToDatabase(mySessionKey, item))
+			res.end('S'); //success
+		else
+			res.end('F'); //fail
+	}
+	else if(state = "LT") { // login timeout
+		res.end("LT");
+	}
+	else {
+		res.end("UE"); // user error
+	}
 
 	console.log('AddItem complete');
 }

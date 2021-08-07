@@ -9,8 +9,17 @@ module.exports = function (req, res) {
 
 	console.log("Favorite...");
 
-	var userFavorite = util.getUserFavoriteByUsername(mySessionKey);
-	res.end(JSON.stringify(userFavorite));
+	var state = checkUserLoginState(mySessionKey);
+	if(state == "S") {
+		var userFavorite = util.getUserFavoriteByUsername(state.openid);
+		res.end(JSON.stringify(userFavorite));
+	}
+	else if(state == "LT") {
+		res.end("LT"); // login timeout
+	}
+	else {
+		res.end("UE"); // user error
+	}
 
 	console.log("Favorite complete");
 }

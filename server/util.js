@@ -2,13 +2,45 @@
 
 var crypto = require("crypto");
 
+// 检查用户登陆状态
+var checkUserLoginState = function (mySessionKey) {
+	var state = getStateByMySessionKey(mySessionKey);
+	if(state) {
+		var date = new Date();
+		var curtime = date.getTime();
+		if(curtime - state.loginTime <= 86400000) {
+			return "S"; // success
+		}
+		else {
+			return "LT"; // login timeout
+		}
+	}
+	else {
+		return "UE"; // user error
+	}
+}
+
+// 获取用户当前状态
+// {
+// 		openid:
+// 		session_key:
+// 		loginTime:
+// }
+var getStateByMySessionKey = function (mySessionKey) {
+	return {
+		openid: "123",
+		session_key: mySessionKey,
+		loginTime: 0
+	};
+}
+
 // 增加用户到用户数据库
-var addUserToDatabase = function (mySessionKey, password) {
+var addUserToDatabase = function (mySessionKey, openid) {
 	return;
 }
 
 // 从用户数据库中获取用户收藏（简略信息）
-var getUserFavoriteBymySessionKey = function (mySessionKey) {
+var getUserFavoriteBymySessionKey = function (openid) {
 	var uf = [
 		{
 			"id": 1,
@@ -31,7 +63,7 @@ var searchByKeywords = function (mySessionKey, keywords) {
 }
 
 // 将新词条加入数据库中
-var addItemToDatabase = function (mySessionKey, item) {
+var addItemToDatabase = function (openid, item) {
 	return true;
 }
 
@@ -41,6 +73,8 @@ var makeMySessionKey = function (session_key) {
 }
 
 module.exports = {
+	checkUserLoginState: checkUserLoginState,
+	getStateByMySessionKey: getStateByMySessionKey,
 	addUserToDatabase: addUserToDatabase,
 	getUserFavoriteBymySessionKey: getUserFavoriteBymySessionKey,
 	searchByKeywords: searchByKeywords,
