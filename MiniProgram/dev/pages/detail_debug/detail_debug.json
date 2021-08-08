@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "towxml":"/towxml/towxml"
+    "towxml": "/towxml/towxml",
+    "split": "../../components/split-line/split-line"
   }
 }
