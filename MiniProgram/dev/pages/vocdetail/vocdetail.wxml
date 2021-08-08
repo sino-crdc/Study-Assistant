@@ -1,1 +1,18 @@
-<towxml nodes="{{detail}}"/>
+<view class="title">
+    <towxml nodes="{{detail.title}}"/>
+    <view id="title" class="edit" bind:tap="onEdit">edit</view>
+    <towxml class="chinese" nodes="{{detail.chinese}}"/>
+</view>
+
+<towxml nodes="{{ detail.content }}"/>
+<view id="content" class="edit" bind:tap="onEdit">edit</view>
+<towxml nodes="{{ detail.preuve }}"/>
+<view id="preuve" class="edit" bind:tap="onEdit">edit</view>
+<towxml nodes="{{ detail.remarque }}"/>
+<view id="remarque" class="edit"  bind:tap="onEdit">edit</view>
+<towxml nodes="{{ detail.exemple }}"/>
+<view id="exemple" class="edit" bind:tap="onEdit">edit</view>
+<view class="source">
+    <towxml nodes="{{ detail.source }}"/>
+</view>
+<view id="source" class="edit" bind:tap="onEdit">edit</view>

@@ -6,15 +6,22 @@ Page({
 	detail_URL:"https://api.zzzsy.top/detail/",
     voc:""
   },
-  onLoad: function () {
+  onShow(){
 		const _ts = this;
-		const URL = _ts.data.detail_URL + _ts.data.voc + ".json";
+		var URL = _ts.data.detail_URL + _ts.data.voc + ".json";
 		app.getText(URL,res => {
-			let obj = app.towxml(res.data.detail.title,'markdown');
+			let obj = app.towxml(res.data.detail,'markdown');
 			_ts.setData({
 				detail:obj
 			});
 		});
 		
-	}
+	},
+  onEdit(e){
+	  var type = e.currentTarget.id;
+      var voc = this.data.voc;
+	  wx.navigateTo({
+		url: '../vocedit/vocedit?type='+type+'&voc='+voc,
+	  })
+  }
 });

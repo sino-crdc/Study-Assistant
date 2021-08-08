@@ -28,6 +28,16 @@
         <van-icon class="arrow" name="arrow"></van-icon>
     </button>
 
+    <button bind:tap="onDetail_debug" class="btn" hover-class="btn_hover">
+        <view class="title">page Detail_debug</view>
+        <van-icon class="arrow" name="arrow"></van-icon>
+    </button>
+
+    <button bind:tap="onVocedit" class="btn" hover-class="btn_hover">
+        <view class="title">page Vocedit</view>
+        <van-icon class="arrow" name="arrow"></van-icon>
+    </button>
+
     <button bind:tap="onVocsearch" class="btn" hover-class="btn_hover">
         <view class="title">page Vocsearch</view>
         <van-icon class="arrow" name="arrow"></van-icon>

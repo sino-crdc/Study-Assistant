@@ -36,5 +36,15 @@ Page({
     wx.navigateTo({
       url: '../welcome/welcome',
     })
+  },
+  onVocedit(){
+    wx.navigateTo({
+      url: '../vocedit/vocedit',
+    })
+  },
+  onDetail_debug(){
+    wx.navigateTo({
+      url: '../detail_debug/detail_debug',
+    })
   }
 });

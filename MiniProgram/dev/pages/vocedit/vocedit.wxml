@@ -1,0 +1,4 @@
+<view>
+    {{ type }}
+</view>
+<view>{{ voc }}</view>
