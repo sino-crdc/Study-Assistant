@@ -5,11 +5,12 @@ var util = require('./util');
 
 module.exports = function(req, res) {
 	urlParser = url.parse(req.url, true);
+	var mySessionKey = urlParser.query.mySessionKey;
 	var itemid = urlParser.query.itemid;
 
 	console.log("Detail...");
 
-	var itemDetail = getItemDetailById(itemid);
+	var itemDetail = getItemDetailById(mySessionKey, itemid);
 	res.end(JSON.stringify(itemDetail));
 
 	console.log("Detail complete");

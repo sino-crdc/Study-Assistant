@@ -25,7 +25,7 @@ module.exports = function (req, res) {
 	}, function (err, rres, body){
 		if(!err && rres.statusCode == 200 && body.session_key) {
 			var mySessionKey = util.makeMySessionKey(body.session_key);
-			util.addUserToDatabase(body.session_key, body.openid);
+			util.addUserToDatabase(mySessionKey, body.session_key, body.openid);
 			var resData = {
 				mySessionKey: mySessionKey
 			};

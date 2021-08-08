@@ -12,7 +12,7 @@ module.exports = function (req, res) {
 
 	var state = checkUserLoginState(mySessionKey);
 	if(state = "S") {
-		if(util.addItemToDatabase(mySessionKey, item))
+		if(util.addItemToDatabase(state.openid, item))
 			res.end('S'); //success
 		else
 			res.end('F'); //fail
