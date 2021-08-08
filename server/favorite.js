@@ -5,12 +5,21 @@ var util = require('./util');
 
 module.exports = function (req, res) {
 	urlParser = url.parse(req.url, true);
-	var username = urlParser.query.username;
+	var mySessionKey = urlParser.query.mySessionKey;
 
 	console.log("Favorite...");
 
-	var userFavorite = util.getUserFavoriteByUsername(username);
-	res.end(JSON.stringify(userFavorite));
+	var state = checkUserLoginState(mySessionKey);
+	if(state == "S") {
+		var userFavorite = util.getUserFavoriteByUsername(state.openid);
+		res.end(JSON.stringify(userFavorite));
+	}
+	else if(state == "LT") {
+		res.end("LT"); // login timeout
+	}
+	else {
+		res.end("UE"); // user error
+	}
 
 	console.log("Favorite complete");
 }

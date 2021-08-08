@@ -5,15 +5,24 @@ var util = require('./util');
 
 module.exports = function (req, res) {
 	urlParser = url.parse(req.url, true);
-	var username = urlParser.query.username;
+	var mySessionKey = urlParser.query.mySessionKey;
 	var item = urlParser.query.item;
 
 	console.log('AddItem...');
 
-	if(util.addItemToDatabase(username, item))
-		res.end('S'); //success
-	else
-		res.end('F'); //fail
+	var state = checkUserLoginState(mySessionKey);
+	if(state = "S") {
+		if(util.addItemToDatabase(mySessionKey, item))
+			res.end('S'); //success
+		else
+			res.end('F'); //fail
+	}
+	else if(state = "LT") { // login timeout
+		res.end("LT");
+	}
+	else {
+		res.end("UE"); // user error
+	}
 
 	console.log('AddItem complete');
 }
