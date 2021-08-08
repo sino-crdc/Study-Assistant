@@ -1,0 +1,18 @@
+.divider {
+    width: 96%;
+    height: 50rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    margin: 0 0 0 2%;
+  }
+  
+  /* 两个view的样式 */
+  .divider view {
+    width: 80%;
+    height: 4rpx;
+    margin-left: 20rpx;
+    background: #888;
+  }
+  
