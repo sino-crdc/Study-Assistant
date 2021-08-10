@@ -1,14 +1,12 @@
-<view class="profile_avanter">
-    <image class="avanter" src="" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
-        
-    </image>
+<view class="logo_wrap">
+    <image class="logo" src='../../assets/images/logo.png'/>       
 </view>
 
 <view class="title">
     学习助手
 </view>
 <view class="info">
-    version : 0.0.3
+    version : 0.0.4
 </view>
 <view class="info">
     developer : zzzsy

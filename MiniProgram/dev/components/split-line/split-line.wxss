@@ -13,6 +13,6 @@
     width: 80%;
     height: 4rpx;
     margin-left: 20rpx;
-    background: #888;
+    background: #c4c4c4;
   }
   

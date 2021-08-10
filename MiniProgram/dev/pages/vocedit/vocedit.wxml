@@ -2,3 +2,33 @@
     {{ type }}
 </view>
 <view>{{ voc }}</view>
+
+<view class="tips">
+    <view class="tip" hover-class="tip_hover" hover-stay-time="120" data-tip="#" bind:tap="onTip">
+        #
+    </view>
+    <view class="tip" hover-class="tip_hover" hover-stay-time="120" data-tip="*" bind:tap="onTip">
+        *
+    </view>
+    <view class="tip" hover-class="tip_hover" hover-stay-time="120" data-tip="-" bind:tap="onTip">
+        -
+    </view>
+    <view class="tip" hover-class="tip_hover" hover-stay-time="120" data-tip="$" bind:tap="onTip">
+        $
+    </view>
+    <view class="tip" hover-class="tip_hover" hover-stay-time="120" data-tip="link" bind:tap="onTip">
+        🔗
+    </view>
+</view>
+
+<textarea bind:confirm="onConfirm"  class="markdown" value="{{ rawMD }}" placeholder="开始你的编写">
+</textarea>
+<view class="bt">
+    <van-grid gutter="{{ 12 }}">
+        <van-grid-item custom-class="custom-class" bind:click="onPreview" icon="eye-o" text="预览" />
+        <van-grid-item custom-class="custom-class" bind:click="onClear" icon="delete-o" text="清空" />
+        <van-grid-item custom-class="custom-class" bind:click="onUndo" icon="replay" text="还原" />
+        <van-grid-item custom-class="custom-class" bind:click="onUpload" icon="upgrade" text="上传" />
+    </van-grid>
+</view>
+<van-dialog id="van-dialog" />

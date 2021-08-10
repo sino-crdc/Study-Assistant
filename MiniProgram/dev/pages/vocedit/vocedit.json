@@ -1,4 +1,8 @@
 {
-  "navigationBarTitleText": "",
-  "usingComponents": {}
+  "navigationBarTitleText": "编辑",
+  "usingComponents": {
+    "van-grid": "../../components/vant/grid/index",
+    "van-grid-item": "/../../components/vant/grid-item/index",
+    "van-dialog": "../../components/vant/dialog/index"
+  }
 }
