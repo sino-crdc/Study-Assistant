@@ -12,6 +12,7 @@ var checkUserLoginState = function (mySessionKey) {
 			return "S"; // success
 		}
 		else {
+			deleteUser(mySessionKey); // todo
 			return "LT"; // login timeout
 		}
 	}
@@ -29,18 +30,23 @@ var checkUserLoginState = function (mySessionKey) {
 var getStateByMySessionKey = function (mySessionKey) {
 	return {
 		openid: "123",
-		session_key: mySessionKey,
+		session_key: session_key,
 		loginTime: 0
 	};
 }
 
-// 增加用户到用户数据库
-var addUserToDatabase = function (mySessionKey, openid) {
+// 从用户登陆数据库中删除过期数据
+var deleteUser = function (mySessionKey) {
+	return；
+}
+
+// 增加用户到用户登陆数据库
+var addUserToDatabase = function (mySessionKey, session_key, openid) {
 	return;
 }
 
-// 从用户数据库中获取用户收藏（简略信息）
-var getUserFavoriteBymySessionKey = function (openid) {
+// 从用户个人信息数据库中获取用户收藏（简略信息）
+var getUserFavoriteByOpenid = function (openid) {
 	var uf = [
 		{
 			"id": 1,
@@ -73,6 +79,7 @@ var makeMySessionKey = function (session_key) {
 }
 
 module.exports = {
+	deleteUser: deleteUser,
 	checkUserLoginState: checkUserLoginState,
 	getStateByMySessionKey: getStateByMySessionKey,
 	addUserToDatabase: addUserToDatabase,
