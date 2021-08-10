@@ -6,7 +6,7 @@
 
 **content:**
 
-**prove:**
+**proof:**
 
 **remark:**
 
@@ -51,7 +51,7 @@ N\left(  x\right)  +N\left(  y\right)  $ (in\'{e}galit\'{e} triangulaire \mycn{ä
 \end{enumerate}
 On dit que $(E,\|\ \|)$ est un espace vectoriel norm\'e
 
-**prove:**
+**proof:**
 
 **remark:**
 
@@ -111,7 +111,7 @@ definition de bornee
 
 Soit $E$ un $\mathbb{K}$-espace vectoriel, $I\neq\emptyset$ un intervalle de $\mathbb{R}$ et $f:I\rightarrow E$ une fonction. On dit que $f$ est born\'ee s'il existe un r\'eel $M>0$ tel que $\forall x\in I$, $\| f(x)\|\leq M$. On note ${\cal B}(I,E)$ l'ensemble des fonctions born\'ees de $I$ dans $E$.
 
-**prove:**
+**proof:**
 
 **remark:**
 
@@ -141,7 +141,7 @@ proposition de bornee
 
 L'ensemble ${\cal B}(I,E)$ est un sous-espace vectoriel de l'ensemble des fonctions de $I$ dans $E$ et l'application ${\cal B}(I,E)\rightarrow \mathbb{R}_+$, $f\mapsto \sup\limits_{x\in I}\|f(x)\|$ est une norme not\'ee $\|\ \|_\infty$ et que l'on appelle norme sup, ``infini'' ou norme de la convergence uniforme.
 
-**prove:**
+**proof:**
 
 ${\cal B}(I,E)$ est bien un sous-espace vectoriel (exercice).\\
 Si $f\in{\cal B}(I,E)$, l'ensemble $\{\|f(x)\|, x\in I\}$ est une partie non vide
@@ -204,7 +204,7 @@ v,u\right)  $
 d\left(  u,v\right)  +d\left(  v,w\right)  $
 \end{enumerate}
 
-**prove:**
+**proof:**
 
 **remark:**
 
@@ -262,7 +262,7 @@ Soit $(E_i,\|\ \|_i)_{i\in[\![1,n]\!]}$ une famille finie d'espaces vectoriels n
 On d\'efinit sur $E=\displaystyle\prod_{i=1}^n E_i$ une structure d'espace vectoriel norm\'e en posant
 $$\|(x_1,\cdots,x_n)\|=\max_{i\in[\![1,n]\!]}\|x_i\|_i.$$
 
-**prove:**
+**proof:**
 
 **remark:**
 
@@ -312,7 +312,7 @@ $M\in\mathbb{R}$ tel que $\forall x\in X$, $\|x\|\leq M$.
 Si $X$ est une partie born\'ee, on appelle diam\`etre de $X$ le r\'eel positif
 $$\delta(X)=\sup_{(x,y)\in X^2}\|y-x\|$$
 
-**prove:**
+**proof:**
 
 **remark:**
 
@@ -344,7 +344,7 @@ Soit $A$ un ensemble non vide et $\left(  E,\|\ \|\right)$ un espace
 vectoriel norm\'e. Une application $f:A\rightarrow E$ est born\'ee s'il existe 
 $M\in\mathbb{R}$ tel que $\forall a\in A$, $\|f(a)\|\leq M$.
 
-**prove:**
+**proof:**
 
 **remark:**
 
@@ -374,7 +374,7 @@ definition d'une suite bornee
 
 Une suite $(u_n)_{n\geq 0}$ est une suite born\'ee de $(E,\|\ \|)$ si $\{u_n,\ n\in\mathbb N\}$ est une partie born\'ee de $(E,\|\ \|)$.
 
-**prove:**
+**proof:**
 
 **remark:**
 
@@ -409,7 +409,7 @@ definition de segment
 Soit $E$ un $\mathbb{R}$-espace vectoriel et $A$, $B\in E$. On appelle segment d'extr\'emit\'es $A$ et $B$ l'ensemble
 $$[AB]=\{(1-t)A+tB\in E\ |\ t\in[0;1]\}.$$
 
-**prove:**
+**proof:**
 
 **remark:**
 
@@ -444,7 +444,7 @@ Soit $E$ un $\mathbb{R}$-espace vectoriel et $C\subset E$ une partie de $E$. On 
  est une partie
 convexe de $E$ si
 
-**prove:**
+**proof:**
 
 **remark:**
 
@@ -493,7 +493,7 @@ f\left(  x_{1}\right)  +\left(  1-\alpha\right)  f\left(  x_{2}\right)  .
 \]
 \end{enumerate}
 
-**prove:**
+**proof:**
 
 **remark:**
 
@@ -534,7 +534,7 @@ E,\|\ \|\right)$ et $a\in E,$ alors on appelle distance de $a$ \`{a} $X$ le
 r\'{e}el
 positif $d\left(  a,X\right)  =\inf\limits_{x\in X}\left\Vert a-x\right\Vert$.
 
-**prove:**
+**proof:**
 
 **remark:**
 
@@ -570,7 +570,7 @@ proposition de distance
 
 Soit $X$ une partie non vide de $E$. L'application $E\to \mathbb R_+$, $a\mapsto d(a,X)$ est $1$-lipschitzienne.
 
-**prove:**
+**proof:**
 
 On veut montrer que pour tout $a,b\in E$, $|d(a,X)-d(b,X)|\leq \|a-b\|$.\\
 On sait que pour tout $x\in X$ (in\'egalit\'e triangulaire),
@@ -609,7 +609,7 @@ proposition de distance
 
 Si $X$ est partie convexe de $E$, alors $a\mapsto d(a,X)$ est convexe.
 
-**prove:**
+**proof:**
 
 Si $X$ est convexe, alors $\forall a,b\in E$, $\forall x,y\in X$, $\forall t\in[0,1]$
  $$tx+(1-t)y\in X\ {\rm et}\ \|ta+(1-t)b-(tx+(1-t)y)\|\leq t\|a-x\|+(1-t)\|b-y\|$$
@@ -654,7 +654,7 @@ r\}$ est la boule ferm\'ee de centre $a$ et de rayon $r$.
 centre $a$ et de rayon $r$.
 \end{enumerate}
 
-**prove:**
+**proof:**
 
 **remark:**
 
@@ -687,7 +687,7 @@ est un ouvert de $E$ si pour tout point $a\in U$, il existe un
  $\varepsilon\in \mathbb{R}$, $\varepsilon>0$ tel que la boule ouverte 
 $B(a,\varepsilon)\subset U$. 
 
-**prove:**
+**proof:**
 
 **remark:**
 
@@ -731,7 +731,7 @@ proposition d'ouverte
 Une union quelconque d'ouverts est un ouvert et une intersection 
 finie d'ouverts est un ouvert.
 
-**prove:**
+**proof:**
 
 Soit $(U_i)_{i\in A}$, une famille d'ouverts de $E$ index\'ee par 
 $A$. Alors pour tout $a\in\bigcup\limits_{i\in A} U_i$, il existe $i_0\in A$ tel 
@@ -772,7 +772,7 @@ proposition d'ouvert
 
 Dans un espace produit, un produit d'ouverts est un ouvert.
 
-**prove:**
+**proof:**
 
 On sait qu'une boule ouverte dans l'espace produit est un produit de boules ouvertes.
 
@@ -804,7 +804,7 @@ definition de voisinage
 
 Soit $a\in E$. On dit qu'une partie $X$ est un voisinage de $a$ s'il existe une boule ouverte ${\cal B}(a,\rho)$, $\rho>0$, tel que ${\cal B}(a,\rho)\subset X$.
 
-**prove:**
+**proof:**
 
 **remark:**
 
@@ -835,7 +835,7 @@ definition de ferme
 Une partie $W$ de $\left(  E,\|\ \|\right)$ est un ferm\'e de $E$ si
 $E\setminus W$ est un ouvert.
 
-**prove:**
+**proof:**
 
 **remark:**
 
@@ -875,7 +875,7 @@ proposition de ferme
  Une intersection quelconque de ferm\'es est un ferm\'e et une union 
 finie de ferm\'es est un ferm\'e.
 
-**prove:**
+**proof:**
 
 Le passage au compl\'ementaire change les unions en intersections et 
 inversement, et la propri\'et\'e correspondante est vraie pour les ouverts.
