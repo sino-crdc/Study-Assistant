@@ -1,1 +1,38 @@
-<view>New Page</view>
+<view class="title">
+    <towxml nodes="{{detail.title}}"/>
+    <towxml class="chinese" nodes="{{detail.chinese}}"/>
+    <view wx:if="{{ attr.title }}" id="title" class="edit" bind:tap="onEdit">edit</view>
+</view>
+
+<view wx:if="{{ attr.content }}" class="content">
+    <view class="bt">Content</view>
+    <view id="content" class="edit" bind:tap="onEdit">edit</view>
+</view>
+<split wx:if="{{ attr.content }}" />
+<view class="tow"><towxml nodes="{{ detail.content }}"/></view>
+
+<view wx:if="{{ attr.proof }}" class="proof">
+    <view class="bt">proof</view>
+    <view id="proof" class="edit" bind:tap="onEdit">edit</view>
+</view>
+<split wx:if="{{ attr.proof }}" />
+<view class="tow"><towxml nodes="{{ detail.proof }}"/></view>
+
+<view wx:if="{{ attr.remark }}" class="remark">
+    <view class="bt">Remark</view>
+    <view id="remark" class="edit"  bind:tap="onEdit">edit</view>
+</view>
+<split wx:if="{{ attr.remark }}" />
+<view class="tow"><towxml nodes="{{ detail.remark }}"/></view>
+
+<view wx:if="{{ attr.example }}" class="example">
+    <view class="bt">examples</view>
+    <view id="example" class="edit" bind:tap="onEdit">edit</view>
+</view>
+<split wx:if="{{ attr.example }}" />
+<view class="tow"><towxml nodes="{{ detail.example }}"/></view>
+
+<view wx:if="{{ attr.source }}" class="source">
+    <towxml nodes="{{ detail.source }}"/>
+    <view id="source" class="edit" bind:tap="onEdit">edit</view>
+</view>

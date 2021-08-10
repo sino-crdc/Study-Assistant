@@ -16,5 +16,13 @@ Page({
     wx.navigateTo({
       url: '../about/about',
     })
+  },
+  onFav(){
+    wx.navigateTo({
+      url: '../favorites/favorites',
+    })
+  },
+  onUpload(){
+    
   }
 });

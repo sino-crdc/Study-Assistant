@@ -7,7 +7,10 @@
     "pages/about/about",
     "pages/favorites/favorites",
     "pages/welcome/welcome",
-    "pages/feedback/feedback"
+    "pages/debug/debug",
+    "pages/detail_debug/detail_debug",
+    "pages/vocedit/vocedit",
+    "pages/vocpreview/vocpreview"
   ],
   "window": {
     "backgroundTextStyle": "light",

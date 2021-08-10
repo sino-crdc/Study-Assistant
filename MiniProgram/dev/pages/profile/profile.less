@@ -4,88 +4,143 @@ page {
   background-color: #f4f4f4;
 }
 
-.login_wrap{
+.login_wrap {
   height: 220rpx;
-  margin: 20rpx 30rpx;
+  margin: 28rpx 30rpx 4rpx 30rpx;
   border: medium;
   background-color: #fff;
   border-radius: 16rpx 16rpx 0 0;
   display: flex;
-  .login{
+
+  .login {
     height: 100%;
     display: flex;
     margin: 20rpx 35rpx;
-    .user_icon_wrap{
+
+    .user_icon_wrap {
       margin-top: 16rpx;
       width: 150rpx;
       height: 150rpx;
       display: flex;
-      .user_icon{
+
+      .user_icon {
         height: 150rpx;
         width: 150rpx;
         border-radius: 50%;
       }
     }
-    .text_wrap{
+
+    .text_wrap {
       margin-left: 20rpx;
       margin-top: 22rpx;
       height: 150rpx;
       width: 58vw;
-      .ex1{
+
+      .ex1 {
         font-size: 46rpx;
       }
-      .ex2{
+
+      .ex2 {
         margin-top: 30rpx;
         color: #888888;
         font-size: 28rpx;
       }
     }
-    
+
   }
 }
 
-.btn1{
-  border-radius: 16rpx 16rpx 0 0;
-  margin: 4rpx 30rpx;
+.func_wrap {
+  margin: 4rpx 30rpx 60rpx 30rpx;
   background-color: #fff;
-  display: flex;
-}
-
-.btn1::after{
-  border: 0;
-}
-
-.btn{
-  margin: 4rpx 30rpx;
-  background-color: #fff;
-  display: flex;
-  border-radius: 0;
-}
-
-.btn::after{
-  border: 0;
-}
-
-.btn2{
-  margin: 4rpx 30rpx;
-  background-color: #fff;
-  display: flex;
   border-radius: 0 0 16rpx 16rpx;
+  height: 180rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  button {
+    height: 160rpx;
+    width: 200rpx;
+    margin: 0 60rpx;
+    border-radius: 16rpx;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    .func_item{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      .itm_text {
+        font-size: 28rpx;
+      }
+      .t1{
+        margin-top: -40rpx;
+      }
+      .t2{
+        margin-top: -46rpx;
+      }
+      .itm1{
+        font-size: 56rpx !important;
+        margin-top: -18rpx;
+        color: #515151;
+      }
+      .itm2{
+        font-size: 62rpx !important;
+        margin-top: -24rpx;
+        color: #515151;
+      }
+
+    }
+
+    &::after {
+      border: 0;
+      border-radius: 16rpx;
+    }
+  }
+  
 }
 
-.btn2::after{
-  border: 0;
-}
-.arrow{
-  color: #b0b0b0;
-}
-
-.myicon{
+.myicon {
   margin-left: 10rpx;
   margin-right: 20rpx;
   margin-top: 8rpx;
+  color: #515151;
 }
-.title{
-  width: 86%;
-  text-align: left;
+
+.menu {
+  .btn {
+    margin: 4rpx 30rpx;
+    background-color: #fff;
+    display: flex;
+    border-radius: 0;
+
+    &::after{
+      border: 0;
+    }
+
+    &:nth-child(1){
+      border-radius: 16rpx 16rpx 0 0;
+    }
+
+    &:nth-last-child(1){
+      border-radius: 0 0 16rpx 16rpx;
+    }
+  }
+
+  .arrow {
+    color: #b0b0b0;
+  }
+
+  .title {
+    width: 86%;
+    text-align: left;
+    font-size: 32rpx;
+    margin-top: 14rpx;
+  }
+}
+
+.btn_hover {
+  background-color: #f4f4f4 !important;
+  opacity: 0.9 !important;
 }

@@ -9,7 +9,7 @@
 
 <button
   type="primary"
-  bind:tap="onGetUserProfile"
+  bind:tap="onLogin"
   class="btn"
 >
   允许访问用户信息
@@ -21,11 +21,11 @@
 >
   先看看
 </button>
-<view class="blank2"></view>
+<view class="blank"></view>
 <view class="ex">
   您的信息仅用作收藏及上传功能。
 </view>
 
 <view class="foot">
-  Copyright &copy 2021 École Centrale Pékin
+  Copyright ©️ 2021 École Centrale Pékin
 </view>

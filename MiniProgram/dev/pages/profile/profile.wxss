@@ -1,7 +1,7 @@
 @font-face {
   font-family: "iconfont";
   /* Project id 2694040 */
-  src: url('//at.alicdn.com/t/font_2694040_kvt9xkshhr.woff2?t=1627957900806') format('woff2'), url('//at.alicdn.com/t/font_2694040_kvt9xkshhr.woff?t=1627957900806') format('woff'), url('//at.alicdn.com/t/font_2694040_kvt9xkshhr.ttf?t=1627957900806') format('truetype');
+  src: url('//at.alicdn.com/t/font_2694040_qmo3f4g96x.woff2?t=1627976381904') format('woff2'), url('//at.alicdn.com/t/font_2694040_qmo3f4g96x.woff?t=1627976381904') format('woff'), url('//at.alicdn.com/t/font_2694040_qmo3f4g96x.ttf?t=1627976381904') format('truetype');
 }
 .iconfont {
   font-family: "iconfont" !important;
@@ -9,6 +9,12 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.icon-Localupload:before {
+  content: "\e7e5";
+}
+.icon-Favoritestarrate1:before {
+  content: "\e60c";
 }
 .icon-share:before {
   content: "\e665";
@@ -22,21 +28,12 @@
 .icon-sousuo:before {
   content: "\e657";
 }
-.icon-shoucang:before {
-  content: "\e65a";
-}
-.icon-yonghu:before {
-  content: "\e77e";
-}
-.icon-bianzu:before {
-  content: "\e636";
-}
 page {
   background-color: #f4f4f4;
 }
 .login_wrap {
   height: 220rpx;
-  margin: 20rpx 30rpx;
+  margin: 28rpx 30rpx 4rpx 30rpx;
   border: medium;
   background-color: #fff;
   border-radius: 16rpx 16rpx 0 0;
@@ -72,42 +69,84 @@ page {
   color: #888888;
   font-size: 28rpx;
 }
-.btn1 {
-  border-radius: 16rpx 16rpx 0 0;
-  margin: 4rpx 30rpx;
+.func_wrap {
+  margin: 4rpx 30rpx 60rpx 30rpx;
   background-color: #fff;
-  display: flex;
-}
-.btn1::after {
-  border: 0;
-}
-.btn {
-  margin: 4rpx 30rpx;
-  background-color: #fff;
-  display: flex;
-  border-radius: 0;
-}
-.btn::after {
-  border: 0;
-}
-.btn2 {
-  margin: 4rpx 30rpx;
-  background-color: #fff;
-  display: flex;
   border-radius: 0 0 16rpx 16rpx;
+  height: 180rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.btn2::after {
+.func_wrap button {
+  height: 160rpx;
+  width: 200rpx;
+  margin: 0 60rpx;
+  border-radius: 16rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+}
+.func_wrap button .func_item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.func_wrap button .func_item .itm_text {
+  font-size: 28rpx;
+}
+.func_wrap button .func_item .t1 {
+  margin-top: -40rpx;
+}
+.func_wrap button .func_item .t2 {
+  margin-top: -46rpx;
+}
+.func_wrap button .func_item .itm1 {
+  font-size: 56rpx !important;
+  margin-top: -18rpx;
+  color: #515151;
+}
+.func_wrap button .func_item .itm2 {
+  font-size: 62rpx !important;
+  margin-top: -24rpx;
+  color: #515151;
+}
+.func_wrap button::after {
   border: 0;
-}
-.arrow {
-  color: #b0b0b0;
+  border-radius: 16rpx;
 }
 .myicon {
   margin-left: 10rpx;
   margin-right: 20rpx;
   margin-top: 8rpx;
+  color: #515151;
 }
-.title {
+.menu .btn {
+  margin: 4rpx 30rpx;
+  background-color: #fff;
+  display: flex;
+  border-radius: 0;
+}
+.menu .btn::after {
+  border: 0;
+}
+.menu .btn:nth-child(1) {
+  border-radius: 16rpx 16rpx 0 0;
+}
+.menu .btn:nth-last-child(1) {
+  border-radius: 0 0 16rpx 16rpx;
+}
+.menu .arrow {
+  color: #b0b0b0;
+}
+.menu .title {
   width: 86%;
   text-align: left;
+  font-size: 32rpx;
+  margin-top: 14rpx;
+}
+.btn_hover {
+  background-color: #f4f4f4 !important;
+  opacity: 0.9 !important;
 }

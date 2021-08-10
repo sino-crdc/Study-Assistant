@@ -2,24 +2,9 @@ Page({
   data: {
 
   },
-  onLoad(options) {
-
-  },
-  onReady() {
-
-  },
-  onShow() {
-
-  },
-  onHide() {
-
-  },
-  onUnload() {
-
-  },
-  onShareAppMessage() {
-    return {
-      title: '',
-    };
-  },
+  onDebug(){
+    wx.navigateTo({
+      url: '../debug/debug',
+    })
+  }
 });
