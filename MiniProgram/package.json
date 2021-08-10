@@ -1,0 +1,23 @@
+{
+  "name": "sa",
+  "version": "0.0.4",
+  "description": "study-assistant",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzzsyyy/SA.git"
+  },
+  "author": "zzzsy",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/zzzsyyy/SA/issues"
+  },
+  "homepage": "https://github.com/zzzsyyy/SA#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.7.2",
+    "towxml": "^3.0.6"
+  }
+}
