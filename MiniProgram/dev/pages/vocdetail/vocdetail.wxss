@@ -8,7 +8,7 @@
 .content,
 .proof,
 .remark,
-.exemple,
+.example,
 .source {
   display: flex;
   margin: 0 20rpx;

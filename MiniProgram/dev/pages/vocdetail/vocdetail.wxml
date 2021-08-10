@@ -20,17 +20,17 @@
 
 <view wx:if="{{ attr.remark }}" class="remark">
     <view class="bt">Remark</view>
-    <view id="remarque" class="edit"  bind:tap="onEdit">edit</view>
+    <view id="remark" class="edit"  bind:tap="onEdit">edit</view>
 </view>
 <split wx:if="{{ attr.remark }}" />
-<view class="tow"><towxml nodes="{{ detail.remarque }}"/></view>
+<view class="tow"><towxml nodes="{{ detail.remark }}"/></view>
 
-<view wx:if="{{ attr.exemple }}" class="exemple">
-    <view class="bt">Exemples</view>
-    <view id="exemple" class="edit" bind:tap="onEdit">edit</view>
+<view wx:if="{{ attr.example }}" class="example">
+    <view class="bt">examples</view>
+    <view id="example" class="edit" bind:tap="onEdit">edit</view>
 </view>
-<split wx:if="{{ attr.exemple }}" />
-<view class="tow"><towxml nodes="{{ detail.exemple }}"/></view>
+<split wx:if="{{ attr.example }}" />
+<view class="tow"><towxml nodes="{{ detail.example }}"/></view>
 
 <view wx:if="{{ attr.source }}" class="source">
     <towxml nodes="{{ detail.source }}"/>

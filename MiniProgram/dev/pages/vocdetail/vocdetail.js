@@ -19,7 +19,7 @@ Page({
 			let content = app.towxml(attr.content,'markdown');
 			let proof = app.towxml(attr.proof,'markdown');
 			let remark = app.towxml(attr.remark,'markdown');
-			let exemple = app.towxml(attr.exemple,'markdown');
+			let example = app.towxml(attr.example,'markdown');
 			let source = app.towxml(attr.source,'markdown');
 			let chinese = app.towxml(attr.chinese,'markdown');
 			_ts.setData({
@@ -27,7 +27,7 @@ Page({
 				"detail.content": content,
 				"detail.proof": proof,
 				"detail.remark": remark,
-				"detail.exemple": exemple,
+				"detail.example": example,
 				"detail.source": source,
 				"detail.chinese": chinese				
 			});
