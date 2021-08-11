@@ -6,15 +6,17 @@
   bind:change="onChange"
   shape="round"
   background="#1296db"
-  left-icon=""
+  left-icon=NULL
   input-align="center">
     <view class="iconfont icon-sousuo" slot="action" bind:tap="onClick">
       搜索
     </view>
 </search>
 
-<view>
-  {{ value }}
-</view>
-
-<rlist resultList="{{ resultList }}"></rlist>
+<van-skeleton 
+  title row="3" 
+  loading="{{ loading }}"
+  wx:for="{{ resultsList }}"
+  wx:key="{{ item.voc_id }}">
+    <voc-item title="{{ item.title }}" meta="{{ item.meta }}"/>
+</van-skeleton>

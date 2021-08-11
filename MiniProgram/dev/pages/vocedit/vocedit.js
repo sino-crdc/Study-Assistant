@@ -5,7 +5,9 @@ Page({
         type: "",
         voc: "",
         rawMD: "",
-        backup: ""
+        backup: "",
+        meta: "",
+        flag: 1
     },
     onLoad(options) {
         const _ts = this;
@@ -34,13 +36,18 @@ Page({
         console.log(_ts.data.rawMD)
     },
     onClear() {
+        this.setView(0);
         Dialog.confirm({
-                message: '确认清空内容吗？',
+                message: '确认清空内容吗？'
             }).then(() => {
                 this.setData({
                     rawMD: ""
                 })
-            }).catch(() => {})
+            }).catch(()=>{
+
+            }).then(()=>{
+                this.setView(1);
+            }); 
     },
     onPreview(){
         const _ts = this;
@@ -51,12 +58,13 @@ Page({
           }
         })
     },
-    onConfirm(e){
+    onChange(e){
         this.setData({
             rawMD: e.detail.value
         })
     },
     onUndo(){
+        this.setview(0);
         var backup = this.data.backup;
         Dialog.confirm({
             message: '确认还原内容吗？',
@@ -64,13 +72,27 @@ Page({
             this.setData({
                 rawMD: backup
             })
-        }).catch(()=>{})
+        }).catch(()=>{
+
+        }).then(()=>{
+            this.setview(1);
+        }); 
     },
     onUpload(){
+        this.setView(0);
         Dialog.confirm({
             message: '确认上传吗？',
         }).then(()=>{
 
-        }).catch(()=>{})
+        }).catch(()=>{
+
+        }).then(()=>{
+            this.setView(1);
+        }); 
+    },
+    setView(flag){
+        this.setData({
+            flag: flag
+        });
     }
 });

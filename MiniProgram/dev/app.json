@@ -8,7 +8,6 @@
     "pages/favorites/favorites",
     "pages/welcome/welcome",
     "pages/debug/debug",
-    "pages/detail_debug/detail_debug",
     "pages/vocedit/vocedit",
     "pages/vocpreview/vocpreview"
   ],

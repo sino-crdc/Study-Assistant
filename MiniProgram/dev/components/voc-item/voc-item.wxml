@@ -1,0 +1,8 @@
+<view class="wrap">
+    <view class="title">
+        {{ title }}
+    </view>
+    <view class="meta">
+        {{ meta }}
+    </view>
+</view>

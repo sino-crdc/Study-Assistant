@@ -3,7 +3,8 @@ import { request } from "../../request/request.js"
 Page({
   data: {
     value:'',
-    resultList:[]
+    resultsList:[],
+    loading: true
   },
   onChange(e) {
     wx.setStorage({
@@ -22,6 +23,9 @@ Page({
       this.setData({
         resultList:result.message.resultList
       })
+    })
+    .then(()=>{
+      this.loading=false
     });
   },
   onClick() {

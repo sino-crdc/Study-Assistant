@@ -22,14 +22,14 @@
 <view class="func_wrap">
   <button bind:tap="onFav" hover-class="btn_hover">
     <view class="func_item">
-      <view class="iconfont icon-Favoritestarrate1 itm1"></view>
-      <view class="itm_text t1">Favorite</view>
+      <van-icon size="26" name="star" class="itm"></van-icon>
+      <view class="itm_text">Favorite</view>
     </view>
   </button>
   <button bind:tap="onEdit" hover-class="btn_hover">
     <view class="func_item">
-      <view class="iconfont icon-Localupload itm2"></view>
-      <view class="itm_text t2">Edit</view>
+      <van-icon size="26" name="column" class="itm"></van-icon>
+      <view class="itm_text">Edit</view>
     </view>
   </button>
 </view>

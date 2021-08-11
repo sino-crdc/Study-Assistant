@@ -1,13 +1,11 @@
 Component({
   behaviors: [],
   properties: {
-    resultList:{
-      type:Array,
-      value:[]
-    }
+
   },
   data: {
-
+      title: "",
+      meta: ""
   },
   lifetimes: {
     created() {

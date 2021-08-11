@@ -4,8 +4,8 @@ Page({
   data: {
     detail: {},
 	attr:{},
-	detail_URL:"https://api.xxx.top/detail/",
-    voc:""
+	detail_URL:"https://zzzsyyy.github.io/wxp_test/",
+    voc:"definition de norme"
   },
   onShow(){
 		const _ts = this;
