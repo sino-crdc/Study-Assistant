@@ -1,11 +1,17 @@
 Component({
   behaviors: [],
   properties: {
-
+    title: {
+      type: String,
+      value: ""
+    },
+    meta: {
+      type: String,
+      value: ""
+    }
   },
   data: {
-      title: "",
-      meta: ""
+      
   },
   lifetimes: {
     created() {

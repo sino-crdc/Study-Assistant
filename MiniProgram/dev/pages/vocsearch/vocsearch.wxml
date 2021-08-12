@@ -15,6 +15,12 @@
 
 <van-skeleton 
   title row="3" 
-  loading="{{ loading }}">
-    <voc-item title="{{ item.title }}" meta="{{ item.meta }}"/>
+  loading="{{ loading }}"
+  wx:for="{{ resultList }}">
+    <voc-item bind:tap="onDetail" data-voc="{{ item.title }}" title="{{ item.title }}" meta="{{ item.meta }}"/>
 </van-skeleton>
+
+
+<van-empty wx:if="{{ netErr }}" image="network" description="网络错误"/>
+
+<van-empty wx:if="{{ schErr }}" image="search" description="没有搜到内容"/>

@@ -1,12 +1,17 @@
 .wrap {
   display: flex;
   width: 90%;
-  margin: 20rpx 40rpx 0;
+  margin: 20rpx 40rpx 20rpx;
+  flex-direction: column;
 }
 .wrap .title {
   font-size: 36rpx;
+  width: 60%;
+  margin-bottom: 8rpx;
 }
 .wrap .meta {
+  width: 100%;
+  margin-left: 6rpx;
   color: #888888;
   display: -webkit-box;
   word-break: break-all;
@@ -14,5 +19,5 @@
   font-size: 28rpx;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
 }

@@ -7,11 +7,12 @@ Page({
 	data: {
 		detail: {},
 		attr: {},
-		voc: "definition de norme",
+		voc: "",
 		netErr: false
 	},
-	onLoad() {
+	onLoad(options) {
 		const _ts = this;
+		_ts.setData({voc: options.voc});
 		var voc_url = "/detail/" + _ts.data.voc + ".json";
 		request({
 			url: voc_url
