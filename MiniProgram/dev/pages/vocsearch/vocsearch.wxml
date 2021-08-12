@@ -1,12 +1,12 @@
 <search 
-  value="{{ value }}"
+  value="{{ keyword }}"
   placeholder="Entrez votre mot à rechercher"
   use-action-slot
   bind:search="onSearch"
   bind:change="onChange"
   shape="round"
   background="#1296db"
-  left-icon=NULL
+  left-icon="NULL"
   input-align="center">
     <view class="iconfont icon-sousuo" slot="action" bind:tap="onClick">
       搜索
@@ -15,8 +15,6 @@
 
 <van-skeleton 
   title row="3" 
-  loading="{{ loading }}"
-  wx:for="{{ resultsList }}"
-  wx:key="{{ item.voc_id }}">
+  loading="{{ loading }}">
     <voc-item title="{{ item.title }}" meta="{{ item.meta }}"/>
 </van-skeleton>

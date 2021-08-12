@@ -1,6 +1,6 @@
 <view class="title">
-    <towxml nodes="{{detail.title}}"/>
-    <towxml class="chinese" nodes="{{detail.chinese}}"/>
+    <view class="tt">{{detail.title}}</view>
+    <view class="chinese">{{detail.chinese}}</view>
     <view wx:if="{{ attr.title }}" id="title" class="edit" bind:tap="onEdit">edit</view>
 </view>
 
@@ -26,13 +26,17 @@
 <view class="tow"><towxml nodes="{{ detail.remark }}"/></view>
 
 <view wx:if="{{ attr.example }}" class="example">
-    <view class="bt">examples</view>
+    <view class="bt">Examples</view>
     <view id="example" class="edit" bind:tap="onEdit">edit</view>
 </view>
 <split wx:if="{{ attr.example }}" />
 <view class="tow"><towxml nodes="{{ detail.example }}"/></view>
 
 <view wx:if="{{ attr.source }}" class="source">
-    <towxml nodes="{{ detail.source }}"/>
+    <view class="bt">Source</view>
     <view id="source" class="edit" bind:tap="onEdit">edit</view>
 </view>
+<split wx:if="{{ attr.source }}" />
+<view class="sour">{{ detail.source }}</view>
+
+<van-empty wx:if="{{ netErr }}" image="network" description="网络错误"/>

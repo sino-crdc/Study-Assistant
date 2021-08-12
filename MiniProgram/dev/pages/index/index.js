@@ -1,46 +1,31 @@
 Page({
   data: {
-    value: ''
+    keyword: ''
   },
   onChange: function (e) {
     console.log(e.detail),
       this.setData({
-        value: e.detail
+        keyword: e.detail
       })
   },
   onClick: function () {
-    wx.setStorage({
-      data: this.data.value,
-      key: 'keyword',
-    });
-    if (this.data.value.trim()) {
+    var keyword = this.data.keyword;
+    if (keyword.trim()) {
       wx.navigateTo({
-        url: `../vocsearch/vocsearch`
+        url: '../vocsearch/vocsearch?key=' + keyword
       })
     } else {
       this.setData({
-        value: ''
+        keyword: ''
       })
     }
   },
   onSearch: function () {
-    wx.setStorage({
-      data: this.data.value,
-      key: 'keyword',
-    });
-    if (this.data.value.trim()) {
-      wx.navigateTo({
-        url: `../vocsearch/vocsearch`
-      })
-    } else {
-      this.setData({
-        value: ''
-      })
-    }
+    this.onClick();
   },
   onShow: function () {
     this.setData({
-      value: ''
+      keyword: ''
     })
   }
 });

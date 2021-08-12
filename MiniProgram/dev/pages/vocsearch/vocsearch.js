@@ -2,59 +2,38 @@ import { request } from "../../request/request.js"
 
 Page({
   data: {
-    value:'',
+    keyword:'',
     resultsList:[],
-    loading: true
+    loading: false
   },
   onChange(e) {
-    wx.setStorage({
-      data: e.detail.value,
-      key: 'keyword',
-    }),
     this.setData({
-      value: e.detail.value
+      keyword: e.detail.value
     });
   },
   onSearch() {
-    request({url: 'https://api.zzzsy.top/xxx/xxx',
-             data: this.value
-    })
-    .then(result =>{
-      this.setData({
-        resultList:result.message.resultList
-      })
-    })
-    .then(()=>{
-      this.loading=false
-    });
+    var keyword = this.data.keyword;
+    this.search(keyword);
   },
   onClick() {
-    request({url: 'https://api.zzzsy.top/xxx/xxx',
-             data: this.value
-    })
-    .then(result =>{
-      this.setData({
-        resultList: result.message.resultList
-      })
-    });
+    this.onSearch();
   },
-  onShow: function() {
-    var that = this;
-    wx.getStorage({
-      key: 'keyword',
-      success: function (res) {
-        that.setData({
-          value: res.data
-        });
-      },
-    });
-    request({url: 'https://api.zzzsy.top/xxx/xxx',
-             data: this.value
-    })
-    .then(result =>{
+  onLoad(options) {
+    var keyword = options.key;
+    this.setData({keyword});
+    this.search(keyword);
+  },
+
+  search(keyword) {
+    this.setData({loading: true});  
+    request({url: '/search',
+             data: {"keyword": keyword}
+    }).then(res =>{
       this.setData({
-        resultList: result.message.resultList
+        resultList:res.data.resultList
       })
+    }).then(()=>{
+      this.loading=false
     });
   },
 });

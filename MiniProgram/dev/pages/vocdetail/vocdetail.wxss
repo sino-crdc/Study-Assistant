@@ -19,5 +19,24 @@
   margin: 0 20rpx;
 }
 .tow {
-  margin-top: -30rpx;
+  margin-top: -36rpx;
+}
+.title {
+  margin: 20rpx 20rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+.title .tt {
+  font-size: 52rpx;
+  margin: 4rpx 0;
+}
+.title .chinese {
+  font-size: 28rpx;
+  color: #888;
+}
+.sour {
+  font-size: 32rpx;
+  color: #515151;
+  margin: 8rpx 40rpx 30rpx;
 }

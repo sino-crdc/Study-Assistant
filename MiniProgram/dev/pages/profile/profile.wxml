@@ -22,13 +22,13 @@
 <view class="func_wrap">
   <button bind:tap="onFav" hover-class="btn_hover">
     <view class="func_item">
-      <van-icon size="26" name="star" class="itm"></van-icon>
+      <van-icon size="28" name="star" class="itm"></van-icon>
       <view class="itm_text">Favorite</view>
     </view>
   </button>
   <button bind:tap="onEdit" hover-class="btn_hover">
     <view class="func_item">
-      <van-icon size="26" name="column" class="itm"></van-icon>
+      <van-icon size="28" name="column" class="itm"></van-icon>
       <view class="itm_text">Edit</view>
     </view>
   </button>

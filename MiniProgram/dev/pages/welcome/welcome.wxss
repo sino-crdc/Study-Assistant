@@ -8,10 +8,10 @@ page {
 .ex {
   font-size: 32rpx;
   color: #888888;
-  margin: 8rpx 82rpx 50rpx;
+  margin: 8rpx 83rpx 50rpx;
 }
 .btn {
-  width: 92% ;
+  width: 92%;
   margin-bottom: 26rpx;
 }
 .blank {
@@ -19,8 +19,9 @@ page {
   margin-top: 40rpx;
 }
 .foot {
-  bottom: 30rpx;
+  width: 100%;
+  bottom: 28rpx;
   position: absolute;
   color: #888888;
-  margin-left: 80rpx;
+  text-align: center;
 }

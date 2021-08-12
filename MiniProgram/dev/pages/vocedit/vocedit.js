@@ -64,7 +64,7 @@ Page({
         })
     },
     onUndo(){
-        this.setview(0);
+        this.setView(0);
         var backup = this.data.backup;
         Dialog.confirm({
             message: '确认还原内容吗？',
@@ -75,7 +75,7 @@ Page({
         }).catch(()=>{
 
         }).then(()=>{
-            this.setview(1);
+            this.setView(1);
         }); 
     },
     onUpload(){
