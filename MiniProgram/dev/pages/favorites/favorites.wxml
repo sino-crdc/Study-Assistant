@@ -1,1 +1,34 @@
-<view>New Page</view>
+<view wx:if="{{ userFav }}"class="wrap">
+    <view class="fav_wrap">
+        <view class="fav">我的收藏</view>
+        <view class="btn_wrap">
+            <button hover-class="btn_hover" bind:tap="onEdit" wx:if="{{ edit }}" class="edit">编辑</button>
+            <button hover-class="btn_hover" wx:if="{{ !edit }}" class="sel">全选</button>
+            <button hover-class="btn_hover" bind:tap="onEdit" wx:if="{{ !edit }}" class="cal">取消</button>
+        </view>
+    </view>
+    <view class="divider"><view></view></view>
+    <view wx:if="{{ !edit }}" class="func_wrap">
+        <view class="func">操作</view>
+        <view class="btn_wrap">
+            <button hover-class="btn_hover" bind:tap="onDel" class="del">删除</button>
+        </view>
+    </view>
+    <view wx:if="{{ !edit }}" class="divider"><view></view></view>
+
+    <view
+      class="voc_wrap"
+      wx:for="{{ userFav }}"
+      wx:key="{{ item.id }}">
+        <voc-item
+          bind:tap="onDetail"
+          title="{{ item.title }}"
+          meta="{{ item.meta }}"
+          data-voc="{{ item.title }}"></voc-item>
+          <view class="divider"><view></view></view>
+    </view>
+    
+</view>
+
+<van-empty wx:if="{{ flag }}" description="这里空空如也～" />
+<van-empty image="network" wx:if="{{ netErr }}" description="网络错误" />

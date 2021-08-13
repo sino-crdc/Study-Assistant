@@ -1,3 +1,78 @@
 page {
-  
+  background-color: #f4f4f4;
+}
+.wrap {
+  display: flex;
+  background-color: #fff;
+  margin: 40rpx 20rpx 0;
+  border-radius: 16rpx;
+  flex-direction: column;
+}
+.wrap .fav_wrap {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /*background-color: #f8f8f8;*/
+}
+.wrap .fav_wrap .fav {
+  font-size: 32rpx;
+  margin: 10rpx 0 0 20rpx;
+}
+.wrap .func_wrap {
+  display: flex;
+  background-color: #fff;
+  height: 80rpx;
+  align-items: center;
+  justify-content: space-between;
+}
+.wrap .func_wrap .func {
+  font-size: 32rpx;
+  margin: 10rpx 0 0 40rpx;
+}
+.btn_wrap {
+  display: flex;
+  align-items: center;
+  margin-right: 14rpx;
+}
+.btn_wrap .edit,
+.btn_wrap .cal,
+.btn_wrap .sel,
+.btn_wrap .del {
+  font-size: 24rpx;
+  height: 56rpx;
+  width: 110rpx;
+  background-color: #eee;
+  border-radius: 12rpx;
+}
+.btn_wrap .edit::after,
+.btn_wrap .cal::after,
+.btn_wrap .sel::after,
+.btn_wrap .del::after {
+  border: 0;
+  border-radius: 12rpx;
+}
+.btn_wrap .del {
+  background-color: #fe0000;
+  color: #fff;
+}
+.btn_wrap .sel {
+  margin-right: 20rpx;
+}
+.btn_hover {
+  background-color: #dcdcdc !important;
+  opacity: 0.9 !important;
+}
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 8rpx 0 8rpx;
+}
+.divider view {
+  width: 90%;
+  height: 2rpx;
+  background-color: #f4f4f4;
 }
