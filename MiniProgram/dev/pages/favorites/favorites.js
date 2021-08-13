@@ -5,7 +5,8 @@ Page({
     edit: true,
     userFav: [],
     flag: false,
-    netErr: false
+    netErr: false,
+    loading: true
   },
   onLoad(options) {
     request({url: "/favorites",
@@ -13,14 +14,15 @@ Page({
     }).then(
         (res)=>{
           this.setData({userFav: res.data.data.userFav});
-          this.setData({netErr: false, flag: false});
+          this.setData({netErr: false, flag: false, loading: false});
         },()=>{
-          console.log("err");
-          this.setData({netErr: true});
+          console.log("network err");
+          this.setData({netErr: true, loading: false});
+          console.log(this.data.netErr);
         }).then(
           ()=>{
             this.setData({loading: false});
-            if (!this.data.userFav && !netErr){
+            if (this.data.userFav.length==0 && !this.data.netErr){
               this.setData({flag: true});
             }
         })

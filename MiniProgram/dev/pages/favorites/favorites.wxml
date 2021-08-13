@@ -1,4 +1,4 @@
-<view wx:if="{{ userFav }}"class="wrap">
+<view wx:if="{{ !netErr && !flag && !loading}}"class="wrap">
     <view class="fav_wrap">
         <view class="fav">我的收藏</view>
         <view class="btn_wrap">
