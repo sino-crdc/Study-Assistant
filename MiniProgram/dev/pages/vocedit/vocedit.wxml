@@ -59,3 +59,5 @@
         </view>
     </button>
 </view>
+
+<van-toast id="van-toast" />

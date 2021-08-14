@@ -2,6 +2,7 @@
   "navigationBarTitleText": "编辑",
   "usingComponents": {
     "van-icon": "/../../components/vant/icon/index",
-    "van-dialog": "../../components/vant/dialog/index"
+    "van-dialog": "../../components/vant/dialog/index",
+    "van-toast": "../../components/vant/toast/index"
   }
 }

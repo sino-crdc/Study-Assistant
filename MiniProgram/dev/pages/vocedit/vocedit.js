@@ -1,4 +1,7 @@
 import Dialog from '../../components/vant/dialog/dialog';
+import {request} from '../../request/request';
+import Toast from '../../components/vant/toast/toast';
+
 
 Page({
     data: {
@@ -6,7 +9,6 @@ Page({
         voc: "",
         rawMD: "",
         backup: "",
-        meta: "",
         flag: 1
     },
     onLoad(options) {
@@ -83,7 +85,7 @@ Page({
         Dialog.confirm({
             message: '确认上传吗？',
         }).then(()=>{
-
+            this.onUP();
         }).catch(()=>{
 
         }).then(()=>{
@@ -94,5 +96,21 @@ Page({
         this.setData({
             flag: flag
         });
+    },
+    onUP(){
+        var {type, voc, rawMD} = this.data;
+        request({
+            url: '/upload',
+            method: "POST",
+            data: {"type":type,"voc":voc,"rawMD":rawMD,"user_id":user_id}
+        }).then((res)=>{
+            if (res.data.status=="okk"){
+                Toast("提交成功！");
+                wx.navigateBack({
+                  delta: -1
+                })
+            }else{Toast("提交失败！")}
+        }, ()=>{Toast("提交失败！")})
+
     }
 });
