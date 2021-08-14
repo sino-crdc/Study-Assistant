@@ -15,7 +15,10 @@ Page({
 		_ts.setData({voc: options.voc});
 		var voc_url = "/detail/" + _ts.data.voc + ".json";
 		request({
-			url: voc_url
+			url: voc_url,
+			header: {
+                "content-type": "application/x-www-form-urlencoded"
+            },
 		}).then(res => {
 			_ts.setTowxml(res);
 		}, () => {

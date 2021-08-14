@@ -6,7 +6,8 @@ Page({
     userFav: [],
     flag: false,
     netErr: false,
-    loading: true
+    loading: true,
+    sel: false
   },
   onLoad(options) {
     request({url: "/favorites",
@@ -28,8 +29,8 @@ Page({
         })
   },
   onEdit(){
-    var edit = this.data.edit;
-    this.setData({edit: !edit})
+    var {edit,sel} = this.data;
+    this.setData({edit: !edit, sel: !sel})
   },
   onDetail(e){
     var voc = e.currentTarget.dataset.voc;

@@ -9,6 +9,12 @@
   width: 60%;
   margin-bottom: 8rpx;
 }
+.wrap .meta_wrap {
+  display: flex;
+}
+.wrap .meta_wrap .chbox {
+  margin-left: 10rpx;
+}
 .wrap .meta {
   width: 100%;
   margin-left: 6rpx;

@@ -18,13 +18,14 @@
 
     <view
       class="voc_wrap"
+      bind:tap="onDetail"
       wx:for="{{ userFav }}"
       wx:key="{{ item.id }}">
         <voc-item
-          bind:tap="onDetail"
           title="{{ item.title }}"
           meta="{{ item.meta }}"
-          data-voc="{{ item.title }}"></voc-item>
+          data-voc="{{ item.title }}"
+          flag="{{ sel }}"></voc-item>
           <view class="divider"><view></view></view>
     </view>
     

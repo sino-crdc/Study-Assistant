@@ -8,7 +8,16 @@ Component({
     meta: {
       type: String,
       value: ""
+    },
+    checked: {
+      type: Boolean,
+      value: false
+    },
+    flag: {
+      type: Boolean,
+      value: false
     }
+    
   },
   data: {
       
@@ -28,6 +37,8 @@ Component({
     },
   },
   methods: {
-
+    onChange(e){
+      this.setData({checked: e.detail})
+    }
   },
 });

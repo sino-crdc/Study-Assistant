@@ -1,5 +1,5 @@
 import Dialog from '../../components/vant/dialog/dialog';
-import {request} from '../../request/request';
+import { request } from '../../request/request';
 import Toast from '../../components/vant/toast/toast';
 
 
@@ -99,18 +99,23 @@ Page({
     },
     onUP(){
         var {type, voc, rawMD} = this.data;
+        // const user_id = '123';
         request({
             url: '/upload',
-            method: "POST",
-            data: {"type":type,"voc":voc,"rawMD":rawMD,"user_id":user_id}
+            // method: "POST",
+            header: {
+                "content-type": "application/x-www-form-urlencoded"
+            },
+            // data: {"type":type,"voc":voc,"rawMD":rawMD,"user_id":user_id}
         }).then((res)=>{
-            if (res.data.status=="okk"){
-                Toast("提交成功！");
+            console.log("up");
+            if (res && res.data.status=="okk"){
+                Toast.success("提交成功！");
                 wx.navigateBack({
                   delta: -1
                 })
-            }else{Toast("提交失败！")}
-        }, ()=>{Toast("提交失败！")})
+            }else{console.log("nnerr"),Toast.fail("提交失败！")}
+        }, ()=>{console.log("err"),Toast.fail("提交失败！")})
 
     }
 });

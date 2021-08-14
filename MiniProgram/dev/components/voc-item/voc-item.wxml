@@ -2,7 +2,12 @@
     <view class="title">
         {{ title }}
     </view>
-    <view class="meta">
-        {{ meta }}
+    <view class="meta_wrap">
+        <view style="--wt--: {{ wt }}%" class="meta">
+            {{ meta }}
+        </view>
+        <view wx:if="{{ flag }}" class="chbox">
+            <van-checkbox value="{{ checked }}" catch:change="onChange"/>
+        </view>
     </view>
 </view>
