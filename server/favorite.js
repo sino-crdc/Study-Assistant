@@ -11,7 +11,7 @@ module.exports = function (req, res) {
 
 	var state = checkUserLoginState(mySessionKey);
 	if(state == "S") {
-		var userFavorite = util.getUserFavoriteByUsername(state.openid);
+		var userFavorite = util.getUserFavoriteByOpenid(state.openid);
 		res.end(JSON.stringify(userFavorite));
 	}
 	else if(state == "LT") {
