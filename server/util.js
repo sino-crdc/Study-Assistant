@@ -83,7 +83,7 @@ module.exports = {
 	checkUserLoginState: checkUserLoginState,
 	getStateByMySessionKey: getStateByMySessionKey,
 	addUserToDatabase: addUserToDatabase,
-	getUserFavoriteBymySessionKey: getUserFavoriteBymySessionKey,
+	getUserFavoriteByOpenid: getUserFavoriteByOpenid,
 	searchByKeywords: searchByKeywords,
 	addItemToDatabase: addItemToDatabase,
 	makeMySessionKey: makeMySessionKey

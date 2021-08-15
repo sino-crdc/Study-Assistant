@@ -29,7 +29,7 @@ module.exports = function (req, res) {
 			var resData = {
 				mySessionKey: mySessionKey
 			};
-			res.end(JSON.stringify(mySessionKey));
+			res.end(JSON.stringify(resData));
 		}
 		else {
 			res.end('LF'); //login failed
