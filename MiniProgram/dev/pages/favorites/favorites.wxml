@@ -1,35 +1,38 @@
-<view wx:if="{{ !netErr && !flag && !loading}}"class="wrap">
+<view wx:if="{{ !netErr && !no_fav && !loading}}" class="wrap">
     <view class="fav_wrap">
         <view class="fav">我的收藏</view>
         <view class="btn_wrap">
-            <button hover-class="btn_hover" bind:tap="onEdit" wx:if="{{ edit }}" class="edit">编辑</button>
-            <button hover-class="btn_hover" wx:if="{{ !edit }}" class="sel">全选</button>
-            <button hover-class="btn_hover" bind:tap="onEdit" wx:if="{{ !edit }}" class="cal">取消</button>
+            <button hover-class="btn_hover" bind:tap="onManage" wx:if="{{ !management }}" class="edit">编辑</button>
+            <button hover-class="btn_hover" wx:if="{{ management }}" class="sel">全选</button>
+            <button hover-class="btn_hover" bind:tap="offManage" wx:if="{{ management }}" class="cal">取消</button>
         </view>
     </view>
-    <view class="divider"><view></view></view>
-    <view wx:if="{{ !edit }}" class="func_wrap">
+    <view class="divider">
+        <view></view>
+    </view>
+    <view wx:if="{{ management }}" class="func_wrap">
         <view class="func">操作</view>
         <view class="btn_wrap">
-            <button hover-class="btn_hover" bind:tap="onDel" class="del">删除</button>
+            <button hover-class="btn_hover" bind:tap="delete" class="del">删除</button>
         </view>
     </view>
-    <view wx:if="{{ !edit }}" class="divider"><view></view></view>
-
-    <view
-      class="voc_wrap"
-      bind:tap="onDetail"
-      wx:for="{{ userFav }}"
-      wx:key="{{ item.id }}">
-        <voc-item
-          title="{{ item.title }}"
-          meta="{{ item.meta }}"
-          data-voc="{{ item.title }}"
-          flag="{{ sel }}"></voc-item>
-          <view class="divider"><view></view></view>
+    <view wx:if="{{ management }}" class="divider">
+        <view></view>
     </view>
-    
+
+    <view class="voc_wrap" data-id="{{ item.id }}" bind:tap="{{!management?'onDetail':'select'}}" wx:for="{{ userFav_management }}" wx:key="{{ item.id }}">
+        <voc-item title="{{ item.title }}" meta="{{ item.meta }}" data-voc="{{ item.title }}" flag="{{ management }}">
+            <view>
+                <van-checkbox value="{{ item.checked }}">
+                </van-checkbox>
+            </view>
+        </voc-item>
+        <view class="divider">
+            <view></view>
+        </view>
+    </view>
+
 </view>
 
-<van-empty wx:if="{{ flag }}" description="这里空空如也～" />
+<van-empty wx:if="{{ no_fav }}" description="这里空空如也～" />
 <van-empty image="network" wx:if="{{ netErr }}" description="网络错误" />

@@ -9,10 +9,6 @@ Component({
       type: String,
       value: ""
     },
-    checked: {
-      type: Boolean,
-      value: false
-    },
     flag: {
       type: Boolean,
       value: false
@@ -37,8 +33,6 @@ Component({
     },
   },
   methods: {
-    onChange(e){
-      this.setData({checked: e.detail})
-    }
+  
   },
 });
