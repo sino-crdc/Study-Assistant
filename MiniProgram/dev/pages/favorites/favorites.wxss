@@ -59,6 +59,8 @@ page {
 }
 .btn_wrap .sel {
   margin-right: 20rpx;
+  width: 150rpx;
+  font-size: 22rpx;
 }
 .btn_hover {
   background-color: #dcdcdc !important;
