@@ -20,12 +20,19 @@ page {
   background-color: #fff;
   border-radius: 16rpx;
   display: flex;
+  flex-direction: column;
 }
-.content {
-  margin: 25rpx;
+.board .content {
+  margin: 4rpx 25rpx;
   flex: 1;
   font-size: 30rpx;
   color: #888888;
+}
+.board .content:nth-of-type(1) {
+  margin-top: 25rpx;
+}
+.board .content:nth-last-of-type(1) {
+  margin-bottom: 25rpx;
 }
 .logo_wrap {
   display: flex;

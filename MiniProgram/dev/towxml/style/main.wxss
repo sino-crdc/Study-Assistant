@@ -386,3 +386,7 @@ video {
 .h2w__lineNumLine {
     list-style:none;
 }
+
+.h2w__navigatorParent{
+    display: inline;
+}

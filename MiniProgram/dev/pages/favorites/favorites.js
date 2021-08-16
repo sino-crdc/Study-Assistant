@@ -18,11 +18,11 @@ Page({
         url: 'favorites',
         data: {
           "status": "compare",
-          "data": wx.getStorageSync('userFav_token'),
+          "token": wx.getStorageSync('userFav_token'),
           "user_id": user_id,
         }
       }).then((res)=>{
-        if (res.data.code=600){
+        if (res.data.data.code=600){
           this.sync();
         }else{
           this.submit();
@@ -161,7 +161,7 @@ Page({
         "user_id": user_id,
       }
     }).then((res)=>{
-      wx.setStorageSync('userFav_token', res.data.token);
+      wx.setStorageSync('userFav_token', res.data.data.token);
     })
   }
 });

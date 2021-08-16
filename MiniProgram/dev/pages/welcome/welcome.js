@@ -8,7 +8,8 @@ Page({
       success(res){
         console.log(res.code);
         request({
-          url: 'https://api.xxx.top/login/',
+          url: '/login',
+          method: 'POST',
           data: {code: res.code},
         })
         .then(result =>{

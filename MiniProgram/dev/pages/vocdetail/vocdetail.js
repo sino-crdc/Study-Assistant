@@ -48,16 +48,15 @@ Page({
 	},
 	setTowxml(res) {
 		const _ts = this;
-		console.log(res.data)
 		_ts.setData({
 			attr: res.data.detail
 		});
 		const attr = _ts.data.attr;
 		let title = attr.title;
-		let content = app.towxml(attr.content, 'markdown');
-		let proof = app.towxml(attr.proof, 'markdown');
-		let remark = app.towxml(attr.remark, 'markdown');
-		let example = app.towxml(attr.example, 'markdown');
+		let content = app.towxml(attr.content, 'markdown',{events:{tap:(e)=>{_ts.nav()}}});
+		let proof = app.towxml(attr.proof, 'markdown',{events:{tap:(e)=>{_ts.nav()}}});
+		let remark = app.towxml(attr.remark, 'markdown',{events:{tap:(e)=>{_ts.nav()}}});
+		let example = app.towxml(attr.example, 'markdown',{events:{tap:(e)=>{_ts.nav()}}});
 		let source = attr.source;
 		let chinese = attr.chinese;
 		_ts.setData({
@@ -70,5 +69,13 @@ Page({
 			"detail.chinese": chinese
 		});
 		console.log(_ts.data.attr);
+	},
+	nav:function(e){
+		if (e.currentTarget.dataset.dataa.tag=='navigator'){
+			var voc = e.currentTarget.dataset.data.attrs.href;
+			wx.navigateTo({
+			  url: '../vocdetail/vocdetail?voc=' + voc,
+			})
+		}
 	}
 });

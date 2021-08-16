@@ -23,14 +23,22 @@ page {
     background-color: #fff;
     border-radius: 16rpx;
     display: flex;
+    flex-direction: column;
+    .content{
+        margin: 4rpx 25rpx;
+        flex:1;
+        font-size: 30rpx;
+        color: #888888;
+        &:nth-of-type(1){
+            margin-top: 25rpx;
+        }
+        &:nth-last-of-type(1){
+            margin-bottom: 25rpx;
+        }
+    }
 }
 
-.content{
-    margin: 25rpx;
-    flex:1;
-    font-size: 30rpx;
-    color: #888888;
-}
+
 
 .logo_wrap{
     display: flex;
