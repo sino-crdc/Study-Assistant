@@ -8,7 +8,14 @@ Page({
 		detail: {},
 		attr: {},
 		voc: "",
-		netErr: false
+		netErr: false,
+		show: {
+			"content": true,
+			"proof": true,
+			"remark": true,
+			"example": true,
+			"source": true,
+		}
 	},
 	async onLoad(options) {
 		const _ts = this;
@@ -19,7 +26,12 @@ Page({
 				url: voc_url,
 				header: {"content-type": "application/x-www-form-urlencoded"},
 			});
-			_ts.setTowxml(res);
+			_ts.setData({
+				attr: res.data.detail
+			});
+			console.log("attr");
+			console.log(_ts.data.attr);
+			_ts.setTowxml();
 		} catch　{
 			_ts.setNetErr(true);
 		}
@@ -44,11 +56,8 @@ Page({
 			netErr: err
 		})
 	},
-	setTowxml(res) {
+	setTowxml() {
 		const _ts = this;
-		_ts.setData({
-			attr: res.data.detail
-		});
 		const attr = _ts.data.attr;
 		let title = attr.title;
 		let content = app.towxml(attr.content, 'markdown',{events:{tap:(e)=>{_ts.nav()}}});
@@ -68,12 +77,18 @@ Page({
 		});
 		console.log(_ts.data.attr);
 	},
-	nav:function(e){
+	nav: function(e){
 		if (e.currentTarget.dataset.dataa.tag=='navigator'){
 			var voc = e.currentTarget.dataset.data.attrs.href;
 			wx.navigateTo({
 			  url: '../vocdetail/vocdetail?voc=' + voc,
 			})
 		}
+	},
+	sh: function(e){
+        var t = e.currentTarget.id;
+		var s = this.data.show[t];
+		var r = 'show.'+t;
+		this.setData({[r]: !s});
 	}
 });

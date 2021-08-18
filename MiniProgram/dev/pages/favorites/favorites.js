@@ -47,14 +47,12 @@ Page({
       this.setData({
         netErr: false,
         no_fav: false,
-        loading: false,
       });
       this.init();
     } catch {
       console.log("network err");
       this.setData({
         netErr: true,
-        loading: false
       });
     }
     this.setData({loading: false});

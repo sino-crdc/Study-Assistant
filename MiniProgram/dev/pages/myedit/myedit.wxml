@@ -1,0 +1,21 @@
+<view wx:if="{{ !no_edit && !loading}}" class="wrap">
+    <view class="edit_wrap">
+        <view class="edit">我的编辑</view>
+    </view>
+    <view class="divider">
+        <view></view>
+    </view>
+
+    <view data-voc="{{ item.title }}" class="voc_wrap" bind:tap="{{ onDetail }}" wx:for="{{ user_edit }}"
+        wx:key="{{ item.id }}">
+        <voc-item title="{{ item.title }}" meta="{{ item.meta }}" flag="{{ false }}">
+        </voc-item>
+        <view class="divider">
+            <view></view>
+        </view>
+    </view>
+
+</view>
+
+<van-empty wx:if="{{ no_edit }}" description="这里空空如也～" />
+<van-empty image="network" wx:if="{{ netErr }}" description="网络错误" />

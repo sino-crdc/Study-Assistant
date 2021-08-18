@@ -40,3 +40,6 @@
   color: #515151;
   margin: 8rpx 40rpx 30rpx;
 }
+van-icon {
+  margin-left: 18rpx;
+}
