@@ -10,63 +10,57 @@ Page({
     userFav_management: [],//与checkbox关联的条目列表
     checked_num: 0
   },
-  onLoad(options) {
-    if (wx.getStorageSync('userFav').length == 0){
+  async onLoad(options) {
+    if (wx.getStorageSync('userFav').length == 0 || !wx.getStorageSync('userFav_token')){
         this.sync();
     }else{
-      request({
-        url: 'favorites',
-        data: {
-          "status": "compare",
-          "token": wx.getStorageSync('userFav_token'),
-          "user_id": user_id,
-        }
-      }).then((res)=>{
-        if (res.data.data.code=600){
-          this.sync();
-        }else{
+      try {
+        const res = await request({
+          url: "/favorites",
+          data: {
+            "status": "compare",
+            "token": wx.getStorageSync('userFav_token'),
+            "user_id": wx.getStorageSync('user_id'),
+          }
+        });
+        if (res.data.data.code==601){
           this.submit();
-        }
-      })
+        } else if (res.data.data.code==602) {
+          this.sync();
+        };
+      } catch {};
       this.setData({loading: false});
       this.init();
     }
   },
-  sync:function(){
-    request({
-      url: "/favorites",
-      // method: "POST",
-      // data: {
-        // "status": "sync",
-        // "user_id": user_id,
-      // }
-    }).then(
-      (res) => {
-        wx.setStorageSync('userFav', res.data.data.userFav);
-        this.setData({
-          netErr: false,
-          no_fav: false,
-          loading: false
-        });
-        this.init();
-      }, () => {
-        console.log("network err");
-        this.setData({
-          netErr: true,
-          loading: false
-        });
-        console.log(this.data.netErr);
-      }).then(
-      () => {
-        this.setData({
-          loading: false
-        });
-        if (wx.getStorageSync('userFav').length == 0 && !this.data.netErr) {
-          this.setData({
-            no_fav: true
-          });
+  sync:async function(){
+    try {
+      const res = await request({
+        url: "favorites",
+        data: {
+          "status": "sync",
+          "user_id": wx.getStorageSync('user_id'),
         }
       });
+      wx.setStorageSync('userFav', res.data.data.userFav);
+      wx.setStorageSync('userFav_token', res.data.data.token);
+      this.setData({
+        netErr: false,
+        no_fav: false,
+        loading: false,
+      });
+      this.init();
+    } catch {
+      console.log("network err");
+      this.setData({
+        netErr: true,
+        loading: false
+      });
+    }
+    this.setData({loading: false});
+    if (wx.getStorageSync('userFav').length == 0 && !this.data.netErr){
+      this.setData({no_fav: true});
+    };
   },
   //开启条目管理
   onManage() {
@@ -89,7 +83,7 @@ Page({
       url: '../vocdetail/vocdetail?voc=' + voc,
     })
   },
-  init:function(){
+  init: function(){
     var arr = wx.getStorageSync('userFav');
     var arr2 = [];
     arr.map(((item)=>{
@@ -118,7 +112,7 @@ Page({
     }
   },
   //删除条目
-  delete:function(){
+  delete: function(){
     const _ts = this;
     var arr = _ts.data.userFav_management;
     var arr2 = [];
@@ -135,7 +129,7 @@ Page({
     this.submit();
   },
   //全选
-  select_all:function(){
+  select_all: function(){
     var arr = this.data.userFav_management;
     for (let i=0;i<arr.length;i++){
       arr[i].checked = true
@@ -143,7 +137,7 @@ Page({
     this.setData({userFav_management: arr, checked_num: arr.length});
   },
   //取消全选
-  select_none:function(){
+  select_none: function(){
     var arr = this.data.userFav_management;
     for (let i=0;i<arr.length;i++){
       arr[i].checked = false
@@ -151,17 +145,21 @@ Page({
     this.setData({userFav_management: arr, checked_num: 0});
   },
   //向服务器提交并获取token
-  submit:function(){
+  submit: async function(){
     var arr = wx.getStorageSync('userFav');
-    request({
-      url: "/favorites",
-      data: {
-        "status": "submit",
-        "data": arr,
-        "user_id": user_id,
-      }
-    }).then((res)=>{
+    try {
+      const res = await request({
+        url: "/favorites",
+        data: {
+          "status": "submit",
+          "data": arr,
+          "user_id": wx.getStorageSync('user_id'),
+        }
+      });
       wx.setStorageSync('userFav_token', res.data.data.token);
-    })
+    } catch(err) {
+      console.log(err);
+    }
   }
+  
 });

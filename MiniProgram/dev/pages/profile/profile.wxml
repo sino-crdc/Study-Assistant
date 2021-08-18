@@ -53,3 +53,5 @@
     <van-icon class="arrow" name="arrow"></van-icon>
   </button>
 </view>
+
+<van-toast id="van-toast" />

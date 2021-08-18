@@ -10,21 +10,19 @@ Page({
 		voc: "",
 		netErr: false
 	},
-	onLoad(options) {
+	async onLoad(options) {
 		const _ts = this;
 		_ts.setData({voc: options.voc});
 		var voc_url = "/detail/" + _ts.data.voc + ".json";
-		request({
-			url: voc_url,
-			header: {
-                "content-type": "application/x-www-form-urlencoded"
-            },
-		}).then(res => {
+		try {
+			const res = await request({
+				url: voc_url,
+				header: {"content-type": "application/x-www-form-urlencoded"},
+			});
 			_ts.setTowxml(res);
-		}, () => {
-			_ts.setNetErr(true)
-		});
-
+		} catch　{
+			_ts.setNetErr(true);
+		}
 	},
 	onEdit(e) {
 		var type = e.currentTarget.id;

@@ -1,4 +1,4 @@
-<search 
+<van-search 
   value="{{ keyword }}"
   placeholder="Entrez votre mot à rechercher"
   use-action-slot
@@ -11,14 +11,15 @@
     <view class="iconfont icon-sousuo" slot="action" bind:tap="onClick">
       搜索
     </view>
-</search>
+</van-search>
 
-<van-skeleton 
-  title row="3" 
-  loading="{{ loading }}"
-  wx:for="{{ resultList }}">
-    <voc-item bind:tap="onDetail" data-voc="{{ item.title }}" title="{{ item.title }}" meta="{{ item.meta }}"/>
-</van-skeleton>
+<view wx:if="{{ loading }}" class="sk" wx:for="{{ 7 }}">
+  <van-skeleton title row="2"></van-skeleton>
+</view>
+
+<view wx:if="{{ !loading }}" wx:for="{{ resultList }}">
+  <voc-item bind:tap="onDetail" data-voc="{{ item.title }}" title="{{ item.title }}" meta="{{ item.meta }}"/>
+</view>
 
 
 <van-empty wx:if="{{ netErr }}" image="network" description="网络错误"/>

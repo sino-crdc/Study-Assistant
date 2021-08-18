@@ -3,7 +3,7 @@ import { request } from "../../request/request.js";
 Page({
   data: {
     keyword: "",
-    resultsList: [],
+    resultList: [],
     loading: false,
     netErr: false,
     schErr: false,
@@ -14,8 +14,7 @@ Page({
   },
 
   onSearch() {
-    var keyword = this.data.keyword;
-    this.search(keyword);
+    this.search(this.data.keyword);
   },
   onClick() {
     this.onSearch();
@@ -27,32 +26,31 @@ Page({
     this.search(keyword);
   },
 
-  search(keyword) {
+  async search(keyword) {
+    const _ts = this;
+    _ts.setData({loading: true, netErr: false, schErr: false, resultList: []});
     console.log("sch");
-    this.setData({resultList: []});
-    this.setData({loading: true});
-    request({url: "/search",
-        //  data: {"keyword": keyword}
-      })
-      .then(
-        (res) => {
-          this.setData({resultList: res.data.data.resultList});
-          this.setData({
-            netErr: false,
-            schErr: false,
-          });
-        },
-        () => {
-          console.log("err");
-          this.setData({netErr: true});
-        }
-      )
-      .then(() => {
-        this.setData({loading: false});
-        if (!this.data.resultList && !netErr) {
-          this.setData({schErr: true});
-        }
+    try {
+      const res = await request({
+        url: "/search",
+        // data: {"keyword": keyword}
       });
+      console.log("res");
+      console.log(res);
+      _ts.setData({
+        resultList: res.data.data.resultList,
+        netErr: false,
+        schErr:  false,
+      });
+    } catch {
+      console.log("err");
+      _ts.setData({netErr: true});
+    };
+    console.log(_ts.data.resultList);
+    _ts.setData({loading: false});
+    if (_ts.data.resultList.length==0 && !_ts.data.netErr) {
+        _ts.setData({schErr: true});
+    }
   },
 
   //跳转详情页面
