@@ -18,7 +18,7 @@
 </view>
 
 <view wx:if="{{ !loading }}" wx:for="{{ resultList }}">
-  <voc-item bind:tap="onDetail" data-voc="{{ item.title }}" title="{{ item.title }}" meta="{{ item.meta }}"/>
+  <voc-item bind:tap="onDetail" data-voc_id="{{ item.voc_id }}" title="{{ item.title }}" meta="{{ item.meta }}"/>
 </view>
 
 

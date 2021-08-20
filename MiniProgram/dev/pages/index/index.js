@@ -10,7 +10,7 @@ Page({
   },
   onClick: function () {
     var keyword = this.data.keyword;
-    if (keyword.trim()) {
+    if (keyword.trim()) {//输入合法性判断 
       wx.navigateTo({
         url: '../vocsearch/vocsearch?key=' + keyword
       })
@@ -23,6 +23,7 @@ Page({
   onSearch: function () {
     this.onClick();
   },
+  //重显自动置空
   onShow: function () {
     this.setData({
       keyword: ''

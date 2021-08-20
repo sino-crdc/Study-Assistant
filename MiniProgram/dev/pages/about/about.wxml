@@ -35,11 +35,4 @@
   <view class="content">Wechat : zsyyy_8</view>
 </view>
 
-<button
-  bind:tap="onDebug"
-  type="warn"
-  size="mini"
->
-  Debug
-</button>
 

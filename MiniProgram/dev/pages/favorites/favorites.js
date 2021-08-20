@@ -2,19 +2,21 @@ import { request } from "../../request/request.js";
 
 Page({
   data: {
-    management: false, //控制管理条目（即复选框是否显示）
-    no_fav: false, //控制没有条目的提示
-    netErr: false, //控制网络错误的提示
-    loading: true, //控制是否正在加载的提示
-    select_all: false, //是否全选
-    userFav_management: [],//与checkbox关联的条目列表
-    checked_num: 0
+    management: false,      //控制管理条目（即复选框是否显示）
+    no_fav: false,          //控制没有条目的提示
+    netErr: false,          //控制网络错误的提示
+    loading: true,          //控制是否正在加载的提示
+    select_all: false,      //是否全选
+    userFav_management: [], //与checkbox关联的条目列表
+    checked_num: 0,         //选择的条数
   },
   async onLoad(options) {
+    //判断本地存储情况
     if (wx.getStorageSync('userFav').length == 0 || !wx.getStorageSync('userFav_token')){
         this.sync();
     }else{
       try {
+        // 请求比较本地存储的token
         const res = await request({
           url: "/favorites",
           data: {
@@ -33,6 +35,7 @@ Page({
       this.init();
     }
   },
+  // 向服务器同步拉取
   sync:async function(){
     try {
       const res = await request({
@@ -81,6 +84,7 @@ Page({
       url: '../vocdetail/vocdetail?voc=' + voc,
     })
   },
+  //初始化，将本地存储添加checked属性，用于页面展示
   init: function(){
     var arr = wx.getStorageSync('userFav');
     var arr2 = [];

@@ -7,7 +7,6 @@
     "pages/about/about",
     "pages/favorites/favorites",
     "pages/welcome/welcome",
-    "pages/debug/debug",
     "pages/vocedit/vocedit",
     "pages/vocpreview/vocpreview",
     "pages/myedit/myedit"

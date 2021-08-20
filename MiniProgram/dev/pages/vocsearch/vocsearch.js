@@ -55,10 +55,10 @@ Page({
 
   //跳转详情页面
   onDetail(e) {
-    var voc = e.currentTarget.dataset.voc;
+    var voc = e.currentTarget.dataset.voc_id;
     console.log(e);
     wx.navigateTo({
-      url: "../vocdetail/vocdetail?voc=" + voc,
+      url: "../vocdetail/vocdetail?voc_id=" + voc_id,
     });
   },
 });

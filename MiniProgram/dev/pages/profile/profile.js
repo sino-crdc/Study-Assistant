@@ -32,9 +32,10 @@ Page({
     if (!wx.getStorageSync('user_id')){
       Toast({message:"无法使用,请先登录~",position: "bottom"});
     } else {
-      wx.navigateTo({
-        url: '../myedit/myedit',
-      })
+      Toast({position: "bottom", message: "改功能未开放，敬请期待。"});
+      // wx.navigateTo({
+      //   url: '../myedit/myedit',
+      // })
     }
   }
 });

@@ -7,7 +7,7 @@ Page({
 	data: {
 		detail: {},
 		attr: {},
-		voc: "",
+		voc_id: 0,
 		netErr: false,
 		show: {
 			"content": true,
@@ -19,12 +19,14 @@ Page({
 	},
 	async onLoad(options) {
 		const _ts = this;
-		_ts.setData({voc: options.voc});
-		var voc_url = "/detail/" + _ts.data.voc + ".json";
+		_ts.setData({voc_id: options.voc_id});
 		try {
 			const res = await request({
-				url: voc_url,
+				url: "/detail",
 				header: {"content-type": "application/x-www-form-urlencoded"},
+				data: {
+					voc_id: _ts.data.voc_id,
+				},
 			});
 			_ts.setData({
 				attr: res.data.detail
@@ -38,10 +40,10 @@ Page({
 	},
 	onEdit(e) {
 		var type = e.currentTarget.id;
-		var voc = this.data.voc;
+		var voc_id = this.data.voc_id;
 		const _ts = this;
 		wx.navigateTo({
-			url: '../vocedit/vocedit?type=' + type + '&voc=' + voc,
+			url: '../vocedit/vocedit?type=' + type + '&voc_id=' + voc_id,
 			success(res) {
 				if (type=="title"){
 					res.eventChannel.emit('onL', _ts.data.attr.title + "\n" + _ts.data.attr.chinese);
@@ -67,13 +69,13 @@ Page({
 		let source = attr.source;
 		let chinese = attr.chinese;
 		_ts.setData({
-			"detail.title": title,
+			// "detail.title": title,
 			"detail.content": content,
 			"detail.proof": proof,
 			"detail.remark": remark,
 			"detail.example": example,
-			"detail.source": source,
-			"detail.chinese": chinese
+			// "detail.source": source,
+			// "detail.chinese": chinese
 		});
 		console.log(_ts.data.attr);
 	},
