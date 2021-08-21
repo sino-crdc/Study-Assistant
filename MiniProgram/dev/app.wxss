@@ -1,13 +1,24 @@
 @import "./styles/iconfont.wxss";
 
-page,view,text,swiper,image,navigator{
+page,view,text,image,navigator{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
 page{
-    --themeColor:#1296db;
     font-size: 28rpx;
-    
+    --themeColor:#1296db;
+    /* Color Light */
+    --pageColorLight: #f4f4f4;
+    --boardColorLight: #fff;
+    --commentColorLight: #888;
+    --buttonColorLight: #515151;
+    --buttonHoverColorLight: #f4f4f4;
+    /* Color Dark */
+    --pageColorDark: #020202;
+    --boardColorDark: #333;
+    --commentColorDark: #ccc;
+    --buttonColorDark: #e6e6e6;
+    --buttonHoverColorDark: #222;
 }

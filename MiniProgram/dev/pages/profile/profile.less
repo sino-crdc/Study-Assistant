@@ -1,14 +1,14 @@
 @import "../../styles/iconfont.wxss";
 
 page {
-  background-color: #f4f4f4;
+  background-color: var(--pageColorLight);
 }
 
 .login_wrap {
   height: 220rpx;
   margin: 28rpx 30rpx 4rpx 30rpx;
   border: medium;
-  background-color: #fff;
+  background-color: var(--boardColorLight);
   border-radius: 16rpx 16rpx 0 0;
   display: flex;
 
@@ -42,7 +42,7 @@ page {
 
       .ex2 {
         margin-top: 30rpx;
-        color: #888888;
+        color: var(--commentColorLight);
         font-size: 28rpx;
       }
     }
@@ -52,28 +52,31 @@ page {
 
 .func_wrap {
   margin: 4rpx 30rpx 60rpx 30rpx;
-  background-color: #fff;
+  background-color: var(--boardColorLight);
   border-radius: 0 0 16rpx 16rpx;
   height: 180rpx;
   display: flex;
   justify-content: center;
   align-items: center;
+
   button {
     height: 160rpx;
     width: 200rpx;
     margin: 0 60rpx;
     border-radius: 16rpx;
-    background-color: #fff;
+    background-color: var(--boardColorLight);
     display: flex;
     justify-content: center;
-    .func_item{
+
+    .func_item {
       width: 100%;
       height: 100%;
       display: flex;
       margin-top: 8rpx;
       justify-content: center;
       flex-direction: column;
-      color: #515151;
+      color: var(--buttonColorLight);
+
       .itm_text {
         font-size: 28rpx;
       }
@@ -85,32 +88,32 @@ page {
       border-radius: 16rpx;
     }
   }
-  
+
 }
 
 .myicon {
   margin-left: 10rpx;
   margin-right: 20rpx;
   margin-top: 8rpx;
-  color: #515151;
+  color: var(--buttonColorLight);
 }
 
 .menu {
   .btn {
     margin: 4rpx 30rpx;
-    background-color: #fff;
+    background-color: var(--boardColorLight);
     display: flex;
     border-radius: 0;
 
-    &::after{
+    &::after {
       border: 0;
     }
 
-    &:nth-child(1){
+    &:nth-child(1) {
       border-radius: 16rpx 16rpx 0 0;
     }
 
-    &:nth-last-child(1){
+    &:nth-last-child(1) {
       border-radius: 0 0 16rpx 16rpx;
     }
   }
@@ -128,6 +131,38 @@ page {
 }
 
 .btn_hover {
-  background-color: #f4f4f4 !important;
+  background-color: var(--buttonHoverColorDark) !important;
   opacity: 0.9 !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  page {
+    background-color: var(--pageColorDark);
+  }
+
+  .login_wrap {
+    background-color: var(--boardColorDark);
+
+    .ex2 {
+      color: var(--commentColorDark);
+    }
+  }
+
+  .func_wrap {
+    background-color: var(--boardColorDark);
+    button {
+      background-color: var(--boardColorDark);
+      .func_item{
+        color: var(--buttonColorDark);
+      }
+    }
+  }
+  .myicon{
+    color: var(--buttonColorDark);
+  }
+  .menu{
+    .btn{
+      background-color: var(--boardColorDark);
+    }
+  }
 }

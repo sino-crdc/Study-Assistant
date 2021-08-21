@@ -1,5 +1,5 @@
 page {
-  background-color: #f4f4f4;
+  background-color: var(--pageColorLight);
 }
 .field {
   border-radius: 32rpx !important;
@@ -10,7 +10,7 @@ page {
   border-radius: 32rpx !important;
 }
 .custom {
-  background-color: #fff !important;
+  background-color: var(--boardColorLight) !important;
   border-radius: 16rpx !important;
   height: 96rpx !important;
   margin: 480rpx 15rpx !important;
@@ -19,5 +19,17 @@ page {
 .van-search__content--square {
   height: 80rpx !important;
   margin: 480rpx 15rpx !important;
-  background-color: #fff !important;
+  background-color: var(--boardColorLight) !important;
+}
+@media (prefers-color-scheme: dark) {
+  page {
+    background-color: var(--pageColorDark);
+  }
+  .custom {
+    background-color: var(--boardColorDark) !important;
+    box-shadow: 0 2px 12px 0 rgba(255, 255, 255, 0.6) !important;
+  }
+  .van-search__content--square {
+    background-color: var(--boardColorDark) !important;
+  }
 }

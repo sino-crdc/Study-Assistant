@@ -1,9 +1,9 @@
 page {
-  background-color: #f4f4f4;
+  background-color: var(--pageColorLight);
 }
 .wrap {
   display: flex;
-  background-color: #fff;
+  background-color: var(--boardColorLight);
   margin: 40rpx 20rpx 0;
   border-radius: 16rpx;
   flex-direction: column;
@@ -14,7 +14,6 @@ page {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /*background-color: #f8f8f8;*/
 }
 .wrap .fav_wrap .fav {
   font-size: 32rpx;
@@ -22,7 +21,7 @@ page {
 }
 .wrap .func_wrap {
   display: flex;
-  background-color: #fff;
+  background-color: var(--boardColorLight);
   height: 80rpx;
   align-items: center;
   justify-content: space-between;
@@ -76,5 +75,19 @@ page {
 .divider view {
   width: 90%;
   height: 2rpx;
-  background-color: #f4f4f4;
+  background-color: var(--pageColorLight);
+}
+@media (prefers-color-scheme: dark) {
+  page {
+    background-color: var(--pageColorDark);
+  }
+  .wrap {
+    background-color: var(--boardColorDark);
+  }
+  .wrap .func_wrap {
+    background-color: var(--boardColorDark);
+  }
+  .divider view {
+    background-color: var(--pageColorDark);
+  }
 }

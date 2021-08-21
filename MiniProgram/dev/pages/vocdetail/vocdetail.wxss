@@ -1,9 +1,3 @@
-.edit {
-  color: #44d;
-  text-decoration: underline;
-  font-size: 26rpx;
-  margin-bottom: -10rpx;
-}
 .title,
 .content,
 .proof,
@@ -33,7 +27,7 @@
 }
 .title .chinese {
   font-size: 28rpx;
-  color: #888;
+  color: var(--commentColorLight);
 }
 .sour {
   font-size: 32rpx;
@@ -42,4 +36,12 @@
 }
 van-icon {
   margin-left: 18rpx;
+}
+@media (prefers-color-scheme: dark) {
+  page {
+    background-color: var(--pageColorDark);
+  }
+  .title .chinese {
+    color: var(--commentColorLight);
+  }
 }

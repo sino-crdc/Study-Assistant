@@ -1,9 +1,9 @@
 page {
-  background-color: #f4f4f4;
+  background-color: var(--pageColorLight);
 }
 .info {
   font-size: 34rpx;
-  color: #888888;
+  color: var(--commentColorLight);
   text-align: center;
 }
 .title {
@@ -17,7 +17,7 @@ page {
 .board {
   margin: 20rpx 20rpx;
   border: medium;
-  background-color: #fff;
+  background-color: var(--boardColorLight);
   border-radius: 16rpx;
   display: flex;
   flex-direction: column;
@@ -26,7 +26,7 @@ page {
   margin: 4rpx 25rpx;
   flex: 1;
   font-size: 30rpx;
-  color: #888888;
+  color: var(--commentColorLight);
 }
 .board .content:nth-of-type(1) {
   margin-top: 25rpx;
@@ -44,4 +44,18 @@ page {
   border-radius: 50%;
   width: 260rpx;
   height: 260rpx;
+}
+@media (prefers-color-scheme: dark) {
+  page {
+    background-color: var(--pageColorDark);
+  }
+  .info {
+    color: var(--commentColorDark);
+  }
+  .board {
+    background-color: var(--boardColorDark);
+  }
+  .board .content {
+    color: var(--commentColorDark);
+  }
 }

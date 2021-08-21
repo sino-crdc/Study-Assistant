@@ -1,0 +1,19 @@
+{
+    "light": {
+        "navBarBcgColor": "#f4f4f4",
+        "navBarTxtStyle": "black",
+        "bcgColor": "#c4c4c4",
+        "tabBarBcgColor": "#fafafa",
+        "tabBarTxtColor": "#999",
+        "tabBarBdStyle": "black"
+    },
+
+    "dark": {
+        "navBarBcgColor": "#000",
+        "navBarTxtStyle": "white",
+        "bcgColor": "#444",
+        "tabBarBcgColor": "#333",
+        "tabBarTxtColor": "#999",
+        "tabBarBdStyle": "white"
+    }
+}

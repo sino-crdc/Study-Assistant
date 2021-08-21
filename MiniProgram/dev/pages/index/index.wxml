@@ -1,8 +1,3 @@
-<!--
- * @LastEditTime: 2021-08-20 10:50:18
- * @LastEditors: zzzsy
- * @FilePath: /dev/pages/index/index.wxml
--->
 <search
   value="{{ keyword }}"
   placeholder="Entrez votre mot à rechercher"

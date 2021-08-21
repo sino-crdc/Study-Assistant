@@ -29,13 +29,13 @@
   content: "\e657";
 }
 page {
-  background-color: #f4f4f4;
+  background-color: var(--pageColorLight);
 }
 .login_wrap {
   height: 220rpx;
   margin: 28rpx 30rpx 4rpx 30rpx;
   border: medium;
-  background-color: #fff;
+  background-color: var(--boardColorLight);
   border-radius: 16rpx 16rpx 0 0;
   display: flex;
 }
@@ -66,12 +66,12 @@ page {
 }
 .login_wrap .login .text_wrap .ex2 {
   margin-top: 30rpx;
-  color: #888888;
+  color: var(--commentColorLight);
   font-size: 28rpx;
 }
 .func_wrap {
   margin: 4rpx 30rpx 60rpx 30rpx;
-  background-color: #fff;
+  background-color: var(--boardColorLight);
   border-radius: 0 0 16rpx 16rpx;
   height: 180rpx;
   display: flex;
@@ -83,7 +83,7 @@ page {
   width: 200rpx;
   margin: 0 60rpx;
   border-radius: 16rpx;
-  background-color: #fff;
+  background-color: var(--boardColorLight);
   display: flex;
   justify-content: center;
 }
@@ -94,7 +94,7 @@ page {
   margin-top: 8rpx;
   justify-content: center;
   flex-direction: column;
-  color: #515151;
+  color: var(--buttonColorLight);
 }
 .func_wrap button .func_item .itm_text {
   font-size: 28rpx;
@@ -107,11 +107,11 @@ page {
   margin-left: 10rpx;
   margin-right: 20rpx;
   margin-top: 8rpx;
-  color: #515151;
+  color: var(--buttonColorLight);
 }
 .menu .btn {
   margin: 4rpx 30rpx;
-  background-color: #fff;
+  background-color: var(--boardColorLight);
   display: flex;
   border-radius: 0;
 }
@@ -134,6 +134,32 @@ page {
   margin-top: 14rpx;
 }
 .btn_hover {
-  background-color: #f4f4f4 !important;
+  background-color: var(--buttonHoverColorDark) !important;
   opacity: 0.9 !important;
+}
+@media (prefers-color-scheme: dark) {
+  page {
+    background-color: var(--pageColorDark);
+  }
+  .login_wrap {
+    background-color: var(--boardColorDark);
+  }
+  .login_wrap .ex2 {
+    color: var(--commentColorDark);
+  }
+  .func_wrap {
+    background-color: var(--boardColorDark);
+  }
+  .func_wrap button {
+    background-color: var(--boardColorDark);
+  }
+  .func_wrap button .func_item {
+    color: var(--buttonColorDark);
+  }
+  .myicon {
+    color: var(--buttonColorDark);
+  }
+  .menu .btn {
+    background-color: var(--boardColorDark);
+  }
 }
