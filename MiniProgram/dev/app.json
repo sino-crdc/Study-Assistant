@@ -7,23 +7,22 @@
     "pages/about/about",
     "pages/favorites/favorites",
     "pages/welcome/welcome",
-    "pages/debug/debug",
-    "pages/detail_debug/detail_debug",
     "pages/vocedit/vocedit",
-    "pages/vocpreview/vocpreview"
+    "pages/vocpreview/vocpreview",
+    "pages/myedit/myedit"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#1296db",
+    "navigationBarBackgroundColor": "@navBarBcgColor",
     "navigationBarTitleText": "学习助手",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "@navBarTxtStyle"
   },
   "tabBar": {
-    "color": "#999",
+    "color": "@tabBarTxtColor",
     "selectedColor": "#1296db",
-    "backgroundColor": "#fafafa",
+    "backgroundColor": "@tabBarBcgColor",
     "position": "bottom",
-    "borderStyle": "black",
+    "borderStyle": "@tabBarBdStyle",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -39,5 +38,7 @@
       }
     ]
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "darkmode": true,
+  "themeLocation": "theme.json"
 }

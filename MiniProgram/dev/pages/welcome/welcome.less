@@ -1,31 +1,44 @@
 page {
-  background-color: #f4f4f4;
+    background-color: var(--pageColorLight);
 }
 
-.title{
+.title {
     font-size: 40rpx;
     margin: 90rpx 80rpx 0;
 }
 
-.ex{
+.ex {
     font-size: 32rpx;
-    color: #888888;
-    margin: 8rpx 82rpx 50rpx;
+    color: var(--commentColorLight);
+    margin: 8rpx 83rpx 50rpx;
 }
 
-.btn{
-    width: 92% ;
+.btn {
+    width: 92%;
     margin-bottom: 26rpx;
 }
 
-.blank{
+.blank {
     display: flex;
     margin-top: 40rpx;
 }
 
-.foot{
-    bottom: 30rpx;
+.foot {
+    width: 100%;
+    bottom: 28rpx;
     position: absolute;
-    color: #888888;
-    margin-left: 80rpx;
+    color: var(--commentColorLight);
+    text-align: center;
+}
+
+@media (prefers-color-scheme: dark){
+    page{
+        background-color: var(--pageColorDark);
+    }
+    .ex{
+        color: var(--commentColorDark);
+    }
+    .foot{
+        color: var(--commentColorDark);
+    }
 }

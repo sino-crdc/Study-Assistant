@@ -1,9 +1,3 @@
-.edit {
-  color: #44d;
-  text-decoration: underline;
-  font-size: 26rpx;
-  margin-bottom: -10rpx;
-}
 .title,
 .content,
 .proof,
@@ -19,5 +13,35 @@
   margin: 0 20rpx;
 }
 .tow {
-  margin-top: -30rpx;
+  margin-top: -36rpx;
+}
+.title {
+  margin: 20rpx 20rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+.title .tt {
+  font-size: 52rpx;
+  margin: 4rpx 0;
+}
+.title .chinese {
+  font-size: 28rpx;
+  color: var(--commentColorLight);
+}
+.sour {
+  font-size: 32rpx;
+  color: #515151;
+  margin: 8rpx 40rpx 30rpx;
+}
+van-icon {
+  margin-left: 18rpx;
+}
+@media (prefers-color-scheme: dark) {
+  page {
+    background-color: var(--pageColorDark);
+  }
+  .title .chinese {
+    color: var(--commentColorLight);
+  }
 }

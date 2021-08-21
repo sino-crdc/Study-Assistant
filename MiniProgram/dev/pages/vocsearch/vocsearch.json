@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "search":"../../components/vant/search/index",
-    "rlist":"../../components/list/list"
+    "van-search":"../../components/vant/search/index",
+    "van-skeleton": "../../components/vant/skeleton/index",
+    "voc-item": "../../components/voc-item/voc-item",
+    "van-empty": "../../components/vant/empty/index"
   }
 }

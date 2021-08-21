@@ -1,21 +1,57 @@
-.edit{
-    color: #44d;
-    text-decoration: underline;
-    font-size: 26rpx;
-    margin-bottom: -10rpx;
-}
-
-.title,.content,.proof,.remark,.example,.source{
+.title,
+.content,
+.proof,
+.remark,
+.example,
+.source {
     display: flex;
     margin: 0 20rpx;
     align-items: center;
 }
 
-.bt{
+.bt {
     font-size: 48rpx;
     margin: 0 20rpx;
 }
 
-.tow{
-    margin-top: -30rpx;
+.tow {
+    margin-top: -36rpx;
+}
+
+.title {
+    margin: 20rpx 20rpx 40rpx;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+
+    .tt {
+        font-size: 52rpx;
+        margin: 4rpx 0;
+    }
+
+    .chinese {
+        font-size: 28rpx;
+        color: var(--commentColorLight);
+    }
+}
+
+.sour {
+    font-size: 32rpx;
+    color: #515151;
+    margin: 8rpx 40rpx 30rpx;
+}
+
+van-icon{
+    margin-left: 18rpx;
+}
+
+@media (prefers-color-scheme: dark){
+    page{
+        background-color: var(--pageColorDark);
+    }
+    .title{
+        .chinese{
+            color: var(--commentColorLight);
+        }
+    }
 }

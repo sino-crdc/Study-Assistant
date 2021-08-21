@@ -1,11 +1,15 @@
 import Dialog from '../../components/vant/dialog/dialog';
+import { request } from '../../request/request';
+import Toast from '../../components/vant/toast/toast';
+
 
 Page({
     data: {
         type: "",
         voc: "",
         rawMD: "",
-        backup: ""
+        backup: "",
+        flag: 1
     },
     onLoad(options) {
         const _ts = this;
@@ -34,13 +38,18 @@ Page({
         console.log(_ts.data.rawMD)
     },
     onClear() {
+        this.setView(0);
         Dialog.confirm({
-                message: '确认清空内容吗？',
+                message: '确认清空内容吗？'
             }).then(() => {
                 this.setData({
                     rawMD: ""
                 })
-            }).catch(() => {})
+            }).catch(()=>{
+
+            }).then(()=>{
+                this.setView(1);
+            }); 
     },
     onPreview(){
         const _ts = this;
@@ -51,12 +60,13 @@ Page({
           }
         })
     },
-    onConfirm(e){
+    onChange(e){
         this.setData({
             rawMD: e.detail.value
         })
     },
     onUndo(){
+        this.setView(0);
         var backup = this.data.backup;
         Dialog.confirm({
             message: '确认还原内容吗？',
@@ -64,13 +74,53 @@ Page({
             this.setData({
                 rawMD: backup
             })
-        }).catch(()=>{})
+        }).catch(()=>{
+
+        }).then(()=>{
+            this.setView(1);
+        }); 
     },
     onUpload(){
+        this.setView(0);
         Dialog.confirm({
             message: '确认上传吗？',
         }).then(()=>{
+            this.onUP();
+        }).catch(()=>{
 
-        }).catch(()=>{})
-    }
+        }).then(()=>{
+            this.setView(1);
+        }); 
+    },
+    setView(flag){
+        this.setData({
+            flag: flag
+        });
+    },
+    async onUP(){
+        var {type, voc, rawMD} = this.data;
+        try {
+            const res = await request({
+                url: "/vocedit",
+                method: "POST",
+                data: {
+                    "type": type,
+                    "voc": voc,
+                    "rawMD": rawMD,
+                    "user_id": wx.getStorageSync('user_id'),
+                },
+            });
+            console.log("uploading");
+            if (res && res.data.status=='okk'){
+                Toast.success("提交成功！");
+                wx.navigateBack({
+                  delta: -1
+                })
+            } else {console.log("err"), Toast.fail("提交失败！")}
+        } catch {
+            console.log("err");
+            Toast.fail("提交失败！");
+        };
+    },
+
 });

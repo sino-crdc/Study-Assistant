@@ -1,1 +1,38 @@
-<view>New Page</view>
+<view wx:if="{{ !netErr && !no_fav && !loading}}" class="wrap">
+    <view class="fav_wrap">
+        <view class="fav">我的收藏</view>
+        <view class="btn_wrap">
+            <button hover-class="btn_hover" bind:tap="onManage" wx:if="{{ !management }}" class="edit">编辑</button>
+            <button hover-class="btn_hover" bind:tap="{{ checked_num == userFav_management.length?'select_none':'select_all' }}" wx:if="{{ management }}" class="sel">{{ checked_num == userFav_management.length?'取消全选':'全选' }}</button>
+            <button hover-class="btn_hover" bind:tap="offManage" wx:if="{{ management }}" class="cal">取消</button>
+        </view>
+    </view>
+    <view class="divider">
+        <view></view>
+    </view>
+    <view wx:if="{{ management }}" class="func_wrap">
+        <view class="func">操作</view>
+        <view class="btn_wrap">
+            <button hover-class="btn_hover" bind:tap="delete" class="del">删除</button>
+        </view>
+    </view>
+    <view wx:if="{{ management }}" class="divider">
+        <view></view>
+    </view>
+
+    <view data-voc="{{ item.title }}" class="voc_wrap" data-idx="{{ index }}" bind:tap="{{!management?'onDetail':'select'}}" wx:for="{{ userFav_management }}" wx:key="{{ item.id }}">
+        <voc-item title="{{ item.title }}" meta="{{ item.meta }}" flag="{{ management }}">
+            <view>
+                <van-checkbox value="{{ item.checked }}">
+                </van-checkbox>
+            </view>
+        </voc-item>
+        <view class="divider">
+            <view></view>
+        </view>
+    </view>
+
+</view>
+
+<van-empty wx:if="{{ no_fav }}" description="这里空空如也～" />
+<van-empty image="network" wx:if="{{ netErr }}" description="网络错误" />

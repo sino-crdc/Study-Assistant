@@ -12,7 +12,18 @@ Page({
         _ts.setData({
           rawMD: data
         });
-          let MD = app.towxml(_ts.data.rawMD, 'markdown');
+          let MD = app.towxml(_ts.data.rawMD, 'markdown',{
+            events:{
+              tap:(e)=>{
+                if (e.currentTarget.dataset.data.tag=='navigator'){
+                  var voc = e.currentTarget.dataset.data.attrs.href;
+                  wx.navigateTo({
+                    url: '../vocdetail/vocdetail?voc=' + voc,
+                  })
+                }
+              }
+            }
+          });
           _ts.setData({
             MD: MD
           })

@@ -1,46 +1,32 @@
 Page({
   data: {
-    value: ''
+    keyword: ''
   },
   onChange: function (e) {
     console.log(e.detail),
       this.setData({
-        value: e.detail
+        keyword: e.detail
       })
   },
   onClick: function () {
-    wx.setStorage({
-      data: this.data.value,
-      key: 'keyword',
-    });
-    if (this.data.value.trim()) {
+    var keyword = this.data.keyword;
+    if (keyword.trim()) {//输入合法性判断 
       wx.navigateTo({
-        url: `../vocsearch/vocsearch`
+        url: '../vocsearch/vocsearch?key=' + keyword
       })
     } else {
       this.setData({
-        value: ''
+        keyword: ''
       })
     }
   },
   onSearch: function () {
-    wx.setStorage({
-      data: this.data.value,
-      key: 'keyword',
-    });
-    if (this.data.value.trim()) {
-      wx.navigateTo({
-        url: `../vocsearch/vocsearch`
-      })
-    } else {
-      this.setData({
-        value: ''
-      })
-    }
+    this.onClick();
   },
+  //重显自动置空
   onShow: function () {
     this.setData({
-      value: ''
+      keyword: ''
     })
   }
 });
