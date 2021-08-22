@@ -15,9 +15,7 @@ Component({
     }
     
   },
-  data: {
-      
-  },
+  data: {},
   lifetimes: {
     created() {
 
@@ -32,7 +30,5 @@ Component({
 
     },
   },
-  methods: {
-  
-  },
+  methods: {},
 });
