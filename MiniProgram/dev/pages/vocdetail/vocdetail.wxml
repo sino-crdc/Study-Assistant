@@ -40,3 +40,4 @@
 <view wx:if="{{ show.source }}" class="sour">{{ detail.source }}</view>
 
 <van-empty wx:if="{{ netErr }}" image="network" description="网络错误"/>
+<van-empty wx:if="{{ no_voc }}" image="default" description="未收录此词条"/>
