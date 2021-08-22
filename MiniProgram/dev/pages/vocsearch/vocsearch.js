@@ -7,6 +7,7 @@ Page({
     loading: false,
     netErr: false,
     schErr: false,
+    dk: 'light',
   },
 
   onChange(e) {
@@ -22,7 +23,8 @@ Page({
 
   onLoad(options) {
     var keyword = options.key;
-    this.setData({keyword});
+    const dk = wx.getSystemInfoSync().theme;
+    this.setData({keyword,dk});
     this.search(keyword);
   },
 
@@ -55,7 +57,7 @@ Page({
 
   //跳转详情页面
   onDetail(e) {
-    var voc = e.currentTarget.dataset.voc_id;
+    var voc_id = e.currentTarget.dataset.voc_id;
     console.log(e);
     wx.navigateTo({
       url: "../vocdetail/vocdetail?voc_id=" + voc_id,

@@ -10,7 +10,7 @@
   input-align="center"
   use-action-slot
   >
-    <view class="iconfont icon-sousuo" slot="action" bind:tap="onClick">
+    <view class="ss iconfont icon-sousuo" slot="action" bind:tap="onClick">
       搜索
     </view>
 </search>

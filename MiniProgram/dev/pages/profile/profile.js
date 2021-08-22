@@ -1,4 +1,5 @@
 import Toast from '../../components/vant/toast/toast';
+import Dialog from '../../components/vant/dialog/dialog';
 
 Page({
   data: {
@@ -36,6 +37,16 @@ Page({
       // wx.navigateTo({
       //   url: '../myedit/myedit',
       // })
+    }
+  },
+  onAway(){
+    if (!wx.getStorageSync('user_id')){
+      Dialog.confirm({
+        message: '您还未登录'
+      }).then(()=>{
+
+      }).catch(()=>{})
+    } else {
     }
   }
 });

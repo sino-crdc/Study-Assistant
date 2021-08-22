@@ -115,6 +115,9 @@ page {
   display: flex;
   border-radius: 0;
 }
+.menu .btn .warn {
+  color: red !important;
+}
 .menu .btn::after {
   border: 0;
 }

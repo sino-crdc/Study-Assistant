@@ -31,8 +31,8 @@
     联系方式
 </view>
 <view class="board">
-  <view class="content">E-mail : zzzsy@bk.ru</view>
-  <view class="content">Wechat : zsyyy_8</view>
+  <view id="1" bind:tap="setPaste" class="content">E-mail : zzzsy@bk.ru</view>
+  <view id="2" bind:tap="setPaste" class="content">Wechat : zsyyy_8</view>
 </view>
 
 

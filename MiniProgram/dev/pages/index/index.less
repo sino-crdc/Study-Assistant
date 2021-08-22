@@ -26,15 +26,29 @@ page{
     background-color: var(--boardColorLight)  !important;
 }
 
+.hv{
+    background-color: var(--buttonHoverColorLight) !important;
+    opacity: 0.9 !important;
+}
+
 @media (prefers-color-scheme: dark){
     page{
         background-color: var(--pageColorDark);
     }
     .custom{
         background-color: var(--boardColorDark) !important;
-        box-shadow: 0 2px 12px 0 rgba(255, 255, 255, 0.6) !important;
+        box-shadow: 0 2px 8px 0 rgba(255, 255, 255, 0.4) !important;
     }
     .van-search__content--square{
         background-color: var(--boardColorDark) !important;
+    }
+    .ss{
+        color: #fff !important;
+    }
+    .input{
+        color: #fff !important;
+    }
+    .hv{
+        background-color: var(--buttonHoverColorDark) !important;
     }
 }
