@@ -6,6 +6,7 @@ Page({
       MD: {}
   },
   onLoad() {
+      const {theme} = wx.getSystemInfoSync();
       let _ts = this;
       const eventChannel = this.getOpenerEventChannel();
       eventChannel.on("onPre", data=>{
@@ -13,6 +14,7 @@ Page({
           rawMD: data
         });
           let MD = app.towxml(_ts.data.rawMD, 'markdown',{
+            theme: theme,
             events:{
               tap:(e)=>{
                 if (e.currentTarget.dataset.data.tag=='navigator'){

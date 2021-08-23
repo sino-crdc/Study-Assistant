@@ -1,10 +1,11 @@
 import { request } from '../../utils/request';
+import { request_test } from '../../utils/request';
 const app = getApp();
 
 Page({
   data: {
     detail: {},
-    attr: {},
+    vocdata: {},
     voc_id: 0,
     netErr: false,
     show: {
@@ -13,8 +14,8 @@ Page({
       remark: true,
       example: true,
       source: true,
-      no_voc: false,
     },
+    no_voc: false,
   },
   onLoad(options) {
     if (options.no_voc == 1) {
@@ -34,20 +35,20 @@ Page({
       voc_id: voc_id,
     });
     try {
-      const res = await request({
-        url: "/detail",
+      const res = await request_test({
+        url: "https://result.eolinker.com/4jVrjsne9fb6b02452d40cb5ed91884ddc6a323acfe39f7?uri=/vocdetail",
         header: {
           "content-type": "application/x-www-form-urlencoded",
         },
-        data: {
-          voc_id: voc_id,
-        },
+        // data: {
+        //   voc_id: voc_id,
+        // },
       });
       _ts.setData({
-        attr: res.data.detail,
+        vocdata: res.data.data.vocdata,
       });
       console.log("attr");
-      console.log(_ts.data.attr);
+      console.log(_ts.data.vocdata);
       _ts.setTowxml();
     } catch {
       _ts.setNetErr(true);
@@ -63,10 +64,10 @@ Page({
         if (type == "title") {
           res.eventChannel.emit(
             "onL",
-            _ts.data.attr.title + "\n" + _ts.data.attr.chinese
+            _ts.data.vocdata.detail.title + "\n" + _ts.data.vocdata.detail.chinese
           );
         } else {
-          res.eventChannel.emit("onL", _ts.data.attr[type]);
+          res.eventChannel.emit("onL", _ts.data.vocdata.detail[type]);
         }
       },
     });
@@ -77,15 +78,15 @@ Page({
     });
   },
   setTowxml() {
-    const theme = wx.getSystemInfoSync();
+    const {theme} = wx.getSystemInfoSync();
     const _ts = this;
-    const attr = _ts.data.attr;
-    // let title = attr.title;
+    const attr = _ts.data.vocdata.detail;
+    let title = attr.title;
     let content = app.towxml(attr.content, "markdown", {
       theme: theme,
       events: {
         tap: (e) => {
-          _ts.nav();
+          _ts.nav(e);
         },
       },
     });
@@ -93,7 +94,7 @@ Page({
       theme: theme,
       events: {
         tap: (e) => {
-          _ts.nav();
+          _ts.nav(e);
         },
       },
     });
@@ -101,7 +102,7 @@ Page({
       theme: theme,
       events: {
         tap: (e) => {
-          _ts.nav();
+          _ts.nav(e);
         },
       },
     });
@@ -109,24 +110,24 @@ Page({
       theme: theme,
       events: {
         tap: (e) => {
-          _ts.nav();
+          _ts.nav(e);
         },
       },
     });
-    // let source = attr.source;
-    // let chinese = attr.chinese;
+    let source = attr.source;
+    let chinese = attr.chinese;
     _ts.setData({
-      // "detail.title": title,
+      "detail.title": title,
       "detail.content": content,
       "detail.proof": proof,
       "detail.remark": remark,
       "detail.example": example,
-      // "detail.source": source,
-      // "detail.chinese": chinese
+      "detail.source": source,
+      "detail.chinese": chinese
     });
-    console.log(_ts.data.attr);
   },
   nav: async function (e) {
+    console.log(e);
     if (e.currentTarget.dataset.data.tag == "navigator") {
       var voc = e.currentTarget.dataset.data.attrs.href;
       const voc_id = await request({

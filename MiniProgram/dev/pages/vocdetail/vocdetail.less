@@ -1,3 +1,5 @@
+@import "../../styles/iconfont.wxss";
+
 .title,
 .content,
 .proof,
@@ -45,6 +47,30 @@ van-icon{
     margin-left: 18rpx;
 }
 
+.myicon{
+    margin: 0 108rpx -6rpx auto;
+    font-size: 48rpx;
+    color: var(--buttonColorLight);
+}
+
+.author{
+    background-color: var(--pageColorLight);
+    display: flex;
+    height: 60rpx;
+    align-items: center;
+    view{
+        font-size: 26rpx;
+    }
+    .icon-lishi{
+        font-weight: bolder;
+        margin: 0 10rpx 0 38rpx;
+    }
+    .editor{
+        margin: 0 8rpx;
+        font-weight: bolder;
+    }
+}
+
 @media (prefers-color-scheme: dark){
     page{
         background-color: var(--pageColorDark);
@@ -53,5 +79,11 @@ van-icon{
         .chinese{
             color: var(--commentColorLight);
         }
+    }
+    .myicon{
+        color: var(--buttonColorDark);
+    }
+    .author{
+        background-color: var(--pageColorDark);
     }
 }
