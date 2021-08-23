@@ -1,4 +1,4 @@
-import { request } from "../../request/request.js";
+import { request } from '../../utils/request';
 const app = getApp();
 
 Page({

@@ -1,11 +1,11 @@
-var ifExitUserId =  function(){
-    if (!wx.getStorageSync('user_id')){
-        return false;
-    } else {
-        return wx.getStorageSync('user_id');
-    }
+const ifExistUserId = () => {
+  if (!wx.getStorageSync("user_id")) {
+    return false;
+  } else {
+    return true;
+  }
 };
 
-module.exports={
-    ifExitUserId: ifExitUserId
-}
+
+
+export { ifExistUserId}

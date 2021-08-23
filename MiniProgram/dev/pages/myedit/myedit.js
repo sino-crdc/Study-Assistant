@@ -1,4 +1,4 @@
-import {request} from "../../request/request";
+import {request} from '../../utils/request';
 
 Page({
   data: {

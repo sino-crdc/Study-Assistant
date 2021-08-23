@@ -1,6 +1,6 @@
 //app.js
 App({
-    towxml:require('/towxml/index'),
+    towxml:require('/utils/towxml/index'),
     onLaunch: function(options){
 
     },

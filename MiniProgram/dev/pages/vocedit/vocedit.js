@@ -1,5 +1,5 @@
 import Dialog from '../../components/vant/dialog/dialog';
-import { request } from '../../request/request';
+import { request } from '../../utils/request';
 import Toast from '../../components/vant/toast/toast';
 
 
