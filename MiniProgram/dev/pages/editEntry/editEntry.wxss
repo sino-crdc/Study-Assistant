@@ -117,7 +117,7 @@ page {
     background-color: var(--boardColorDark);
   }
   .func_wrap button {
-    background-color: var(--buttonColorDark);
+    background-color: var(--boardColorDark);
   }
   .func_wrap button .func_item {
     color: var(--buttonColorDark);

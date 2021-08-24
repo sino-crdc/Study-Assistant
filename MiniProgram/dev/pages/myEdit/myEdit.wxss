@@ -1,9 +1,9 @@
 page {
-  background-color: #f4f4f4;
+  background-color: var(--pageColorLight);
 }
 .wrap {
   display: flex;
-  background-color: #fff;
+  background-color: var(--boardColorLight);
   margin: 40rpx 20rpx 0;
   border-radius: 16rpx;
   flex-direction: column;
@@ -31,4 +31,12 @@ page {
   width: 90%;
   height: 2rpx;
   background-color: #f4f4f4;
+}
+@media (prefers-color-scheme: dark) {
+  page {
+    background-color: var(--pageColorDark);
+  }
+  .wrap {
+    background-color: var(--boardColorDark);
+  }
 }

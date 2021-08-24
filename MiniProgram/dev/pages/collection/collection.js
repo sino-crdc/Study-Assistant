@@ -1,3 +1,4 @@
+import { navTo } from '../../utils/common';
 import { request } from '../../utils/request';
 
 Page({
@@ -18,11 +19,11 @@ Page({
       try {
         // 请求比较本地存储的token
         const res = await request({
-          url: "/favorites",
+          url: '/favorites',
           data: {
-            "status": "compare",
-            "token": wx.getStorageSync('userFav_token'),
-            "user_id": wx.getStorageSync('user_id'),
+            'status': 'compare',
+            'token': wx.getStorageSync('userFav_token'),
+            'user_id': wx.getStorageSync('user_id'),
           }
         });
         if (res.data.data.code==601){
@@ -36,13 +37,13 @@ Page({
     }
   },
   // 向服务器同步拉取
-  sync:async function(){
+  sync: async function(){
     try {
       const res = await request({
-        url: "favorites",
+        url: 'favorites',
         data: {
-          "status": "sync",
-          "user_id": wx.getStorageSync('user_id'),
+          'status': 'sync',
+          'user_id': wx.getStorageSync('user_id'),
         }
       });
       wx.setStorageSync('userFav', res.data.data.userFav);
@@ -53,7 +54,7 @@ Page({
       });
       this.init();
     } catch {
-      console.log("network err");
+      console.log('network err');
       this.setData({
         netErr: true,
       });
@@ -80,9 +81,7 @@ Page({
   onDetail(e) {
     var voc = e.currentTarget.dataset.voc;
     console.log(voc);
-    wx.navigateTo({
-      url: '../vocdetail/vocdetail?voc=' + voc,
-    })
+    navTo('entryDetail', `?voc=${voc}`);
   },
   //初始化，将本地存储添加checked属性，用于页面展示
   init: function(){
@@ -151,11 +150,11 @@ Page({
     var arr = wx.getStorageSync('userFav');
     try {
       const res = await request({
-        url: "/favorites",
+        url: '/favorites',
         data: {
-          "status": "submit",
-          "data": arr,
-          "user_id": wx.getStorageSync('user_id'),
+          'status': 'submit',
+          'data': arr,
+          'user_id': wx.getStorageSync('user_id'),
         }
       });
       wx.setStorageSync('userFav_token', res.data.data.token);

@@ -12,7 +12,7 @@ Page({
     this.setData({loading: true});
     try {
       const res = await request({
-        url: "/useredit",
+        url: '/useredit',
         data: {
           user_id: wx.getStorageSync('user_id'),
         }
@@ -34,6 +34,6 @@ Page({
     });
   },
   onAdd(){
-    console.log("add");
+    console.log('add');
   }
 });

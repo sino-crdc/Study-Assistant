@@ -5,10 +5,10 @@ import Toast from '../../components/vant/toast/toast';
 
 Page({
     data: {
-        type: "",
-        voc: "",
-        rawMD: "",
-        backup: "",
+        type: '',
+        voc: '',
+        rawMD: '',
+        backup: '',
         flag: 1
     },
     onLoad(options) {
@@ -18,7 +18,7 @@ Page({
             voc: options.voc
         });
         const eventChannel = this.getOpenerEventChannel();
-        eventChannel.on("onL", data=>{
+        eventChannel.on('onL', data=>{
             _ts.setData({
                 rawMD: data,
                 backup: data
@@ -28,8 +28,8 @@ Page({
     onTip(e) {
         const _ts = this;
         var tip = e.currentTarget.dataset.tip;
-        if (tip == "link") {
-            tip = "[url](https://)";
+        if (tip == 'link') {
+            tip = '[url](https://)';
         };
         var rawMD = _ts.data.rawMD + tip;
         _ts.setData({
@@ -43,7 +43,7 @@ Page({
                 message: '确认清空内容吗？'
             }).then(() => {
                 this.setData({
-                    rawMD: ""
+                    rawMD: ''
                 })
             }).catch(()=>{
 
@@ -101,25 +101,25 @@ Page({
         var {type, voc, rawMD} = this.data;
         try {
             const res = await request({
-                url: "/vocedit",
-                method: "POST",
+                url: '/vocedit',
+                method: 'POST',
                 data: {
-                    "type": type,
-                    "voc": voc,
-                    "rawMD": rawMD,
-                    "user_id": wx.getStorageSync('user_id'),
+                    'type': type,
+                    'voc': voc,
+                    'rawMD': rawMD,
+                    'user_id': wx.getStorageSync('user_id'),
                 },
             });
-            console.log("uploading");
+            console.log('uploading');
             if (res && res.data.status=='okk'){
-                Toast.success("提交成功！");
+                Toast.success('提交成功！');
                 wx.navigateBack({
                   delta: -1
                 })
-            } else {console.log("err"), Toast.fail("提交失败！")}
+            } else {console.log('err'), Toast.fail('提交失败！')}
         } catch {
-            console.log("err");
-            Toast.fail("提交失败！");
+            console.log('err');
+            Toast.fail('提交失败！');
         };
     },
 

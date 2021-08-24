@@ -1,4 +1,4 @@
-page{
+page {
     background-color: var(--pageColorLight);
 }
 
@@ -9,6 +9,7 @@ page{
     margin-left: 20rpx;
     display: flex;
     align-items: center;
+
     .tip {
         width: 60rpx;
         height: 60rpx;
@@ -35,32 +36,34 @@ page{
     height: 1000rpx;
     padding: 2.5%;
     display: -webkit-box;
-    word-break:keep-all;
-    text-overflow:ellipsis;
-    font-size:28rpx;
-    overflow:hidden;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+    font-size: 28rpx;
+    overflow: hidden;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp:32;
+    -webkit-line-clamp: 32;
     margin: 20rpx 2.5% 40rpx 2.5%;
     border-radius: 12rpx;
     background-color: var(--boardColorLight);
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 }
 
-.tip_hover{
+.tip_hover {
     background-color: var(--buttonHoverColorLight) !important;
 }
-.type{
+
+.type {
     font-size: 40rpx;
     margin-left: 20rpx;
     margin-top: 20rpx;
 }
-.voc{
+
+.voc {
     margin-left: 20rpx;
     font-size: 30rpx;
 }
 
-.func_wrap{
+.func_wrap {
     margin: 0 20rpx 0 20rpx;
     background-color: var(--boardColorLight);
     border-radius: 14rpx;
@@ -72,7 +75,8 @@ page{
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
     position: absolute;
     bottom: 60rpx;
-    button{
+
+    button {
         height: 180rpx;
         width: 25%;
         margin: 0;
@@ -80,7 +84,8 @@ page{
         background-color: var(--boardColorLight);
         display: flex;
         justify-content: center;
-        .func_item{
+
+        .func_item {
             color: var(--buttonColorLight);
             margin-top: 6rpx;
             width: 100%;
@@ -88,49 +93,60 @@ page{
             display: flex;
             flex-direction: column;
             justify-content: center;
-            .itm_text{
+
+            .itm_text {
                 font-size: 28rpx;
             }
         }
-        &::after{
+
+        &::after {
             border: 0;
             border-radius: 12rpx;
         }
     }
 }
+
 .btn_hover {
     background-color: var(--buttonHoverColorLight) !important;
     opacity: 0.9 !important;
-  }
+}
 
-  @media (prefers-color-scheme: dark){
-      page{
-          background-color: var(--pageColorDark);
-      }
-      .tips{
-          .tip{
-              background-color: var(--boardColorDark);
-          }
-      }
-      .markdown{
-          background-color: var(--boardColorDark);
-      }
-      .markdown_p{
-          background-color: var(--boardColorDark);
-      }
-      .tip_hover{
-          background-color: var(--buttonHoverColorDark) !important;
-      }
-      .func_wrap{
-          background-color: var(--boardColorDark);
-          button{
-              background-color: var(--buttonColorDark);
-              .func_item{
-                  color: var(--buttonColorDark);
-              }
-          }
-      }
-      .btn_hover{
-          background-color: var(--buttonHoverColorDark) !important;
-      }
-  }
+@media (prefers-color-scheme: dark) {
+    page {
+        background-color: var(--pageColorDark);
+    }
+
+    .tips {
+        .tip {
+            background-color: var(--boardColorDark);
+        }
+    }
+
+    .markdown {
+        background-color: var(--boardColorDark);
+    }
+
+    .markdown_p {
+        background-color: var(--boardColorDark);
+    }
+
+    .tip_hover {
+        background-color: var(--buttonHoverColorDark) !important;
+    }
+
+    .func_wrap {
+        background-color: var(--boardColorDark);
+
+        button {
+            background-color: var(--boardColorDark);
+
+            .func_item {
+                color: var(--buttonColorDark);
+            }
+        }
+    }
+
+    .btn_hover {
+        background-color: var(--buttonHoverColorDark) !important;
+    }
+}

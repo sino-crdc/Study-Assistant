@@ -1,3 +1,5 @@
+import { navTo } from "../../utils/common";
+
 Page({
   data: {
     keyword: ''
@@ -11,9 +13,7 @@ Page({
   onClick: function () {
     var keyword = this.data.keyword;
     if (keyword.trim()) {//输入合法性判断 
-      wx.navigateTo({
-        url: '../vocsearch/vocsearch?key=' + keyword
-      })
+      navTo('searchEntry', `?keyword=${keyword}`);
     } else {
       this.setData({
         keyword: ''

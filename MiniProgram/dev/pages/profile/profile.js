@@ -5,7 +5,7 @@ import {ifExistUserId} from '../../utils/common';
 
 Page({
   data: {
-    avatarUrl:"../../assets/images/avatar.png",
+    avatarUrl:'../../assets/images/avatar.png',
     // userinfo: {}
   },
   onLogin(){
@@ -24,7 +24,7 @@ Page({
   },
   onFav(){
     if (!ifExistUserId()){
-      Toast({message:"无法使用,请先登录~",position: "bottom"});
+      Toast({message:'无法使用,请先登录~',position: 'bottom'});
     } else {
       wx.navigateTo({
         url: '../favorites/favorites',
@@ -33,9 +33,9 @@ Page({
   },
   onEdit(){
     if (!ifExistUserId()){
-      Toast({message:"无法使用,请先登录~",position: "bottom"});
+      Toast({message: '无法使用,请先登录~',position: 'bottom'});
     } else {
-      Toast({position: "bottom", message: "该功能未开放，敬请期待。"});
+      Toast({position: 'bottom', message: '该功能未开放，敬请期待。'});
       // wx.navigateTo({
       //   url: '../myedit/myedit',
       // })

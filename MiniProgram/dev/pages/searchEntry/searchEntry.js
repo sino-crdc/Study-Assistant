@@ -1,8 +1,9 @@
 import { request } from '../../utils/request';
+import { navTo } from "../../utils/common";
 
 Page({
   data: {
-    keyword: "",
+    keyword: '',
     resultList: [],
     loading: false,
     netErr: false,
@@ -31,13 +32,13 @@ Page({
   async search(keyword) {
     const _ts = this;
     _ts.setData({loading: true, netErr: false, schErr: false, resultList: []});
-    console.log("sch");
+    console.log('sch');
     try {
       const res = await request({
-        url: "/search",
-        // data: {"keyword": keyword}
+        url: '/search',
+        // data: {'keyword': keyword}
       });
-      console.log("res");
+      console.log('res');
       console.log(res);
       _ts.setData({
         resultList: res.data.data.resultList,
@@ -45,7 +46,7 @@ Page({
         schErr:  false,
       });
     } catch {
-      console.log("err");
+      console.log('err');
       _ts.setData({netErr: true});
     };
     console.log(_ts.data.resultList);
@@ -59,8 +60,9 @@ Page({
   onDetail(e) {
     var voc_id = e.currentTarget.dataset.voc_id;
     console.log(e);
-    wx.navigateTo({
-      url: "../vocdetail/vocdetail?voc_id=" + voc_id,
-    });
+    navTo('entryDetail', `?voc_id=${voc_id}`)
+    // wx.navigateTo({
+    //   url: '../vocdetail/vocdetail?voc_id=' + voc_id,
+    // });
   },
 });

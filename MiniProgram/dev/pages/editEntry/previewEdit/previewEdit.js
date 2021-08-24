@@ -9,7 +9,7 @@ Page({
       const {theme} = wx.getSystemInfoSync();
       let _ts = this;
       const eventChannel = this.getOpenerEventChannel();
-      eventChannel.on("onPre", data=>{
+      eventChannel.on('onPre', data=>{
         _ts.setData({
           rawMD: data
         });

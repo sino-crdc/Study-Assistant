@@ -1,5 +1,7 @@
 import { request } from '../../utils/request';
 import { request_test } from '../../utils/request';
+import Toast from '../../components/vant/toast/toast';
+import { navTo } from "../../utils/common";
 const app = getApp();
 
 Page({
@@ -16,6 +18,7 @@ Page({
       source: true,
     },
     no_voc: false,
+    is_fav: false,
   },
   onLoad(options) {
     if (options.no_voc == 1) {
@@ -36,9 +39,9 @@ Page({
     });
     try {
       const res = await request_test({
-        url: "https://result.eolinker.com/4jVrjsne9fb6b02452d40cb5ed91884ddc6a323acfe39f7?uri=/vocdetail",
+        url: 'https://result.eolinker.com/4jVrjsne9fb6b02452d40cb5ed91884ddc6a323acfe39f7?uri=/vocdetail',
         header: {
-          "content-type": "application/x-www-form-urlencoded",
+          'content-type': 'application/x-www-form-urlencoded',
         },
         // data: {
         //   voc_id: voc_id,
@@ -47,30 +50,32 @@ Page({
       _ts.setData({
         vocdata: res.data.data.vocdata,
       });
-      console.log("attr");
+      console.log('attr');
       console.log(_ts.data.vocdata);
       _ts.setTowxml();
     } catch {
       _ts.setNetErr(true);
     }
   },
+  //ToDo
   onEdit(e) {
     var type = e.currentTarget.id;
     var voc_id = this.data.voc_id;
     const _ts = this;
-    wx.navigateTo({
-      url: "../vocedit/vocedit?type=" + type + "&voc_id=" + voc_id,
-      success(res) {
-        if (type == "title") {
+    navTo('enitEntry', `?type=${type}&voc_id=${voc_id}`,
+    // wx.navigateTo({
+    //   url: '../vocedit/vocedit?type=' + type + '&voc_id=' + voc_id,
+      (res) =>{
+        if (type == 'title') {
           res.eventChannel.emit(
-            "onL",
-            _ts.data.vocdata.detail.title + "\n" + _ts.data.vocdata.detail.chinese
+            'onL',
+            _ts.data.vocdata.detail.title + '\n' + _ts.data.vocdata.detail.chinese
           );
         } else {
-          res.eventChannel.emit("onL", _ts.data.vocdata.detail[type]);
+          res.eventChannel.emit('onL', _ts.data.vocdata.detail[type]);
         }
       },
-    });
+    );
   },
   setNetErr(err) {
     this.setData({
@@ -82,7 +87,7 @@ Page({
     const _ts = this;
     const attr = _ts.data.vocdata.detail;
     let title = attr.title;
-    let content = app.towxml(attr.content, "markdown", {
+    let content = app.towxml(attr.content, 'markdown', {
       theme: theme,
       events: {
         tap: (e) => {
@@ -90,7 +95,7 @@ Page({
         },
       },
     });
-    let proof = app.towxml(attr.proof, "markdown", {
+    let proof = app.towxml(attr.proof, 'markdown', {
       theme: theme,
       events: {
         tap: (e) => {
@@ -98,7 +103,7 @@ Page({
         },
       },
     });
-    let remark = app.towxml(attr.remark, "markdown", {
+    let remark = app.towxml(attr.remark, 'markdown', {
       theme: theme,
       events: {
         tap: (e) => {
@@ -106,7 +111,7 @@ Page({
         },
       },
     });
-    let example = app.towxml(attr.example, "markdown", {
+    let example = app.towxml(attr.example, 'markdown', {
       theme: theme,
       events: {
         tap: (e) => {
@@ -117,32 +122,32 @@ Page({
     let source = attr.source;
     let chinese = attr.chinese;
     _ts.setData({
-      "detail.title": title,
-      "detail.content": content,
-      "detail.proof": proof,
-      "detail.remark": remark,
-      "detail.example": example,
-      "detail.source": source,
-      "detail.chinese": chinese
+      'detail.title': title,
+      'detail.content': content,
+      'detail.proof': proof,
+      'detail.remark': remark,
+      'detail.example': example,
+      'detail.source': source,
+      'detail.chinese': chinese
     });
   },
   nav: async function (e) {
     console.log(e);
-    if (e.currentTarget.dataset.data.tag == "navigator") {
+    if (e.currentTarget.dataset.data.tag == 'navigator') {
       var voc = e.currentTarget.dataset.data.attrs.href;
       const voc_id = await request({
-        url: "/voc_id",
+        url: '/voc_id',
         data: {
           voc: voc,
         },
       });
       if (res.data.data.code == 200) {
         wx.navigateTo({
-          url: "../vocdetail/vocdetail?no_voc=0&voc_id=" + voc_id,
+          url: '../vocdetail/vocdetail?no_voc=0&voc_id=' + voc_id,
         });
       } else {
         wx.navigateTo({
-          url: "../vocdetail/vocdetail?no_voc=1",
+          url: '../vocdetail/vocdetail?no_voc=1',
         });
       }
     }
@@ -150,9 +155,35 @@ Page({
   sh: function (e) {
     var t = e.currentTarget.id;
     var s = this.data.show[t];
-    var r = "show." + t;
+    var r = 'show.' + t;
     this.setData({
       [r]: !s,
     });
   },
+  async onFavThisVoc(){
+    const user_id = wx.getStorageSync('user_id');
+    try {
+      const res = await request({
+        url: '/fav',
+        data: {
+          'user_id': user_id,
+          'voc_id': voc_id,
+        },
+      });
+      if (res.data.data.code==200){
+        this.setData({is_fav: !this.data.is_fav});
+        Toast({messgae: '收藏成功！', position: 'bottom'});
+      } else if (res.dataa.data.code==201){
+        Toast({message: '取消收藏成功！', position: 'bottom'});
+      } else {
+        this.data.is_fav==true?Toast({message: '取消收藏失败', position: 'bottom'}):Toast({message: '收藏失败', position: 'bottom'});
+      };
+    } catch {
+      this.data.is_fav==true?Toast({message: '取消收藏失败', position: 'bottom'}):Toast({message: '收藏失败', position: 'bottom'});
+    };
+    //  this.setData({is_fav: !this.data.is_fav});
+  },
+  onEditThisVoc(){
+    
+  }
 });

@@ -3,6 +3,11 @@
     <view class="chinese">{{detail.chinese}}</view>
 </view>
 
+<view class="wrap">
+    <van-icon bind:tap="onFavThisVoc" size="20" color="{{is_fav?'#f3b600':'black'}}" name="{{is_fav?'star':'star-o'}}"/>
+    <view bind:tap="onEditThisVoc" class="iconfont icon-bianji"/>
+</view>
+
 <view wx:if="{{ vocdata.detail.content }}" class="content">
     <van-icon size="20" id="content" bind:click="sh" name="{{show.content?'arrow-up':'arrow-down'}}"/>
     <view class="bt">Content</view>
@@ -52,3 +57,4 @@
 
 <van-empty wx:if="{{ netErr }}" image="network" description="网络错误"/>
 <van-empty wx:if="{{ no_voc }}" image="default" description="未收录此词条"/>
+<van-toast id="van-toast" />

@@ -1,15 +1,15 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/vocsearch/vocsearch",
     "pages/profile/profile",
-    "pages/vocdetail/vocdetail",
-    "pages/about/about",
-    "pages/favorites/favorites",
-    "pages/welcome/welcome",
-    "pages/vocedit/vocedit",
-    "pages/vocpreview/vocpreview",
-    "pages/myedit/myedit"
+    "pages/profile/about/about",
+    "pages/profile/login/login",
+    "pages/collection/collection",
+    "pages/editEntry/editEntry",
+    "pages/editEntry/previewEdit/previewEdit",
+    "pages/entryDetail/entryDetail",
+    "pages/searchEntry/searchEntry",
+    "pages/myEdit/myEdit"
   ],
   "window": {
     "backgroundTextStyle": "light",

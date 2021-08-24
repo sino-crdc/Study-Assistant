@@ -1,0 +1,104 @@
+.title {
+  margin: 20rpx 20rpx 10rpx;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-items: center;
+  .tt {
+    font-size: 52rpx;
+    margin: 4rpx 0;
+  }
+
+  .chinese {
+    font-size: 28rpx;
+    color: var(--commentColorLight);
+  }
+}
+
+.content,
+.proof,
+.remark,
+.example,
+.source {
+  display: flex;
+  margin: 0 20rpx;
+  align-items: center;
+
+  .bt {
+    font-size: 48rpx;
+    margin: 0 20rpx;
+  }
+  van-icon {
+    margin-left: 18rpx;
+  }
+  .myicon {
+    margin: 0 108rpx -6rpx auto;
+    font-size: 48rpx;
+    color: var(--buttonColorLight);
+  }
+}
+
+.tow {
+  margin-top: -36rpx;
+}
+
+.sour {
+  font-size: 32rpx;
+  color: #515151;
+  margin: 8rpx 40rpx 30rpx;
+}
+
+.wrap {
+  display: flex;
+  background-color: var(--boardColorLight);
+  align-items: center;
+  height: 100rpx;
+  van-icon{
+      margin: 0 10rpx 0 38rpx;
+  }
+  view{
+      font-size: 38rpx;
+      margin: 0 10rpx 0 10rpx;
+  }
+}
+
+.author {
+  background-color: var(--pageColorLight);
+  display: flex;
+  height: 60rpx;
+  align-items: center;
+
+  view {
+    font-size: 26rpx;
+  }
+
+  .icon-lishi {
+    font-weight: bolder;
+    margin: 0 10rpx 0 38rpx;
+  }
+
+  .editor {
+    margin: 0 8rpx;
+    font-weight: bolder;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  page {
+    background-color: var(--pageColorDark);
+  }
+
+  .title {
+    .chinese {
+      color: var(--commentColorLight);
+    }
+  }
+
+  .myicon {
+    color: var(--buttonColorDark);
+  }
+
+  .author {
+    background-color: var(--pageColorDark);
+  }
+}
