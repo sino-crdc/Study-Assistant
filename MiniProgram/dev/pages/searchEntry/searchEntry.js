@@ -23,7 +23,7 @@ Page({
   },
 
   onLoad(options) {
-    var keyword = options.key;
+    var keyword = options.keyword;
     const dk = wx.getSystemInfoSync().theme;
     this.setData({keyword,dk});
     this.search(keyword);
@@ -60,9 +60,6 @@ Page({
   onDetail(e) {
     var voc_id = e.currentTarget.dataset.voc_id;
     console.log(e);
-    navTo('entryDetail', `?voc_id=${voc_id}`)
-    // wx.navigateTo({
-    //   url: '../vocdetail/vocdetail?voc_id=' + voc_id,
-    // });
+    navTo({page: 'entryDetail', args: `?voc_id=${voc_id}`})
   },
 });

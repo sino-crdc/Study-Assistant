@@ -13,7 +13,7 @@ Page({
   onClick: function () {
     var keyword = this.data.keyword;
     if (keyword.trim()) {//输入合法性判断 
-      navTo('searchEntry', `?keyword=${keyword}`);
+      navTo({page: 'searchEntry', args: `?keyword=${keyword}`});
     } else {
       this.setData({
         keyword: ''

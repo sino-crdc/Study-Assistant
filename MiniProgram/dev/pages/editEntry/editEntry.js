@@ -1,6 +1,7 @@
 import Dialog from '../../components/vant/dialog/dialog';
 import { request } from '../../utils/request';
 import Toast from '../../components/vant/toast/toast';
+import { navTo } from '../../utils/common';
 
 
 Page({
@@ -53,12 +54,8 @@ Page({
     },
     onPreview(){
         const _ts = this;
-        wx.navigateTo({
-          url: '../vocpreview/vocpreview',
-          success (res){
-              res.eventChannel.emit('onPre', _ts.data.rawMD)
-          }
-        })
+        const success_callback = (res) => {res.eventChannel.emit('onPre', _ts.data.rawMD)}
+        navTo({page: 'previewEdit'}, success_callback);
     },
     onChange(e){
         this.setData({

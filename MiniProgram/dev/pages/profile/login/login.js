@@ -1,3 +1,4 @@
+import { navTo } from '../../../utils/common';
 import { request } from '../../../utils/request'
 
 Page({
@@ -32,8 +33,6 @@ Page({
     })
   }, 
   onClick(){
-    wx.switchTab({
-      url: '../index/index',
-    })
+    navTo({page: 'index'});
   }
 });

@@ -1,3 +1,4 @@
+import { navTo } from '../../utils/common';
 import {request} from '../../utils/request';
 
 Page({
@@ -29,9 +30,7 @@ Page({
   },
   onDetail(e){
     var {voc} = e.currentTarget.dataset;
-    wx.navigateTo({
-      url: '../vocdetail/vocdetail?voc=' + voc,
-    });
+    navTo({page: 'entryDetail', args: `?voc=${voc}`});
   },
   onAdd(){
     console.log('add');

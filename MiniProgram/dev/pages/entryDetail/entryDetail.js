@@ -57,24 +57,25 @@ Page({
       _ts.setNetErr(true);
     }
   },
-  //ToDo
+  
   onEdit(e) {
     var type = e.currentTarget.id;
     var voc_id = this.data.voc_id;
     const _ts = this;
-    navTo('enitEntry', `?type=${type}&voc_id=${voc_id}`,
-    // wx.navigateTo({
-    //   url: '../vocedit/vocedit?type=' + type + '&voc_id=' + voc_id,
-      (res) =>{
-        if (type == 'title') {
-          res.eventChannel.emit(
-            'onL',
-            _ts.data.vocdata.detail.title + '\n' + _ts.data.vocdata.detail.chinese
-          );
-        } else {
-          res.eventChannel.emit('onL', _ts.data.vocdata.detail[type]);
-        }
-      },
+    const success_callback = (res) => {
+      if (type == 'title') {
+        res.eventChannel.emit(
+          'onL',
+          _ts.data.vocdata.detail.title + '\n' + _ts.data.vocdata.detail.chinese
+        );
+      } else {
+        res.eventChannel.emit('onL', _ts.data.vocdata.detail[type]);
+      }
+    };
+    navTo({
+      page: 'editEntry',
+      args: `?type=${type}&voc_id=${voc_id}`
+    },success_callback
     );
   },
   setNetErr(err) {

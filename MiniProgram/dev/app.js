@@ -1,3 +1,5 @@
+import { ifExistUserId } from './utils/common';
+
 //app.js
 App({
     globalData: {
@@ -6,6 +8,8 @@ App({
     },
     towxml:require('/utils/towxml/index'),
     onLaunch: function(options){
-
+        if(ifExistUserId){
+            this.globalData.hasLogin=true;
+        }
     },
 });

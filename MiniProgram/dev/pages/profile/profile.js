@@ -1,6 +1,6 @@
 import Toast from '../../components/vant/toast/toast';
 import Dialog from '../../components/vant/dialog/dialog';
-import {ifExistUserId} from '../../utils/common';
+import {ifExistUserId, navTo} from '../../utils/common';
 
 
 Page({
@@ -9,26 +9,20 @@ Page({
     // userinfo: {}
   },
   onLogin(){
-    wx.navigateTo({
-      url: '../welcome/welcome',
-    })
+    navTo({page: 'login'});
   },
   onShow(){
     const userinfo = wx.getStorageSync('userinfo');
     this.setData({ userinfo, user: ifExistUserId })
   },
   onAbout(){
-    wx.navigateTo({
-      url: '../about/about',
-    })
+    navTo({page: 'about'});
   },
   onFav(){
     if (!ifExistUserId()){
       Toast({message:'无法使用,请先登录~',position: 'bottom'});
     } else {
-      wx.navigateTo({
-        url: '../favorites/favorites',
-      })
+      navTo({page: 'collection'});
     }
   },
   onEdit(){
@@ -36,9 +30,7 @@ Page({
       Toast({message: '无法使用,请先登录~',position: 'bottom'});
     } else {
       Toast({position: 'bottom', message: '该功能未开放，敬请期待。'});
-      // wx.navigateTo({
-      //   url: '../myedit/myedit',
-      // })
+      // navTo({page: 'myEdit'});
     }
   },
   onAway(){

@@ -81,7 +81,7 @@ Page({
   onDetail(e) {
     var voc = e.currentTarget.dataset.voc;
     console.log(voc);
-    navTo('entryDetail', `?voc=${voc}`);
+    navTo({page: 'entryDetail', args: `?voc=${voc}`});
   },
   //初始化，将本地存储添加checked属性，用于页面展示
   init: function(){

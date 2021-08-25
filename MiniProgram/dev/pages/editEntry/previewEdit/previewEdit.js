@@ -1,3 +1,5 @@
+import { navTo } from "../../../utils/common";
+
 const app = getApp();
 
 Page({
@@ -19,9 +21,10 @@ Page({
               tap:(e)=>{
                 if (e.currentTarget.dataset.data.tag=='navigator'){
                   var voc = e.currentTarget.dataset.data.attrs.href;
-                  wx.navigateTo({
-                    url: '../vocdetail/vocdetail?voc=' + voc,
-                  })
+                  navTo({page: 'entryDeatil', args: `?voc=${voc}`});
+                  // wx.navigateTo({
+                  //   url: '../vocdetail/vocdetail?voc=' + voc,
+                  // })
                 }
               }
             }

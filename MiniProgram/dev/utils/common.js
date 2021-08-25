@@ -8,33 +8,36 @@ const ifExistUserId = () => {
   }
 };
 
-//ToDo
-const navTo = (page, params, success_callback, fail_callback) => {
+const navTo = (params, success_callback, fail_callback) => {
+  let page = params.page;
+  let args = params.args || '';
+  let s_callback = success_callback || null;
+  let f_callback = fail_callback ||  null;
   if (page != 'index' && page != 'profile'){
     wx.navigateTo({
-      url: pages[page] + params,
+      url: pages[page] + args,
       success(res){
-        if (typeof(success_callback)==='function'){
-          success_callback(res)
+        if (typeof(s_callback)==='function'){
+          s_callback(res)
         }
       },
       fail(err){
-        if (typeof(fail_callback)==='function'){
-          fail_callback(err)
+        if (typeof(f_callback)==='function'){
+          f_callback(err)
         }
       }
     });
   } else {
     wx.switchTab({
-      url: pages[page] + params,
+      url: pages[page] + args,
       success(res){
-        if (typeof(success_callback)==='function'){
-          success_callback(res)
+        if (typeof(s_callback)==='function'){
+          s_callback(res)
         }
       },
       fail(err){
-        if (typeof(fail_callback)==='function'){
-          fail_callback(err)
+        if (typeof(f_callback)==='function'){
+          f_callback(err)
         }
       }
     })
