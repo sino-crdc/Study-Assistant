@@ -1,5 +1,6 @@
 @import "./styles/iconfont.wxss";
 
+
 page,view,text,image,navigator{
     padding: 0;
     margin: 0;

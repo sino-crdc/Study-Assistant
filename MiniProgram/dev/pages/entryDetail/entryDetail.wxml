@@ -3,58 +3,66 @@
     <view class="chinese">{{detail.chinese}}</view>
 </view>
 
-<view class="wrap">
-    <van-icon bind:tap="onFavThisVoc" size="20" color="{{is_fav?'#f3b600':'black'}}" name="{{is_fav?'star':'star-o'}}"/>
-    <view bind:tap="onEditThisVoc" class="iconfont icon-bianji"/>
+<view wx:if="{{pageState.state==='finish'}}" class="wrap">
+    <van-icon bind:tap="onFavThisVoc" size="20" color="{{is_fav?'#f3b600':''}}"
+        name="{{is_fav?'star':'star-o'}}" />
+    <view bind:tap="onEditThisVoc" class="iconfont icon-bianji" />
 </view>
 
 <view wx:if="{{ vocdata.detail.content }}" class="content">
-    <van-icon size="20" id="content" bind:click="sh" name="{{show.content?'arrow-up':'arrow-down'}}"/>
+    <van-icon size="20" id="content" bind:click="sh" name="{{show.content?'arrow-up':'arrow-down'}}" />
     <view class="bt">Content</view>
     <view id="content" bind:tap="onEdit" wx:if="{{ show.content }}" class="iconfont icon-edit myicon"></view>
 </view>
 <split wx:if="{{ vocdata.detail.content }}" />
-<view wx:if="{{ show.content && vocdata.detail.content }}" class="tow"><towxml nodes="{{ detail.content }}"/></view>
+<view wx:if="{{ show.content && vocdata.detail.content }}" class="tow">
+    <towxml nodes="{{ detail.content }}" />
+</view>
 
 <view wx:if="{{ vocdata.detail.proof }}" class="proof">
-    <van-icon size="20" id="proof" bind:click="sh" name="{{show.proof?'arrow-up':'arrow-down'}}"/>
+    <van-icon size="20" id="proof" bind:click="sh" name="{{show.proof?'arrow-up':'arrow-down'}}" />
     <view class="bt">Proof</view>
     <view id="proof" bind:tap="onEdit" wx:if="{{ show.proof }}" class="iconfont icon-edit myicon"></view>
 </view>
 <split wx:if="{{ vocdata.detail.proof }}" />
-<view wx:if="{{ show.proof && vocdata.detail.proof  }}" class="tow"><towxml nodes="{{ detail.proof }}"/></view>
+<view wx:if="{{ show.proof && vocdata.detail.proof  }}" class="tow">
+    <towxml nodes="{{ detail.proof }}" />
+</view>
 
 <view wx:if="{{ vocdata.detail.remark }}" class="remark">
-    <van-icon size="20" id="remark" bind:click="sh" name="{{show.remark?'arrow-up':'arrow-down'}}"/>
+    <van-icon size="20" id="remark" bind:click="sh" name="{{show.remark?'arrow-up':'arrow-down'}}" />
     <view class="bt">Remark</view>
     <view id="remark" bind:tap="onEdit" wx:if="{{ show.remark }}" class="iconfont icon-edit myicon"></view>
 </view>
 <split wx:if="{{ vocdata.detail.remark }}" />
-<view wx:if="{{ show.remark && vocdata.detail.remark }}" class="tow"><towxml nodes="{{ detail.remark }}"/></view>
+<view wx:if="{{ show.remark && vocdata.detail.remark }}" class="tow">
+    <towxml nodes="{{ detail.remark }}" />
+</view>
 
 <view wx:if="{{ vocdata.detail.example }}" class="example">
-    <van-icon size="20" id="example" bind:click="sh" name="{{show.example?'arrow-up':'arrow-down'}}"/>
+    <van-icon size="20" id="example" bind:click="sh" name="{{show.example?'arrow-up':'arrow-down'}}" />
     <view class="bt">Examples</view>
     <view id="example" bind:tap="onEdit" wx:if="{{ show.example }}" class="iconfont icon-edit myicon"></view>
 </view>
 <split wx:if="{{ vocdata.detail.example }}" />
-<view wx:if="{{ show.example && vocdata.detail.example }}" class="tow"><towxml nodes="{{ detail.example }}"/></view>
+<view wx:if="{{ show.example && vocdata.detail.example }}" class="tow">
+    <towxml nodes="{{ detail.example }}" />
+</view>
 
 <view wx:if="{{ vocdata.detail.source }}" class="source">
-    <van-icon size="20" id="source" bind:click="sh" name="{{show.source?'arrow-up':'arrow-down'}}"/>
+    <van-icon size="20" id="source" bind:click="sh" name="{{show.source?'arrow-up':'arrow-down'}}" />
     <view class="bt">Source</view>
     <view id="source" bind:tap="onEdit" wx:if="{{ show.source }}" class="iconfont icon-edit myicon"></view>
 </view>
 <split wx:if="{{ vocdata.detail.source }}" />
 <view wx:if="{{ show.source && vocdata.detail.source }}" class="sour">{{ detail.source }}</view>
 
-<view class="author">
+<view wx:if="{{pageState.state==='finish'}}" class="author">
     <view class="iconfont icon-lishi"></view>
     <view class="edithis">由</view>
     <view class="editor">{{ vocdata.detail.author }}</view>
     <view class="edithis">最后编辑</view>
 </view>
-
-<van-empty wx:if="{{ netErr }}" image="network" description="网络错误"/>
-<van-empty wx:if="{{ no_voc }}" image="default" description="未收录此词条"/>
+<van-empty wx:if="{{ pageState.state=='error' }}" image="network" description="网络错误" />
+<van-empty wx:if="{{ no_voc }}" image="default" description="未收录此词条" />
 <van-toast id="van-toast" />

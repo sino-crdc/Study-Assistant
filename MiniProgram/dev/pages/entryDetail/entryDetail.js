@@ -1,7 +1,8 @@
 import { request } from '../../utils/request';
 import { request_test } from '../../utils/request';
 import Toast from '../../components/vant/toast/toast';
-import { navTo } from "../../utils/common";
+import { navTo } from '../../utils/common';
+import pageStates from '../../utils/pageState';
 const app = getApp();
 
 Page({
@@ -21,6 +22,7 @@ Page({
     is_fav: false,
   },
   onLoad(options) {
+    this.setData({haslogin: app.globalData.haslogin});
     if (options.no_voc == 1) {
       this.setData({
         no_voc: true,
@@ -37,6 +39,8 @@ Page({
     _ts.setData({
       voc_id: voc_id,
     });
+    const pageState = pageStates(_ts)
+    pageState.loading()
     try {
       const res = await request_test({
         url: 'https://result.eolinker.com/4jVrjsne9fb6b02452d40cb5ed91884ddc6a323acfe39f7?uri=/vocdetail',
@@ -47,17 +51,15 @@ Page({
         //   voc_id: voc_id,
         // },
       });
+      pageState.finish();
       _ts.setData({
         vocdata: res.data.data.vocdata,
       });
-      console.log('attr');
-      console.log(_ts.data.vocdata);
       _ts.setTowxml();
     } catch {
-      _ts.setNetErr(true);
+      pageState.error();
     }
   },
-  
   onEdit(e) {
     var type = e.currentTarget.id;
     var voc_id = this.data.voc_id;
@@ -75,13 +77,7 @@ Page({
     navTo({
       page: 'editEntry',
       args: `?type=${type}&voc_id=${voc_id}`
-    },success_callback
-    );
-  },
-  setNetErr(err) {
-    this.setData({
-      netErr: err,
-    });
+    },success_callback);
   },
   setTowxml() {
     const {theme} = wx.getSystemInfoSync();
@@ -136,20 +132,20 @@ Page({
     console.log(e);
     if (e.currentTarget.dataset.data.tag == 'navigator') {
       var voc = e.currentTarget.dataset.data.attrs.href;
-      const voc_id = await request({
-        url: '/voc_id',
-        data: {
-          voc: voc,
-        },
-      });
-      if (res.data.data.code == 200) {
-        wx.navigateTo({
-          url: '../vocdetail/vocdetail?no_voc=0&voc_id=' + voc_id,
+      try {
+        const voc_id = await request({
+          url: '/voc_id',
+          data: {
+            voc: voc,
+          },
         });
-      } else {
-        wx.navigateTo({
-          url: '../vocdetail/vocdetail?no_voc=1',
-        });
+        if (res.data.data.code == 200) {
+          navTo({page: 'entryDetail', args: `?no_voc=0&voc_id=${voc_id}`});
+        } else {
+          navTo({page: 'entryDetail', args: `?no_voc=1`});
+        }
+      } catch {
+        //Todo err
       }
     }
   },
@@ -185,6 +181,7 @@ Page({
     //  this.setData({is_fav: !this.data.is_fav});
   },
   onEditThisVoc(){
+    
     
   }
 });

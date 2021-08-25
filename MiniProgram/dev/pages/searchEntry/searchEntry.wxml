@@ -13,15 +13,15 @@
     </view>
 </van-search>
 
-<view wx:if="{{ loading }}" class="sk" wx:for="{{ 7 }}">
+<view wx:if="{{ pageState.state=='loading' }}" class="sk" wx:for="{{ 7 }}">
   <van-skeleton title row="2"></van-skeleton>
 </view>
 
-<view wx:if="{{ !loading }}" wx:for="{{ resultList }}">
+<view wx:if="{{ pageState.state=='finish' }}" wx:for="{{ resultList }}">
   <voc-item bind:tap="onDetail" data-voc_id="{{ item.id }}" title="{{ item.title }}" meta="{{ item.meta }}"/>
 </view>
 
 
-<van-empty wx:if="{{ netErr }}" image="network" description="网络错误"/>
+<van-empty wx:if="{{ pageState.state==='error' }}" image="network" description="网络错误"/>
 
-<van-empty wx:if="{{ schErr }}" image="search" description="没有搜到内容"/>
+<van-empty wx:if="{{ pageState.state==='empty' }}" image="search" description="没有搜到内容"/>

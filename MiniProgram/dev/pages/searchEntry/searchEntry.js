@@ -1,12 +1,12 @@
 import { request } from '../../utils/request';
 import { navTo } from "../../utils/common";
+import pageStates from '../../utils/pageState'
 
 Page({
   data: {
     keyword: '',
     resultList: [],
     loading: false,
-    netErr: false,
     schErr: false,
     dk: 'light',
   },
@@ -31,7 +31,9 @@ Page({
 
   async search(keyword) {
     const _ts = this;
-    _ts.setData({loading: true, netErr: false, schErr: false, resultList: []});
+    const pageState = pageStates(_ts);
+    pageState.loading()
+    // _ts.setData({loading: true, netErr: false, schErr: false, resultList: []});
     console.log('sch');
     try {
       const res = await request({
@@ -41,18 +43,19 @@ Page({
       console.log('res');
       console.log(res);
       _ts.setData({
-        resultList: res.data.data.resultList,
-        netErr: false,
-        schErr:  false,
+        resultList: res.data.data.resultList
       });
+      pageState.finish()
     } catch {
+      pageState.error();
       console.log('err');
-      _ts.setData({netErr: true});
+      // _ts.setData({netErr: true});
     };
     console.log(_ts.data.resultList);
-    _ts.setData({loading: false});
-    if (_ts.data.resultList.length==0 && !_ts.data.netErr) {
-        _ts.setData({schErr: true});
+    // _ts.setData({loading: false});
+    if (_ts.data.resultList.length==0 && !_ts.data.pageState.state==='error') {
+      pageState.empty()
+        // _ts.setData({schErr: true});
     }
   },
 
