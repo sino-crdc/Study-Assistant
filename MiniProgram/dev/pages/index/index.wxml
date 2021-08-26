@@ -1,7 +1,7 @@
 <search
   value="{{ keyword }}"
   placeholder="Entrez votre mot à rechercher"
-  bind:search="onSearch"
+  bind:search="onClick"
   bind:change="onChange"
   field-class="field"
   input-class="input"

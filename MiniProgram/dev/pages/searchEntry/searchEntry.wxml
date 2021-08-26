@@ -2,10 +2,10 @@
   value="{{ keyword }}"
   placeholder="Entrez votre mot à rechercher"
   use-action-slot
-  bind:search="onSearch"
+  bind:search="onClick"
   bind:change="onChange"
   shape="round"
-  background="{{ dk=='light'?'#fff':'#191919' }}"
+  background="{{ theme=='light'?'#fff':'#191919' }}"
   left-icon=""
   input-align="center">
     <view class="ss iconfont icon-sousuo" slot="action" bind:tap="onClick">
@@ -18,7 +18,7 @@
 </view>
 
 <view wx:if="{{ pageState.state=='finish' }}" wx:for="{{ resultList }}">
-  <voc-item bind:tap="onDetail" data-voc_id="{{ item.id }}" title="{{ item.title }}" meta="{{ item.meta }}"/>
+  <voc-item bind:tap="navToDetail" data-voc_id="{{ item.id }}" title="{{ item.title }}" meta="{{ item.meta }}"/>
 </view>
 
 

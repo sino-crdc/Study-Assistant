@@ -1,8 +1,9 @@
 import { request } from '../../utils/request';
-import { request_test } from '../../utils/request';
+import { request_test } from '../../utils/request';//Test
 import Toast from '../../components/vant/toast/toast';
 import { navTo } from '../../utils/common';
 import pageStates from '../../utils/pageState';
+import pageState from '../../utils/pageState';
 const app = getApp();
 
 Page({
@@ -20,46 +21,53 @@ Page({
     },
     no_voc: false,
     is_fav: false,
+    // haslogin:  是否登录
   },
+  /**
+   * @param {no_voc, voc_id}
+   * @description 通过voc_id显示detail
+   */
+
   onLoad(options) {
     this.setData({haslogin: app.globalData.haslogin});
-    if (options.no_voc == 1) {
+    const entry_id = optionns.entry_id;
+    this.setData({entry_id});
+    if (options.no_entry == 1) {
       this.setData({
-        no_voc: true,
+        no_entry: true,
       });
     } else {
       this.setData({
-        no_voc: false,
+        no_entry: false,
       });
-      this.showDetail(options.voc_id);
+      this.showDetail(entry_id);
     }
   },
   showDetail: async function (voc_id) {
     const _ts = this;
-    _ts.setData({
-      voc_id: voc_id,
-    });
     const pageState = pageStates(_ts)
     pageState.loading()
     try {
       const res = await request_test({
         url: 'https://result.eolinker.com/4jVrjsne9fb6b02452d40cb5ed91884ddc6a323acfe39f7?uri=/vocdetail',
+        // Todo url: '/detail',
         header: {
           'content-type': 'application/x-www-form-urlencoded',
         },
-        // data: {
-        //   voc_id: voc_id,
-        // },
+        // Todo data: {
+        // Todo   entry_id: entry_id,
+        // Todo },
       });
-      pageState.finish();
       _ts.setData({
-        vocdata: res.data.data.vocdata,
+        entrydata: res.data.data.entrydata,
       });
       _ts.setTowxml();
     } catch {
       pageState.error();
+      console.log('neterr');
     }
   },
+  //Todo
   onEdit(e) {
     var type = e.currentTarget.id;
     var voc_id = this.data.voc_id;
@@ -82,9 +90,9 @@ Page({
   setTowxml() {
     const {theme} = wx.getSystemInfoSync();
     const _ts = this;
-    const attr = _ts.data.vocdata.detail;
-    let title = attr.title;
-    let content = app.towxml(attr.content, 'markdown', {
+    const detail = _ts.data.entrydata.detail;
+    let title = detail.title;
+    let content = app.towxml(detail.content, 'markdown', {
       theme: theme,
       events: {
         tap: (e) => {
@@ -92,7 +100,7 @@ Page({
         },
       },
     });
-    let proof = app.towxml(attr.proof, 'markdown', {
+    let proof = app.towxml(detail.proof, 'markdown', {
       theme: theme,
       events: {
         tap: (e) => {
@@ -100,7 +108,7 @@ Page({
         },
       },
     });
-    let remark = app.towxml(attr.remark, 'markdown', {
+    let remark = app.towxml(detail.remark, 'markdown', {
       theme: theme,
       events: {
         tap: (e) => {
@@ -108,7 +116,7 @@ Page({
         },
       },
     });
-    let example = app.towxml(attr.example, 'markdown', {
+    let example = app.towxml(detail.example, 'markdown', {
       theme: theme,
       events: {
         tap: (e) => {
@@ -116,8 +124,8 @@ Page({
         },
       },
     });
-    let source = attr.source;
-    let chinese = attr.chinese;
+    let source = detail.source;
+    let chinese = detail.chinese;
     _ts.setData({
       'detail.title': title,
       'detail.content': content,
@@ -127,29 +135,29 @@ Page({
       'detail.source': source,
       'detail.chinese': chinese
     });
+    pageState.finish();
   },
   nav: async function (e) {
-    console.log(e);
     if (e.currentTarget.dataset.data.tag == 'navigator') {
-      var voc = e.currentTarget.dataset.data.attrs.href;
+      var entry = e.currentTarget.dataset.data.attrs.href;
       try {
-        const voc_id = await request({
-          url: '/voc_id',
+        const res = await request({
+          url: '/entry_id',
           data: {
-            voc: voc,
+            entry: entry,
           },
         });
         if (res.data.data.code == 200) {
-          navTo({page: 'entryDetail', args: `?no_voc=0&voc_id=${voc_id}`});
+          navTo({page: 'entryDetail', args: `?no_voc=0&voc_id=${res.data.data.entry_id}`});
         } else {
           navTo({page: 'entryDetail', args: `?no_voc=1`});
         }
       } catch {
-        //Todo err
+        pageState.error();
       }
     }
   },
-  sh: function (e) {
+  isShow: function (e) {
     var t = e.currentTarget.id;
     var s = this.data.show[t];
     var r = 'show.' + t;
@@ -164,7 +172,7 @@ Page({
         url: '/fav',
         data: {
           'user_id': user_id,
-          'voc_id': voc_id,
+          'entry_id': entry_id,
         },
       });
       if (res.data.data.code==200){
@@ -178,7 +186,6 @@ Page({
     } catch {
       this.data.is_fav==true?Toast({message: '取消收藏失败', position: 'bottom'}):Toast({message: '收藏失败', position: 'bottom'});
     };
-    //  this.setData({is_fav: !this.data.is_fav});
   },
   onEditThisVoc(){
     
