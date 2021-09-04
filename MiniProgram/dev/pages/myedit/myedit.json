@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "我的编辑",
-  "usingComponents": {
-    "voc-item": "../../components/voc-item/voc-item"
-  }
-}

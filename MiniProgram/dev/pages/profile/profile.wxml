@@ -2,7 +2,7 @@
   <view wx:if="{{ !userinfo.avatarUrl }}" class="login" bind:tap="onLogin">
     <view class="text_wrap">
       <view class="ex1">点击登录</view>
-      <view class="ex2">登录后可以使用收藏、上传</view>
+      <view class="ex2">登录后可以使用收藏、编辑</view>
     </view>
     <view class="user_icon_wrap">
       <image class="user_icon" src="{{ avatarUrl }}" />
@@ -11,7 +11,7 @@
   <view wx:else class="login">
     <view class="text_wrap">
       <view class="ex1">{{ userinfo.nickName }}</view>
-      <view class="ex2">可以使用收藏、上传功能</view>
+      <view class="ex2">可以使用收藏、编辑功能</view>
     </view>
     <view class="user_icon_wrap">
       <image class="user_icon" src="{{ userinfo.avatarUrl }}" />
@@ -23,35 +23,42 @@
   <button bind:tap="onFav" hover-class="btn_hover">
     <view class="func_item">
       <van-icon size="28" name="star" class="itm"></van-icon>
-      <view class="itm_text">Favorite</view>
+      <view class="itm_text">收藏</view>
     </view>
   </button>
   <button bind:tap="onEdit" hover-class="btn_hover">
     <view class="func_item">
       <van-icon size="28" name="column" class="itm"></van-icon>
-      <view class="itm_text">Edit</view>
+      <view class="itm_text">我的编辑</view>
     </view>
   </button>
 </view>
 
 <view class="menu">
-  <button bind:tap="onAbout" class="btn" hover-class="btn_hover">
-    <view class="iconfont icon-about myicon"></view>
-    <view class="title">About</view>
+  <button open-type="share" class="btn" hover-class="btn_hover">
+    <view class="iconfont icon-share myicon"></view>
+    <view class="title">分享给同学们</view>
     <van-icon class="arrow" name="arrow"></van-icon>
   </button>
 
   <button open-type="feedback" class="btn" hover-class="btn_hover">
     <view class="iconfont icon-feedback myicon"></view>
-    <view class="title">Feedback</view>
+    <view class="title">问题反馈</view>
     <van-icon class="arrow" name="arrow"></van-icon>
   </button>
 
-  <button open-type="share" class="btn" hover-class="btn_hover">
-    <view class="iconfont icon-share myicon"></view>
-    <view class="title">Share</view>
+  <button bind:tap="onAbout" class="btn" hover-class="btn_hover">
+    <view class="iconfont icon-about myicon"></view>
+    <view class="title">关于程序</view>
+    <van-icon class="arrow" name="arrow"></van-icon>
+  </button> 
+
+  <button wx:if="{{ user }}" bind:tap="onAway" class="btn" hover-class="btn_hover">
+    <view class="iconfont icon-deleteuser myicon warn"></view>
+    <view class="title warn">清空帐号并退出</view>
     <van-icon class="arrow" name="arrow"></van-icon>
   </button>
 </view>
 
 <van-toast id="van-toast" />
+<van-dialog id="van-dialog" />

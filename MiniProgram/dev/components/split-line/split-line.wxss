@@ -12,6 +12,6 @@
     width: 80%;
     height: 4rpx;
     margin-left: 20rpx;
-    background: #c4c4c4;
+    background-color: #c4c4c4;
   }
   

@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "About",
-  "usingComponents": {
-      "cell-group":"../../components/vant/cell-group/index",
-      "cell":"../../components/vant//cell/index"
-  }
-}

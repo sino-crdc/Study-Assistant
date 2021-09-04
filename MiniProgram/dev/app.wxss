@@ -1,5 +1,6 @@
 @import "./styles/iconfont.wxss";
 
+
 page,view,text,image,navigator{
     padding: 0;
     margin: 0;
@@ -7,6 +8,9 @@ page,view,text,image,navigator{
 }
 
 page{
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+      Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB', 'Microsoft Yahei',
+      sans-serif;
     font-size: 28rpx;
     --themeColor:#1296db;
     /* Color Light */

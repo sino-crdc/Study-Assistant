@@ -94,15 +94,19 @@ page {
 .myicon {
   margin-left: 10rpx;
   margin-right: 20rpx;
-  margin-top: 8rpx;
   color: var(--buttonColorLight);
 }
 
 .menu {
   .btn {
+    .warn{
+      color:  red !important;
+    }
     margin: 4rpx 30rpx;
+    height: 108rpx;
     background-color: var(--boardColorLight);
     display: flex;
+    align-items: center;
     border-radius: 0;
 
     &::after {
@@ -126,12 +130,12 @@ page {
     width: 86%;
     text-align: left;
     font-size: 32rpx;
-    margin-top: 14rpx;
+    /*margin-top: 12rpx;*/
   }
 }
 
 .btn_hover {
-  background-color: var(--buttonHoverColorDark) !important;
+  background-color: var(--buttonHoverColorLight) !important;
   opacity: 0.9 !important;
 }
 
@@ -164,5 +168,8 @@ page {
     .btn{
       background-color: var(--boardColorDark);
     }
+  }
+  .btn_hover {
+    background-color: var(--buttonHoverColorDark) !important;
   }
 }

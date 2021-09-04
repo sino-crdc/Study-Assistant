@@ -1,7 +1,7 @@
 <search
   value="{{ keyword }}"
   placeholder="Entrez votre mot à rechercher"
-  bind:search="onSearch"
+  bind:search="onClick"
   bind:change="onChange"
   field-class="field"
   input-class="input"
@@ -10,7 +10,7 @@
   input-align="center"
   use-action-slot
   >
-    <view class="iconfont icon-sousuo" slot="action" bind:tap="onClick">
+    <view class="ss iconfont icon-sousuo" slot="action" bind:tap="onClick">
       搜索
     </view>
 </search>

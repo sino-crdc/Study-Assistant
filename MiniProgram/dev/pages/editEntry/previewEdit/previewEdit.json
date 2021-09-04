@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "预览",
+  "usingComponents": {
+    "towxml": "/utils/towxml/towxml"
+  }
+}

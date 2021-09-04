@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "towxml": "/utils/towxml/towxml",
+    "split": "/components/split-line/split-line",
+    "van-empty": "/components/vant/empty/index",
+    "van-icon": "/components/vant/icon/index",
+    "van-toast": "/components/vant/toast/index"
+  }
+}

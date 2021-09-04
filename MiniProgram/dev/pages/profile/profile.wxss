@@ -1,7 +1,7 @@
 @font-face {
   font-family: "iconfont";
   /* Project id 2694040 */
-  src: url('//at.alicdn.com/t/font_2694040_qmo3f4g96x.woff2?t=1627976381904') format('woff2'), url('//at.alicdn.com/t/font_2694040_qmo3f4g96x.woff?t=1627976381904') format('woff'), url('//at.alicdn.com/t/font_2694040_qmo3f4g96x.ttf?t=1627976381904') format('truetype');
+  src: url('//at.alicdn.com/t/font_2694040_luep5gm0s2s.woff2?t=1629687587218') format('woff2'), url('//at.alicdn.com/t/font_2694040_luep5gm0s2s.woff?t=1629687587218') format('woff'), url('//at.alicdn.com/t/font_2694040_luep5gm0s2s.ttf?t=1629687587218') format('truetype');
 }
 .iconfont {
   font-family: "iconfont" !important;
@@ -9,6 +9,9 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.icon-deleteuser:before {
+  content: "\e7ae";
 }
 .icon-Localupload:before {
   content: "\e7e5";
@@ -106,14 +109,18 @@ page {
 .myicon {
   margin-left: 10rpx;
   margin-right: 20rpx;
-  margin-top: 8rpx;
   color: var(--buttonColorLight);
 }
 .menu .btn {
   margin: 4rpx 30rpx;
+  height: 108rpx;
   background-color: var(--boardColorLight);
   display: flex;
+  align-items: center;
   border-radius: 0;
+}
+.menu .btn .warn {
+  color: red !important;
 }
 .menu .btn::after {
   border: 0;
@@ -131,10 +138,10 @@ page {
   width: 86%;
   text-align: left;
   font-size: 32rpx;
-  margin-top: 14rpx;
+  /*margin-top: 12rpx;*/
 }
 .btn_hover {
-  background-color: var(--buttonHoverColorDark) !important;
+  background-color: var(--buttonHoverColorLight) !important;
   opacity: 0.9 !important;
 }
 @media (prefers-color-scheme: dark) {
@@ -161,5 +168,8 @@ page {
   }
   .menu .btn {
     background-color: var(--boardColorDark);
+  }
+  .btn_hover {
+    background-color: var(--buttonHoverColorDark) !important;
   }
 }
