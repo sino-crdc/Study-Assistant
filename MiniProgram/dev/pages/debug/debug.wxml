@@ -1,0 +1,16 @@
+<view class="title">
+    这是调试页面
+</view>
+
+<view class="in">
+    <input type="text" value="{{args}}" bind:input="onIn" placeholder="输入参数（带?）"/>
+</view>
+
+<view class="menu">
+    <view wx:for="{{debugList}}">
+        <button bind:tap="{{item}}" class="btn" hover-class="btn_hover">
+            <view class="title">page {{item}}</view>
+            <van-icon class="arrow" name="arrow"></van-icon>
+        </button>
+    </view>
+</view>

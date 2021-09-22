@@ -2,8 +2,9 @@ page {
   background-color: var(--pageColorLight);
 }
 .field {
-  border-radius: 32rpx !important;
-  border: 1.2px solid var(--themeColor) !important;
+  border-radius: 26rpx !important;
+  border: 1.5px solid #ccc !important;
+  /*border: 1.2px solid var(--themeColor) !important;*/
 }
 .input {
   padding-left: 26rpx !important;

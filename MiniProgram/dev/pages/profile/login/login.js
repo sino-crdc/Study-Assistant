@@ -5,6 +5,7 @@ import { request } from '../../../utils/request'
 Page({
   data: {
   },
+  //Todo 与服务器通信
   myLogin: async function (code){
     let res = await request({
       url: '/login',
