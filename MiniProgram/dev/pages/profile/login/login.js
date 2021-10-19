@@ -15,13 +15,13 @@ Page({
     return res;
   },
   async onLogin(){
-    try {
-      const code = await login();
-      const info = await this.myLogin(code);
-      console.log(info);
-    } catch {
-      //ToDo err
-    };
+    // try {
+    //   const code = await login();
+    //   const info = await this.myLogin(code);
+    //   console.log(info);
+    // } catch {
+    //   //ToDo err
+    // };
     wx.getUserProfile({
       desc: '用于收藏等功能',
       success: (res) => {

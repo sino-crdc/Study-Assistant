@@ -30,7 +30,7 @@ Page({
 
   onLoad(options) {
     this.setData({haslogin: app.globalData.haslogin});
-    const entry_id = optionns.entry_id;
+    const entry_id = options.entry_id;
     this.setData({entry_id});
     if (options.no_entry == 1) {
       this.setData({

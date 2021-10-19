@@ -1,5 +1,5 @@
 export const request=(params)=>{
-    const baseUrl = "https://zzzsyyy.github.io/wxp_test";
+    const baseUrl = "https://amourestunart.asia";
     return new Promise((resolve,reject)=>{
         wx.request({
           ...params,
@@ -13,7 +13,7 @@ export const request=(params)=>{
         });
     })
 };
-
+//Test
 export const request_test = (params)=>{
     return new Promise((resolve,reject)=>{
         wx.request({

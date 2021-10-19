@@ -4,7 +4,7 @@ import { request } from '../../utils/request';
 Page({
   data: {
     management: false,      //控制管理条目（即复选框是否显示）
-    no_collection: false,          //控制没有条目的提示
+    no_collection: false,   //控制没有条目的提示
     netErr: false,          //控制网络错误的提示
     loading: true,          //控制是否正在加载的提示
     select_all: false,      //是否全选
