@@ -2,10 +2,10 @@
     <view class="title">
         {{ title }}
     </view>
-    <view class="meta_wrap">
-        <view class="meta">
+    <view class="desc_wrap">
+        <!-- <view class="meta">
             {{ meta }}
-        </view>
+        </view> -->
         <view wx:if="{{ flag }}" class="chbox">
             <slot></slot>
         </view>

@@ -5,10 +5,11 @@ Component({
       type: String,
       value: ""
     },
-    meta: {
-      type: String,
-      value: ""
-    },
+    //Todo
+    // desc: {
+    //   type: String,
+    //   value: ""
+    // },
     flag: {
       type: Boolean,
       value: false

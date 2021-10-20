@@ -11,12 +11,12 @@
   <view wx:else class="login">
     <view class="text_wrap">
       <!-- <open-data class="ex1" type="userNickName"></open-data> -->
-      <view class="ex1">{{ userinfo.nickName }}</view>
+      <view class="ex1">{{ userinfo.nick_name }}</view>
       <view class="ex2">可以使用收藏、编辑功能</view>
     </view>
     <view class="user_icon_wrap">
       <!-- <open-data class="user_icon" type="userAvatarUrl"></open-data> -->
-      <image class="user_icon" src="{{ userinfo.avatarUrl }}" />
+      <image class="user_icon" src="{{ userinfo.avatar_url }}" />
     </view>
   </view>
 </view>

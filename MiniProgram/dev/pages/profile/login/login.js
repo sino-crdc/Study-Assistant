@@ -1,14 +1,14 @@
 import { navTo } from "../../../utils/common";
 import { login } from "../../../utils/login";
 import { request } from "../../../utils/request";
+import {convertUserInfo} from "../../../utils/common";
 
 Page({
   data: {},
-  //Todo 与服务器通信
-  myLogin: async function (code, userInfo) {
+  myLogin: async function (code, userinfo) {
     let res = await request({
       url: "/login",
-      data: { 'code': code, 'userinfo': userInfo },
+      data: { 'code': code, 'userinfo': userinfo },
       method: "post",
     });
     return res;
@@ -17,18 +17,18 @@ Page({
     wx.getUserProfile({
       desc: "用于收藏等功能",
       success: (res) => {
-        const userInfo = res.userInfo;
-        wx.setStorageSync("userinfo", userInfo);
-        console.log(userInfo);
-        this.onLogin(userInfo);
+        const userinfo = convertUserInfo(res.userInfo);
+        wx.setStorageSync("userinfo", userinfo);
+        console.log(userinfo);
+        this.onLogin(userinfo);
       },
     });
   },
-  async onLogin(userInfo) {
+  async onLogin(userinfo) {
     try {
       const code = await login();
       console.log(code);
-      const info = this.myLogin(code,userInfo);
+      const info = this.myLogin(code,userinfo);
       wx.setStorageSync("user_id", info.data.user.id);
       wx.setStorageSync("isLogin", true);
       wx.navigateBack({
@@ -36,8 +36,9 @@ Page({
       });
       console.log(info);
     } catch {
-      //Todo
+      //Todo 失敗消息
       console.log("login err");
+      //Test true ---> false
       wx.setStorageSync("isLogin", true);
       wx.navigateBack({
         delta: 1,
