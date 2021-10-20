@@ -7,7 +7,7 @@ import { navTo } from '../../utils/common';
 Page({
     data: {
         type: '',
-        voc: '',
+        entry_id: '',
         rawMD: '',
         backup: '',
         flag: 1
@@ -95,14 +95,14 @@ Page({
         });
     },
     async onUP(){
-        var {type, voc, rawMD} = this.data;
+        var {type, entry_id, rawMD} = this.data;
         try {
             const res = await request({
                 url: '/vocedit',
                 method: 'POST',
                 data: {
                     'type': type,
-                    'voc': voc,
+                    'entry_id': entry_id,
                     'rawMD': rawMD,
                     'user_id': wx.getStorageSync('user_id'),
                 },

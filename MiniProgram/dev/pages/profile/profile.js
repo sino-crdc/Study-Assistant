@@ -6,12 +6,15 @@ import {ifExistUserId, navTo} from '../../utils/common';
 Page({
   data: {
     avatarUrl:'../../assets/images/avatar.png',
+    isLogin: false,
     // userinfo: {}
   },
   onLogin(){
     navTo({page: 'login'});
   },
   onShow(){
+    const isLogin = wx.getStorageSync('isLogin');
+    this.setData({isLogin});
     const userinfo = wx.getStorageSync('userinfo');
     this.setData({ userinfo, user: ifExistUserId })
   },

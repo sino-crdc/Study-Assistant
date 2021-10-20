@@ -1,7 +1,7 @@
 @font-face {
   font-family: "iconfont";
   /* Project id 2694040 */
-  src: url('//at.alicdn.com/t/font_2694040_luep5gm0s2s.woff2?t=1629687587218') format('woff2'), url('//at.alicdn.com/t/font_2694040_luep5gm0s2s.woff?t=1629687587218') format('woff'), url('//at.alicdn.com/t/font_2694040_luep5gm0s2s.ttf?t=1629687587218') format('truetype');
+  src: url('//at.alicdn.com/t/font_2694040_t70tvrqstvq.woff2?t=1629773398344') format('woff2'), url('//at.alicdn.com/t/font_2694040_t70tvrqstvq.woff?t=1629773398344') format('woff'), url('//at.alicdn.com/t/font_2694040_t70tvrqstvq.ttf?t=1629773398344') format('truetype');
 }
 .iconfont {
   font-family: "iconfont" !important;
@@ -9,6 +9,15 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.icon-bianji:before {
+  content: "\e611";
+}
+.icon-lishi:before {
+  content: "\e710";
+}
+.icon-edit:before {
+  content: "\e674";
 }
 .icon-deleteuser:before {
   content: "\e7ae";
@@ -54,9 +63,9 @@ page {
   display: flex;
 }
 .login_wrap .login .user_icon_wrap .user_icon {
-  height: 150rpx;
-  width: 150rpx;
-  border-radius: 50%;
+  height: 150rpx !important;
+  width: 150rpx !important;
+  border-radius: 50% !important;
 }
 .login_wrap .login .text_wrap {
   margin-left: 20rpx;
