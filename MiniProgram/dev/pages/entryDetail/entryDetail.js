@@ -8,26 +8,27 @@ const app = getApp();
 
 Page({
   data: {
-    detail: {},//转码后的内容
-    entryDetail: {},//未转码的内容
+    detail: {}, //转码后的内容
+    entryDetail: {}, //未转码的内容
     entry_id: 0,
     netErr: false,
-    show: {//控制类别是否显示
+    show: {
+      //控制类别是否显示
       content: true,
       proof: true,
       remark: true,
       example: true,
       source: true,
     },
-    no_entry: false,//?
-    is_collection: false,//词条是否被收录
+    no_entry: false, //?
+    is_collection: false, //词条是否被收录
     // haslogin:  是否登录
   },
   /**
-   * @param {no_voc, voc_id}
+   * @param {no_entry, entry_id}
    * @description 通过entry_id显示detail
    */
-
+  //*Done
   onLoad(options) {
     this.setData({ haslogin: app.globalData.haslogin });
     const entry_id = options.entry_id;
@@ -43,12 +44,12 @@ Page({
       this.showDetail(entry_id);
     }
   },
+  //*Done
   showDetail: async function (entry_id) {
-    const _ts = this;
-    const pageState = pageStates(_ts);
+    const pageState = pageStates(this);
     pageState.loading();
     try {
-      const res = await request_test({
+      const res = await request({
         url: "/entrydetail",
         // header: {
         //   'content-type': 'application/x-www-form-urlencoded',
@@ -57,48 +58,49 @@ Page({
           entry_id: entry_id,
         },
       });
-      _ts.setData({
+      this.setData({
         entryDetail: res.data.data.entry_detail,
       });
-      _ts.setTowxml();
+      this.setTowxml();
     } catch {
       pageState.error();
       console.log("neterr");
     }
   },
-  //Todo
+  //?Doing
   onEdit(e) {
     var type = e.currentTarget.id;
-    var voc_id = this.data.voc_id;
+    var entry_id = this.data.entry_id;
     const _ts = this;
+    //Todo
     const success_callback = (res) => {
       if (type == "title") {
         res.eventChannel.emit(
           "onL",
-          _ts.data.vocdata.detail.title + "\n" + _ts.data.vocdata.detail.chinese
+          _ts.data.entryDetail.title + "\n" + _ts.data.entryDetail.chinese
         );
       } else {
-        res.eventChannel.emit("onL", _ts.data.vocdata.detail[type]);
+        res.eventChannel.emit("onL", _ts.data.entryDetail[type]);
       }
     };
     navTo(
       {
         page: "editEntry",
-        args: `?type=${type}&voc_id=${voc_id}`,
+        args: `?type=${type}&entry_id=${entry_id}`,
       },
       success_callback
     );
   },
+  //*Done
   setTowxml() {
     const { theme } = wx.getSystemInfoSync();
-    const _ts = this;
-    const detail = _ts.data.entry_detail;
+    const detail = this.data.entry_detail;
     let title = detail.title;
     let content = app.towxml(detail.content, "markdown", {
       theme: theme,
       events: {
         tap: (e) => {
-          _ts.nav(e);
+          this.nav(e);
         },
       },
     });
@@ -106,7 +108,7 @@ Page({
       theme: theme,
       events: {
         tap: (e) => {
-          _ts.nav(e);
+          this.nav(e);
         },
       },
     });
@@ -114,7 +116,7 @@ Page({
       theme: theme,
       events: {
         tap: (e) => {
-          _ts.nav(e);
+          this.nav(e);
         },
       },
     });
@@ -122,14 +124,14 @@ Page({
       theme: theme,
       events: {
         tap: (e) => {
-          _ts.nav(e);
+          this.nav(e);
         },
       },
     });
     let source = detail.source;
     let chinese = detail.chinese;
     let author = detail.author;
-    _ts.setData({
+    this.setData({
       "detail.title": title,
       "detail.content": content,
       "detail.proof": proof,
@@ -139,31 +141,36 @@ Page({
       "detail.chinese": chinese,
       "detail.author": author,
     });
+    //!Doing
     pageState.finish();
   },
+  //?Doing
+  //Todo
   nav: async function (e) {
     if (e.currentTarget.dataset.data.tag == "navigator") {
       var entry = e.currentTarget.dataset.data.attrs.href;
       try {
         const res = await request({
-          url: "/entry_id",
+          url: "/getentry_id",
           data: {
             entry: entry,
           },
         });
-        if (res.data.data.code == 200) {
+        //?Todo
+        if (res.data.Statuscode == 200) {
           navTo({
             page: "entryDetail",
-            args: `?no_voc=0&voc_id=${res.data.data.entry_id}`,
+            args: `?no_entry=0&entry_id=${res.data.data.entry_id}`,
           });
         } else {
-          navTo({ page: "entryDetail", args: `?no_voc=1` });
+          navTo({ page: "entryDetail", args: `?no_entry=1` });
         }
       } catch {
         pageState.error();
       }
     }
   },
+  //*Done
   isShow: function (e) {
     var t = e.currentTarget.id;
     var s = this.data.show[t];
@@ -172,28 +179,30 @@ Page({
       [r]: !s,
     });
   },
+  //*Done
   async onCollectThisEntry() {
     const user_id = wx.getStorageSync("user_id");
     try {
       const res = await request({
-        url: "/fav",
+        url: "/collection/addentry",
         data: {
           user_id: user_id,
           entry_id: entry_id,
         },
       });
-      if (res.data.data.code == 200) {
-        this.setData({ is_fav: !this.data.is_fav });
+      if (res.data.data.status == "collection_ok") {
+        this.setData({ is_collection: true });
         Toast({ messgae: "收藏成功！", position: "bottom" });
-      } else if (res.dataa.data.code == 201) {
+      } else if (res.data.data.status == "uncollection_ok") {
+        this.setData({ is_collection: false });
         Toast({ message: "取消收藏成功！", position: "bottom" });
+      } else if (res.data.data.status == "collection_err") {
+        Toast({ message: "收藏失败", position: "bottom" });
       } else {
-        this.data.is_fav == true
-          ? Toast({ message: "取消收藏失败", position: "bottom" })
-          : Toast({ message: "收藏失败", position: "bottom" });
+        Toast({ message: "取消收藏失败", position: "bottom" });
       }
     } catch {
-      this.data.is_fav == true
+      this.data.is_collection == true
         ? Toast({ message: "取消收藏失败", position: "bottom" })
         : Toast({ message: "收藏失败", position: "bottom" });
     }
