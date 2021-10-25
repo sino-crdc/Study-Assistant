@@ -1,6 +1,6 @@
 import { navTo } from '../../utils/common';
 import { request } from '../../utils/request';
-import { pageStates } from '../../utils/pageState';
+import pageStates from '../../utils/pageState';
 
 Page({
   data: {

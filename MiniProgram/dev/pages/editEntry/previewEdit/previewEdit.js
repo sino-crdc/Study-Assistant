@@ -21,7 +21,7 @@ Page({
               tap:(e)=>{
                 if (e.currentTarget.dataset.data.tag=='navigator'){
                   var voc = e.currentTarget.dataset.data.attrs.href;
-                  navTo({page: 'entryDeatil', args: `?voc=${voc}`});
+                  navTo({page: 'entryDeatil', args: `?entry_id=${entry_id}`});
                   // wx.navigateTo({
                   //   url: '../vocdetail/vocdetail?voc=' + voc,
                   // })

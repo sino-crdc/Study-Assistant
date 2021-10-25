@@ -1,13 +1,5 @@
 import pages from "./config";
 
-const ifExistUserId = () => {
-  if (!wx.getStorageSync("user_id")) {
-    return false;
-  } else {
-    return true;
-  }
-};
-
 const navTo = (params, success_callback, fail_callback) => {
   let page = params.page;
   let args = params.args || "";
@@ -55,12 +47,5 @@ const convertUserInfo = (userInfo)=>{
   return userinfo;
 }
 
-export { ifExistUserId, navTo, convertUserInfo };
+export { navTo, convertUserInfo };
 
-// export default (...params) => {
-//   return {
-//     ifExistUserId: ifExistUserId(),
-//     navTo: navTo(...params),
-//     convertUserInfo: convertUserInfo(...params)
-//   }
-// }

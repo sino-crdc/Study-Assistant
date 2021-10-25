@@ -4,13 +4,13 @@
 </view>
 
 <view wx:if="{{pageState.state==='finish'}}" class="wrap">
-    <van-icon bind:tap="onCollectThisEntry" size="20" color="{{is_fav?'#f3b600':''}}"
-        name="{{is_collection?'star':'star-o'}}" />
+    <van-icon bind:tap="onCollectThisEntry" size="20" color="{{is_collected?'#f3b600':''}}"
+        name="{{is_collected?'star':'star-o'}}" />
     <view bind:tap="onEditThisEntry" class="iconfont icon-bianji" />
 </view>
 
 <view wx:if="{{ entry_detail.content }}" class="content">
-    <van-icon size="20" id="content" bind:click="sh" name="{{show.content?'arrow-up':'arrow-down'}}" />
+    <van-icon size="20" id="content" bind:click="isShow" name="{{show.content?'arrow-up':'arrow-down'}}" />
     <view class="bt">Content</view>
     <view id="content" bind:tap="onEdit" wx:if="{{ show.content }}" class="iconfont icon-edit myicon"></view>
 </view>
@@ -20,7 +20,7 @@
 </view>
 
 <view wx:if="{{ entry_detail.proof }}" class="proof">
-    <van-icon size="20" id="proof" bind:click="sh" name="{{show.proof?'arrow-up':'arrow-down'}}" />
+    <van-icon size="20" id="proof" bind:click="isShow" name="{{show.proof?'arrow-up':'arrow-down'}}" />
     <view class="bt">Proof</view>
     <view id="proof" bind:tap="onEdit" wx:if="{{ show.proof }}" class="iconfont icon-edit myicon"></view>
 </view>
@@ -30,7 +30,7 @@
 </view>
 
 <view wx:if="{{ entry_detail.remark }}" class="remark">
-    <van-icon size="20" id="remark" bind:click="sh" name="{{show.remark?'arrow-up':'arrow-down'}}" />
+    <van-icon size="20" id="remark" bind:click="isShow" name="{{show.remark?'arrow-up':'arrow-down'}}" />
     <view class="bt">Remark</view>
     <view id="remark" bind:tap="onEdit" wx:if="{{ show.remark }}" class="iconfont icon-edit myicon"></view>
 </view>
@@ -40,7 +40,7 @@
 </view>
 
 <view wx:if="{{ entry_detail.example }}" class="example">
-    <van-icon size="20" id="example" bind:click="sh" name="{{show.example?'arrow-up':'arrow-down'}}" />
+    <van-icon size="20" id="example" bind:click="isShow" name="{{show.example?'arrow-up':'arrow-down'}}" />
     <view class="bt">Examples</view>
     <view id="example" bind:tap="onEdit" wx:if="{{ show.example }}" class="iconfont icon-edit myicon"></view>
 </view>
@@ -50,7 +50,7 @@
 </view>
 
 <view wx:if="{{ entry_detail.source }}" class="source">
-    <van-icon size="20" id="source" bind:click="sh" name="{{show.source?'arrow-up':'arrow-down'}}" />
+    <van-icon size="20" id="source" bind:click="isShow" name="{{show.source?'arrow-up':'arrow-down'}}" />
     <view class="bt">Source</view>
     <view id="source" bind:tap="onEdit" wx:if="{{ show.source }}" class="iconfont icon-edit myicon"></view>
 </view>

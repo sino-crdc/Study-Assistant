@@ -2,12 +2,12 @@ import { request } from "../../utils/request";
 import Toast from "../../components/vant/toast/toast";
 import { navTo } from "../../utils/common";
 import pageStates from "../../utils/pageState";
+import getEntryId from "../../utils/getEntryId";
 
 Page({
   data: {
     detail: {}, //转码后的内容
     entryDetail: {}, //未转码的内容
-    entry_id: 0,
     show: {
       //控制类别是否显示
       content: true,
@@ -16,22 +16,14 @@ Page({
       example: true,
       source: true,
     },
-    no_entry: false, //?
   },
 
   //*Done
   onLoad(options) {
-    this.setData({ haslogin: wx.getStorageSync("isLogin") });
+    this.setData({ isLogin: wx.getStorageSync("isLogin") });
     const entry_id = options.entry_id;
     this.setData({ entry_id });
-    if (options.no_entry == 1) {
-      this.setData({
-        no_entry: true,
-      });
-    } else {
-      this.setData({
-        no_entry: false,
-      });
+    if (entry_id != 0){
       this.showDetail(entry_id);
     }
   },
@@ -42,9 +34,6 @@ Page({
     try {
       const res = await request({
         url: "/entrydetail",
-        // header: {
-        //   'content-type': 'application/x-www-form-urlencoded',
-        // },
         data: {
           entry_id: entry_id,
         },
@@ -142,25 +131,11 @@ Page({
   nav: async function (e) {
     if (e.currentTarget.dataset.data.tag == "navigator") {
       var entry = e.currentTarget.dataset.data.attrs.href;
-      try {
-        const res = await request({
-          url: "/getentry_id",
-          data: {
-            entry: entry,
-          },
-        });
-        //?Todo
-        if (res.data.Statuscode == 200) {
-          navTo({
-            page: "entryDetail",
-            args: `?no_entry=0&entry_id=${res.data.data.entry_id}`,
-          });
-        } else {
-          navTo({ page: "entryDetail", args: `?no_entry=1` });
-        }
-      } catch {
-        pageState.error();
-      }
+      var entry_id_tmp = getEntryId(entry);
+      navTo({
+        page: "entryDetail",
+        args: `entry_id=${entry_id_tmp}`,
+      });
     }
   },
   //*Done
