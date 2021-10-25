@@ -16,7 +16,7 @@ Page({
         const _ts = this;
         _ts.setData({
             type: options.type,
-            voc: options.voc
+            entry_id: options.entry_id
         });
         const eventChannel = this.getOpenerEventChannel();
         eventChannel.on('onL', data=>{
@@ -98,7 +98,7 @@ Page({
         var {type, entry_id, rawMD} = this.data;
         try {
             const res = await request({
-                url: '/vocedit',
+                url: '/entryedit',
                 method: 'POST',
                 data: {
                     'type': type,
@@ -108,7 +108,7 @@ Page({
                 },
             });
             console.log('uploading');
-            if (res && res.data.status=='okk'){
+            if (res && res.data.data.status=='okk'){
                 Toast.success('提交成功！');
                 wx.navigateBack({
                   delta: -1

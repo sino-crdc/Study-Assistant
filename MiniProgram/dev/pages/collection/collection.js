@@ -1,70 +1,37 @@
-import { navTo } from "../../utils/common";
-import { request } from "../../utils/request";
+import { navTo } from '../../utils/common';
+import { request } from '../../utils/request';
+import { pageStates } from '../../utils/pageState';
 
 Page({
   data: {
+    collection: [],
     management: false, //控制管理条目（即复选框是否显示）
     no_collection: false, //控制没有条目的提示
-    netErr: false, //控制网络错误的提示
-    loading: true, //控制是否正在加载的提示
     select_all: false, //是否全选
     userCollection_management: [], //与checkbox关联的条目列表
     checked_num: 0, //选择的条数
   },
+  //* Doing: refactor
   async onLoad(options) {
-    //判断本地存储情况
-    if (
-      wx.getStorageSync("userCollection").length == 0 ||
-      !wx.getStorageSync("userCollection_token")
-    ) {
-      this.sync();
-    } else {
-      try {
-        // 请求比较本地存储的token
-        const res = await request({
-          url: "/collection/islatest",
-          data: {
-            token: wx.getStorageSync("userCollection_token"),
-            user_id: wx.getStorageSync("user_id"),
-          },
-        });
-        if (res.data.data.need_update == true) {
-          this.sync();
-        }
-      } catch {
-        console.log("somthing wrong")
-      }
-      this.setData({ loading: false });
-      this.init();
-    }
-  },
-  // 向服务器同步拉取
-  sync: async function () {
+    this.onHide();
+    const pageState = pageStates(this);
+    pageState.loading;
     try {
       const res = await request({
-        url: "/collection/sync",
+        url: '/collection/sync',
         data: {
-          user_id: wx.getStorageSync("user_id"),
+          user_id: wx.getStorageSync('user_id'),
         },
+        method: 'POST',
       });
-      wx.setStorageSync("userCollection", res.data.data.collection_list);
-      wx.setStorageSync("userCollection_token", res.data.data.token);
-      wx.setStorageSync("need_submit", false);
-      this.setData({
-        netErr: false,
-        no_collection: false,
-      });
+      wx.setStorageSync('userCollection', res.data.data.collecction);
+      this.setData({collection: res.data.data.collection});
       this.init();
     } catch {
-      console.log("network err");
-      this.setData({
-        netErr: true,
-      });
-    }
-    this.setData({ loading: false });
-    if (wx.getStorageSync("userCollection").length == 0 && !this.data.netErr) {
-      this.setData({ no_collection: true });
-    }
+      pageState.error()
+      console.log('err in getting collection')
+    };
+    pageState.finish();
   },
   //开启条目管理
   onManage() {
@@ -80,11 +47,10 @@ Page({
     this.select_none();
   },
   //点击跳转详情
-  //Todo
+  //*Done
   onDetail(e) {
-    var voc = e.currentTarget.dataset.voc;
-    console.log(voc);
-    navTo({ page: "entryDetail", args: `?voc=${voc}` });
+    var entry_id = e.currentTarget.dataset.entry_id;
+    navTo({ page: "entryDetail", args: `?entry_id=${entry_id}` });
   },
   //初始化，将本地存储添加checked属性，用于页面展示
   init: function () {
@@ -131,7 +97,6 @@ Page({
     wx.setStorageSync("userCollection", arr4);
     wx.setStorageSync("need_submit", true);
     _ts.setData({ userCollection_management: arr2, checked_num: 0 });
-    // this.submit();
   },
   //全选
   select_all: function () {
@@ -149,23 +114,21 @@ Page({
     }
     this.setData({ userCollection_management: arr, checked_num: 0 });
   },
-  //向服务器提交并获取token
+  //向服务器提交
   submit: async function () {
-    var arr = wx.getStorageSync("userCollection");
     try {
       const res = await request({
         url: "/collection/submit",
         data: {
-          data: arr,
+          data: wx.getStorageSync("userCollection"),
           user_id: wx.getStorageSync("user_id"),
         },
       });
-      wx.setStorageSync("userCollection_token", res.data.data.token);
       if (res.data.data.updated){
         wx.setStorageSync('need_submit', false);
       }
     } catch (err) {
-      console.log(err);
+      console.log('err in submit collection to server'+err);
     }
   },
   onHide() {

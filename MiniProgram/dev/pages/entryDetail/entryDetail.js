@@ -3,8 +3,9 @@ import { request } from "../../utils/request";
 import Toast from "../../components/vant/toast/toast";
 import { navTo } from "../../utils/common";
 import pageStates from "../../utils/pageState";
-import pageState from "../../utils/pageState";
+
 const app = getApp();
+const pageState = pageStates(this);
 
 Page({
   data: {
@@ -24,10 +25,7 @@ Page({
     is_collection: false, //词条是否被收录
     // haslogin:  是否登录
   },
-  /**
-   * @param {no_entry, entry_id}
-   * @description 通过entry_id显示detail
-   */
+ 
   //*Done
   onLoad(options) {
     this.setData({ haslogin: app.globalData.haslogin });
@@ -46,7 +44,6 @@ Page({
   },
   //*Done
   showDetail: async function (entry_id) {
-    const pageState = pageStates(this);
     pageState.loading();
     try {
       const res = await request({
@@ -141,7 +138,6 @@ Page({
       "detail.chinese": chinese,
       "detail.author": author,
     });
-    //!Doing
     pageState.finish();
   },
   //?Doing
@@ -207,5 +203,7 @@ Page({
         : Toast({ message: "收藏失败", position: "bottom" });
     }
   },
-  onEditThisEntry() {},
+  onEditThisEntry() {
+    
+  },
 });
