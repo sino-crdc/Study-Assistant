@@ -9,7 +9,7 @@ Page({
     let res = await request({
       url: "/login",
       data: { 'code': code, 'userinfo': userinfo },
-      method: "post",
+      method: "POST",
     });
     return res;
   },
@@ -22,6 +22,9 @@ Page({
         console.log(userinfo);
         this.onLogin(userinfo);
       },
+      fail:(err)=>{
+        //Todo
+      }
     });
   },
   async onLogin(userinfo) {
@@ -36,10 +39,10 @@ Page({
       });
       console.log(info);
     } catch {
-      //Todo 失敗消息
+      //?Doing 失敗消息
       console.log("login err");
       //Test true ---> false
-      wx.setStorageSync("isLogin", true);
+      wx.setStorageSync("isLogin", false);
       wx.navigateBack({
         delta: 1,
       });

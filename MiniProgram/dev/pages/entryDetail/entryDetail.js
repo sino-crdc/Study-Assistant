@@ -1,18 +1,13 @@
 import { request } from "../../utils/request";
-// import { request_test } from '../../utils/request';//Test
 import Toast from "../../components/vant/toast/toast";
 import { navTo } from "../../utils/common";
 import pageStates from "../../utils/pageState";
-
-const app = getApp();
-const pageState = pageStates(this);
 
 Page({
   data: {
     detail: {}, //转码后的内容
     entryDetail: {}, //未转码的内容
     entry_id: 0,
-    netErr: false,
     show: {
       //控制类别是否显示
       content: true,
@@ -22,13 +17,11 @@ Page({
       source: true,
     },
     no_entry: false, //?
-    is_collection: false, //词条是否被收录
-    // haslogin:  是否登录
   },
- 
+
   //*Done
   onLoad(options) {
-    this.setData({ haslogin: app.globalData.haslogin });
+    this.setData({ haslogin: wx.getStorageSync("isLogin") });
     const entry_id = options.entry_id;
     this.setData({ entry_id });
     if (options.no_entry == 1) {
@@ -44,6 +37,7 @@ Page({
   },
   //*Done
   showDetail: async function (entry_id) {
+    const pageState = pageStates(this);
     pageState.loading();
     try {
       const res = await request({
@@ -54,9 +48,11 @@ Page({
         data: {
           entry_id: entry_id,
         },
+        method: "POST",
       });
       this.setData({
         entryDetail: res.data.data.entry_detail,
+        is_collected: res.data.data.is_collected,
       });
       this.setTowxml();
     } catch {
@@ -90,6 +86,7 @@ Page({
   },
   //*Done
   setTowxml() {
+    const pageState = pageStates(this);
     const { theme } = wx.getSystemInfoSync();
     const detail = this.data.entry_detail;
     let title = detail.title;
@@ -175,35 +172,49 @@ Page({
       [r]: !s,
     });
   },
-  //*Done
+  //?Doing
   async onCollectThisEntry() {
-    const user_id = wx.getStorageSync("user_id");
-    try {
-      const res = await request({
-        url: "/collection/addentry",
-        data: {
-          user_id: user_id,
-          entry_id: entry_id,
-        },
-      });
-      if (res.data.data.status == "collection_ok") {
-        this.setData({ is_collection: true });
-        Toast({ messgae: "收藏成功！", position: "bottom" });
-      } else if (res.data.data.status == "uncollection_ok") {
-        this.setData({ is_collection: false });
-        Toast({ message: "取消收藏成功！", position: "bottom" });
-      } else if (res.data.data.status == "collection_err") {
-        Toast({ message: "收藏失败", position: "bottom" });
-      } else {
-        Toast({ message: "取消收藏失败", position: "bottom" });
+    if (this.data.is_collected) {
+      try {
+        const res = await request({
+          url: "/collection/delentry",
+          data: {
+            user_id: wx.getStorageSync("user_id"),
+            entry_id: this.data.entry_id,
+          },
+          method: "DEL",
+        });
+        if (res.data.data.status == "success") {
+          this.setData({ is_collection: false });
+          Toast({ messgae: "取消收藏成功！", position: "bottom" });
+        } else {
+          Toast({ messgae: "取消收藏失败！", position: "bottom" });
+        }
+      } catch {
+        console.log("net err");
+        Toast({ messgae: "取消收藏失败！", position: "bottom" });
       }
-    } catch {
-      this.data.is_collection == true
-        ? Toast({ message: "取消收藏失败", position: "bottom" })
-        : Toast({ message: "收藏失败", position: "bottom" });
+    } else {
+      try {
+        const res = await request({
+          url: "/collection/addentry",
+          data: {
+            user_id: wx.getStorageSync("user_id"),
+            entry_id: this.data.entry_id,
+          },
+          method: "PUT",
+        });
+        if (res.data.data.status == "success") {
+          this.setData({ is_collection: true });
+          Toast({ messgae: "收藏成功！", position: "bottom" });
+        } else {
+          Toast({ messgae: "收藏失败！", position: "bottom" });
+        }
+      } catch {
+        console.log("net err");
+        Toast({ messgae: "收藏失败！", position: "bottom" });
+      }
     }
   },
-  onEditThisEntry() {
-    
-  },
+  onEditThisEntry() {},
 });

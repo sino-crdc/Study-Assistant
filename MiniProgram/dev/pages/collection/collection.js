@@ -120,7 +120,7 @@ Page({
       const res = await request({
         url: "/collection/submit",
         data: {
-          data: wx.getStorageSync("userCollection"),
+          collection: wx.getStorageSync("userCollection"),
           user_id: wx.getStorageSync("user_id"),
         },
       });

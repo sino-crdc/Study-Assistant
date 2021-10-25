@@ -2,7 +2,7 @@
   "usingComponents": {
     "van-search":"/components/vant/search/index",
     "van-skeleton": "/components/vant/skeleton/index",
-    "voc-item": "/components/voc-item/voc-item",
+    "entry-item": "/components/entry-item/entry-item",
     "van-empty": "/components/vant/empty/index"
   }
 }

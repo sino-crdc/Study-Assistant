@@ -29,6 +29,7 @@ Page({
       const res = await request({
         url: "/entrysearch",
         data: { 'keyword': keyword },
+        method:'GET',
       });
       _ts.setData({
         resultList: res.data.data.result_list,

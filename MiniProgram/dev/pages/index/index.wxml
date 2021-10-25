@@ -1,4 +1,4 @@
-<search
+<van-search
   value="{{ keyword }}"
   placeholder="Entrez votre mot à rechercher"
   bind:search="onClick"
@@ -13,5 +13,5 @@
     <view class="ss iconfont icon-sousuo" slot="action" bind:tap="onClick">
       搜索
     </view>
-</search>
+</van-search>
     

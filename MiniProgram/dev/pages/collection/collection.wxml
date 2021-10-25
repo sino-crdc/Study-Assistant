@@ -20,8 +20,9 @@
         <view></view>
     </view>
 
-    <view data-voc="{{ item.title }}" class="voc_wrap" data-idx="{{ index }}" bind:tap="{{!management?'onDetail':'select'}}" wx:for="{{ userFav_management }}" wx:key="{{ item.id }}">
-        <voc-item title="{{ item.title }}" meta="{{ item.meta }}" flag="{{ management }}">
+    <view data-entry_id="{{ item.entry_id }}" class="voc_wrap" data-idx="{{ index }}" bind:tap="{{!management?'onDetail':'select'}}" wx:for="{{ userFav_management }}" wx:key="{{ item.id }}">
+        <voc-item title="{{ item.title }}" flag="{{ management }}"></voc-item>
+        <!-- <voc-item title="{{ item.title }}" meta="{{ item.meta }}" flag="{{ management }}"> -->
             <view>
                 <van-checkbox value="{{ item.checked }}">
                 </van-checkbox>

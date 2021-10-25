@@ -1,13 +1,12 @@
 import Toast from '../../components/vant/toast/toast';
 import Dialog from '../../components/vant/dialog/dialog';
-import {ifExistUserId, navTo} from '../../utils/common';
+import {navTo} from '../../utils/common';
 
 
 Page({
   data: {
     avatarUrl:'../../assets/images/avatar.png',
-    isLogin: false,
-    // userinfo: {}
+    userinfo: {}
   },
   onLogin(){
     navTo({page: 'login'});
@@ -16,26 +15,27 @@ Page({
     const isLogin = wx.getStorageSync('isLogin');
     this.setData({isLogin});
     const userinfo = wx.getStorageSync('userinfo');
-    this.setData({ userinfo, user: ifExistUserId })
+    this.setData({ userinfo })
   },
   onAbout(){
     navTo({page: 'about'});
   },
   onFav(){
-    if (!ifExistUserId()){
+    if (!this.data.isLogin){
       Toast({message:'无法使用,请先登录~',position: 'bottom'});
     } else {
       navTo({page: 'collection'});
     }
   },
   onEdit(){
-    if (!ifExistUserId()){
+    if (!this.data.isLogin){
       Toast({message: '无法使用,请先登录~',position: 'bottom'});
     } else {
       Toast({position: 'bottom', message: '该功能未开放，敬请期待。'});
       // navTo({page: 'myEdit'});
     }
   },
+  //Todo
   onAway(){
     const delUser = (action) => new Promise((resolve) => {
       setTimeout(() => {

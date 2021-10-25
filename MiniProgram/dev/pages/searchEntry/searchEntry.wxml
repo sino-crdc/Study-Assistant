@@ -20,7 +20,7 @@
 <view wx:if="{{ pageState.state=='finish' }}" wx:for="{{ resultList }}">
   <!-- 簡短描述 -->
   <!-- <voc-item bind:tap="navToDetail" data-entry_id="{{ item.entry_id }}" title="{{ item.entry_title }}" desc="{{ item.entry_desc }}"/> -->
-  <voc-item bind:tap="navToDetail" data-entry_id="{{ item.entry_id }}" title="{{ item.entry_title }}"/>
+  <entry-item bind:tap="navToDetail" data-entry_id="{{ item.entry_id }}" title="{{ item.entry_title }}"/>
 </view>
 
 
