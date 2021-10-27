@@ -20,7 +20,7 @@ Page({
   onAbout(){
     navTo({page: 'about'});
   },
-  onFav(){
+  onCollection(){
     if (!this.data.isLogin){
       Toast({message:'无法使用,请先登录~',position: 'bottom'});
     } else {

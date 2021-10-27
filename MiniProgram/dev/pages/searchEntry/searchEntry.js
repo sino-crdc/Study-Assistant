@@ -22,16 +22,16 @@ Page({
   },
   //搜索
   async search(keyword) {
-    const _ts = this;
-    const pageState = pageStates(_ts);
+    const pageState = pageStates(this);
     pageState.loading();
     try {
       const res = await request({
-        url: "/entrysearch",
-        data: { 'keyword': keyword },
-        method:'GET',
+        url: "/entry/entrysearch",
+        data: { keywords: keyword },
+        method: "GET",
       });
-      _ts.setData({
+      console.log(res);
+      this.setData({
         resultList: res.data.data.result_list,
       });
       pageState.finish();
@@ -40,9 +40,10 @@ Page({
       console.log("neterr");
     }
     if (
-      _ts.data.resultList.length == 0 &&
-      !_ts.data.pageState.state === "error"
+      this.data.resultList.length == 0 &&
+      this.data.pageState.state != "error"
     ) {
+      console.log("search empty")
       pageState.empty();
     }
   },

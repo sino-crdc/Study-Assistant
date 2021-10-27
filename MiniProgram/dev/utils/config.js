@@ -1,3 +1,9 @@
+const version = '0.1.0'
+const contact = {
+    'email': 'zzzsy@bk.ru',
+    'wx_id': 'zzzsy_8',
+    'qq': '2273231189'
+}
 const pages = {
     'index': '/pages/index/index',
     'profile': '/pages/profile/profile',
@@ -11,4 +17,4 @@ const pages = {
     'myEdit': '/pages/myEdit/myEdit'
 };
 
-export default pages;
+export {pages, version, contact}; 

@@ -29,8 +29,9 @@ Page({
     }
   },
   onDetail(e){
-    var {voc} = e.currentTarget.dataset;
-    navTo({page: 'entryDetail', args: `?voc=${voc}`});
+    var {entry} = e.currentTarget.dataset;
+    //Todo
+    navTo({page: 'entryDetail', args: `?entry_id=${entry_id_tmp}`});
   },
   onAdd(){
     console.log('add');

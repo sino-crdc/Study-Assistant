@@ -127,7 +127,6 @@ Page({
     pageState.finish();
   },
   //?Doing
-  //Todo
   nav: async function (e) {
     if (e.currentTarget.dataset.data.tag == "navigator") {
       var entry = e.currentTarget.dataset.data.attrs.href;

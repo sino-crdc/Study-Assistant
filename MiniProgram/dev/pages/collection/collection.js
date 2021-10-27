@@ -6,7 +6,6 @@ Page({
   data: {
     collection: [],
     management: false, //控制管理条目（即复选框是否显示）
-    no_collection: false, //控制没有条目的提示
     select_all: false, //是否全选
     userCollection_management: [], //与checkbox关联的条目列表
     checked_num: 0, //选择的条数
@@ -24,14 +23,23 @@ Page({
         },
         method: 'POST',
       });
-      wx.setStorageSync('userCollection', res.data.data.collecction);
-      this.setData({collection: res.data.data.collection});
+      console.log("col",res);
+      const userCollection = res.data.data.collection_list;
+      wx.setStorageSync('userCollection', userCollection);
+      this.setData({collection: userCollection});
       this.init();
+      console.log("step 3")
     } catch {
       pageState.error()
       console.log('err in getting collection')
     };
-    pageState.finish();
+    if (
+      this.data.collection.length == 0 &&
+      this.data.pageState.state != "error"
+    ) {
+      console.log("search empty")
+      pageState.empty();
+    }
   },
   //开启条目管理
   onManage() {
@@ -54,6 +62,7 @@ Page({
   },
   //初始化，将本地存储添加checked属性，用于页面展示
   init: function () {
+    const pageState = pageStates()
     var arr = wx.getStorageSync("userCollection");
     var arr2 = [];
     arr.map((item) => {
@@ -62,6 +71,7 @@ Page({
     console.log("init");
     // console.log(arr2);
     this.setData({ userCollection_management: arr2 });
+    pageState.finish();
   },
   //条目选择
   select: function (e) {
@@ -123,6 +133,7 @@ Page({
           collection: wx.getStorageSync("userCollection"),
           user_id: wx.getStorageSync("user_id"),
         },
+        method:"POST",
       });
       if (res.data.data.updated){
         wx.setStorageSync('need_submit', false);
@@ -133,6 +144,7 @@ Page({
   },
   onHide() {
     const need_submit = wx.getStorageSync("need_submit");
+    console.log("col hide")
     if (need_submit) {
       this.submit();
     }

@@ -22,7 +22,7 @@
 </view>
 
 <view class="func_wrap">
-  <button bind:tap="onFav" hover-class="btn_hover">
+  <button bind:tap="onCollection" hover-class="btn_hover">
     <view class="func_item">
       <van-icon size="28" name="star" class="itm"></van-icon>
       <view class="itm_text">收藏</view>

@@ -1,4 +1,4 @@
-import pages from "./config";
+import { pages, version, contact } from "./config";
 
 const navTo = (params, success_callback, fail_callback) => {
   let page = params.page;
@@ -35,8 +35,8 @@ const navTo = (params, success_callback, fail_callback) => {
     });
   }
 };
-const convertUserInfo = (userInfo)=>{
-  let userinfo ={};
+const convertUserInfo = (userInfo) => {
+  let userinfo = {};
   userinfo.avatar_url = userInfo.avatarUrl;
   userinfo.nick_name = userInfo.nickName;
   userinfo.city = userInfo.city;
@@ -45,7 +45,14 @@ const convertUserInfo = (userInfo)=>{
   userinfo.language = userInfo.language;
   userinfo.province = userInfo.province;
   return userinfo;
+};
+
+const getVersion = () => {
+  return version;
+};
+
+const getContact = ()=>{
+  return contact;
 }
 
-export { navTo, convertUserInfo };
-
+export { navTo, convertUserInfo, getVersion, getContact };
