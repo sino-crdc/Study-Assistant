@@ -20,22 +20,32 @@ Page({
 
   //*Done
   onLoad(options) {
+    const pageState = pageStates(this);
     this.setData({ isLogin: wx.getStorageSync("isLogin") });
+    if (wx.getStorageSync('isLogin')==true){
+      var user_id = wx.getStorageSync('user_id')
+    }else{
+      var user_id = '0'
+    }
     const entry_id = options.entry_id;
-    this.setData({ entry_id });
+    this.setData({ entry_id,user_id });
     if (entry_id != 0){
-      this.showDetail(entry_id);
+      this.showDetail(entry_id,user_id);
+    } else {
+      pageState.empty();
     }
   },
   //*Done
-  showDetail: async function (entry_id) {
+  showDetail: async function (entry_id,user_id) {
     const pageState = pageStates(this);
+    
     pageState.loading();
     try {
       const res = await request({
-        url: "/entrydetail",
+        url: "/entry/entrydetail",
         data: {
           entry_id: entry_id,
+          user_id: user_id,
         },
         method: "POST",
       });

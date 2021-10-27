@@ -1,5 +1,4 @@
-import { getVersion } from "../../../utils/common";
-import { getContact } from "../../../utils/common";
+import { getVersion, getContact } from "../../../utils/common";
 
 Page({
   data: {},
@@ -10,7 +9,7 @@ Page({
   },
   setPaste(e) {
     wx.setClipboardData({
-      data: e.currentTarget.id == 1 ? contact.email : contact.wx_id,
+      data: e.currentTarget.id == 1 ? this.data.contact.email : this.data.contact.wx_id,
     });
   },
   //!Debug

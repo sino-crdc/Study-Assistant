@@ -1,7 +1,6 @@
 const loading = (that) => {
     return () => {
       that.setData({
-        loading: true,
         pageState: {
           state: 'loading',
           message: '加载中'
@@ -13,7 +12,6 @@ const loading = (that) => {
   const error = (that, message) => {
     return (message = '请检查您的网络连接') => {
       that.setData({
-        netErr: true,
         pageState: {
           state: 'error',
           message
@@ -36,7 +34,6 @@ const loading = (that) => {
   const finish = (that) => {
     return () => {
       that.setData({
-        loading:false,
         pageState: {
           state: 'finish',
           message: ''

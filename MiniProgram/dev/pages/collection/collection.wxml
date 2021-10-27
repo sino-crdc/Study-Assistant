@@ -1,4 +1,4 @@
-<view wx:if="{{ !netErr && !no_fav && !loading}}" class="wrap">
+<view wx:if="{{ pageState.state === 'finish'}}" class="wrap">
     <view class="fav_wrap">
         <view class="fav">我的收藏</view>
         <view class="btn_wrap">
@@ -36,4 +36,4 @@
 </view>
 
 <van-empty wx:if="{{ pageState.state === 'empty' }}" description="这里空空如也～" />
-<van-empty image="network" wx:if="{{ netErr }}" description="网络错误" />
+<van-empty image="network" wx:if="{{ pageState.state === 'error' }}" description="发生错误惹" />

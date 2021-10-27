@@ -10,11 +10,11 @@ Page({
     userCollection_management: [], //与checkbox关联的条目列表
     checked_num: 0, //选择的条数
   },
-  //* Doing: refactor
   async onLoad(options) {
-    this.onHide();
+    //!Doing
+    // this.onUnload();
     const pageState = pageStates(this);
-    pageState.loading;
+    pageState.loading();
     try {
       const res = await request({
         url: '/collection/sync',
@@ -23,12 +23,10 @@ Page({
         },
         method: 'POST',
       });
-      console.log("col",res);
       const userCollection = res.data.data.collection_list;
       wx.setStorageSync('userCollection', userCollection);
       this.setData({collection: userCollection});
       this.init();
-      console.log("step 3")
     } catch {
       pageState.error()
       console.log('err in getting collection')
@@ -55,21 +53,19 @@ Page({
     this.select_none();
   },
   //点击跳转详情
-  //*Done
   onDetail(e) {
     var entry_id = e.currentTarget.dataset.entry_id;
     navTo({ page: "entryDetail", args: `?entry_id=${entry_id}` });
   },
   //初始化，将本地存储添加checked属性，用于页面展示
   init: function () {
-    const pageState = pageStates()
+    const pageState = pageStates(this);
     var arr = wx.getStorageSync("userCollection");
     var arr2 = [];
     arr.map((item) => {
       arr2.push(Object.assign({}, item, { checked: false }));
     });
     console.log("init");
-    // console.log(arr2);
     this.setData({ userCollection_management: arr2 });
     pageState.finish();
   },
@@ -130,11 +126,13 @@ Page({
       const res = await request({
         url: "/collection/submit",
         data: {
-          collection: wx.getStorageSync("userCollection"),
+          user_collection: wx.getStorageSync("userCollection"),
           user_id: wx.getStorageSync("user_id"),
         },
         method:"POST",
       });
+      console.log(wx.getStorageSync('userCollection'))
+      console.log(res)
       if (res.data.data.updated){
         wx.setStorageSync('need_submit', false);
       }
@@ -142,10 +140,10 @@ Page({
       console.log('err in submit collection to server'+err);
     }
   },
-  onHide() {
+  onUnload() {
     const need_submit = wx.getStorageSync("need_submit");
-    console.log("col hide")
-    if (need_submit) {
+    console.log("collection submit")
+    if (need_submit==true) {
       this.submit();
     }
   },
