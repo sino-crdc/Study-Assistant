@@ -12,10 +12,4 @@ Page({
       data: e.currentTarget.id == 1 ? this.data.contact.email : this.data.contact.wx_id,
     });
   },
-  //!Debug
-  onDebug() {
-    wx.navigateTo({
-      url: "../../debug/debug",
-    });
-  },
 });

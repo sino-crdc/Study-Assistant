@@ -1,4 +1,4 @@
-const version = '0.1.0'
+const version = '0.1.2'
 const contact = {
     'email': 'zzzsy@bk.ru',
     'wx_id': 'zzzsy_8',

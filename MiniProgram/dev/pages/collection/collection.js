@@ -23,6 +23,7 @@ Page({
         },
         method: 'POST',
       });
+      console.log(res)
       const userCollection = res.data.data.collection_list;
       wx.setStorageSync('userCollection', userCollection);
       this.setData({collection: userCollection});
@@ -60,7 +61,7 @@ Page({
   //初始化，将本地存储添加checked属性，用于页面展示
   init: function () {
     const pageState = pageStates(this);
-    var arr = wx.getStorageSync("userCollection");
+    var arr = this.data.collection;
     var arr2 = [];
     arr.map((item) => {
       arr2.push(Object.assign({}, item, { checked: false }));

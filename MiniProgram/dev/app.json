@@ -9,8 +9,7 @@
     "pages/editEntry/previewEdit/previewEdit",
     "pages/entryDetail/entryDetail",
     "pages/searchEntry/searchEntry",
-    "pages/myEdit/myEdit",
-    "pages/debug/debug"
+    "pages/myEdit/myEdit"
   ],
   "window": {
     "backgroundTextStyle": "light",

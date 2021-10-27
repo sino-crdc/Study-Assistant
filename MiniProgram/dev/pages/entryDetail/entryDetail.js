@@ -4,6 +4,8 @@ import { navTo } from "../../utils/common";
 import pageStates from "../../utils/pageState";
 import getEntryId from "../../utils/getEntryId";
 
+const app = getApp();
+
 Page({
   data: {
     detail: {}, //转码后的内容
@@ -20,43 +22,54 @@ Page({
 
   //*Done
   onLoad(options) {
+    console.log(options);
     const pageState = pageStates(this);
     this.setData({ isLogin: wx.getStorageSync("isLogin") });
-    if (wx.getStorageSync('isLogin')==true){
-      var user_id = wx.getStorageSync('user_id')
-    }else{
-      var user_id = '0'
+    if (wx.getStorageSync("isLogin") == true) {
+      var user_id = wx.getStorageSync("user_id");
     }
     const entry_id = options.entry_id;
-    this.setData({ entry_id,user_id });
-    if (entry_id != 0){
-      this.showDetail(entry_id,user_id);
+    this.setData({ entry_id, user_id });
+    if (entry_id != 0) {
+      this.showDetail(entry_id, user_id);
     } else {
       pageState.empty();
     }
   },
   //*Done
-  showDetail: async function (entry_id,user_id) {
+  showDetail: async function (entry_id, user_idd) {
     const pageState = pageStates(this);
-    
+    const user_id = user_idd || "0";
     pageState.loading();
     try {
-      const res = await request({
-        url: "/entry/entrydetail",
-        data: {
-          entry_id: entry_id,
-          user_id: user_id,
-        },
-        method: "POST",
-      });
+      if (user_id != "0") {
+        var res = await request({
+          url: "/entry/entrydetail",
+          data: {
+            entry_id: entry_id,
+            user_id: user_id,
+          },
+          method: "GET",
+        });
+      } else {
+        var res = await request({
+          url: "/entry/entrydetail",
+          data: {
+            entry_id: entry_id,
+          },
+          method: "GET",
+        });
+      }
+      console.log(res);
       this.setData({
         entryDetail: res.data.data.entry_detail,
         is_collected: res.data.data.is_collected,
       });
       this.setTowxml();
-    } catch {
+    } catch (err) {
       pageState.error();
-      console.log("neterr");
+      console.log("error in 'entryDetail.js:71'");
+      console.log(err);
     }
   },
   //?Doing
@@ -83,11 +96,11 @@ Page({
       success_callback
     );
   },
-  //*Done
+
   setTowxml() {
     const pageState = pageStates(this);
     const { theme } = wx.getSystemInfoSync();
-    const detail = this.data.entry_detail;
+    const detail = this.data.entryDetail;
     let title = detail.title;
     let content = app.towxml(detail.content, "markdown", {
       theme: theme,
@@ -163,40 +176,42 @@ Page({
         const res = await request({
           url: "/collection/delentry",
           data: {
-            user_id: wx.getStorageSync("user_id"),
+            user_id: this.data.user_id,
             entry_id: this.data.entry_id,
           },
-          method: "DEL",
+          method: "DELETE",
         });
         if (res.data.data.status == "success") {
-          this.setData({ is_collection: false });
-          Toast({ messgae: "取消收藏成功！", position: "bottom" });
+          this.setData({ is_collected: false });
+          Toast({ message: "取消收藏成功！", position: "bottom" });
         } else {
-          Toast({ messgae: "取消收藏失败！", position: "bottom" });
+          Toast({ message: "取消收藏失败！", position: "bottom" });
         }
-      } catch {
-        console.log("net err");
-        Toast({ messgae: "取消收藏失败！", position: "bottom" });
+      } catch(err) {
+        console.log("error in 'entryDetail.js:191'")
+        console.log(err);
+        Toast({ message: "取消收藏失败！", position: "bottom" });
       }
     } else {
       try {
         const res = await request({
           url: "/collection/addentry",
           data: {
-            user_id: wx.getStorageSync("user_id"),
+            user_id: this.data.user_id,
             entry_id: this.data.entry_id,
           },
           method: "PUT",
         });
-        if (res.data.data.status == "success") {
-          this.setData({ is_collection: true });
-          Toast({ messgae: "收藏成功！", position: "bottom" });
+        if (res.data.data.status == "collection_ok") {
+          this.setData({ is_collected: true });
+          Toast({ message: "收藏成功！", position: "bottom" });
         } else {
-          Toast({ messgae: "收藏失败！", position: "bottom" });
+          Toast({ message: "收藏失败！", position: "bottom" });
         }
-      } catch {
-        console.log("net err");
-        Toast({ messgae: "收藏失败！", position: "bottom" });
+      } catch (err) {
+        console.log("error in 'entryDetail.js:212'");
+        console.log(err);
+        Toast({ message: "收藏失败！", position: "bottom" });
       }
     }
   },

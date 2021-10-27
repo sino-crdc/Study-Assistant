@@ -1,13 +1,19 @@
 <view class="wrap">
-    <view class="title">
-        {{ title }}
+    <view class="title_wrap">
+        <view class="title">
+            {{ title }}
+        </view>
+        <view wx:if="{{ flag }}" class="chbox">
+            <slot></slot>
+        </view>
     </view>
+
     <view class="desc_wrap">
         <!-- <view class="meta">
             {{ meta }}
         </view> -->
-        <view wx:if="{{ flag }}" class="chbox">
+        <!-- <view wx:if="{{ flag }}" class="chbox">
             <slot></slot>
-        </view>
+        </view> -->
     </view>
 </view>
