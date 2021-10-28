@@ -157,7 +157,7 @@ Page({
       var entry = e.currentTarget.dataset.data.attrs.href;
       var entry_id_tmp = await getEntryId(entry);
       console.log(entry_id_tmp)
-      if (entry_id!=entry_id_tmp){
+      if (this.data.entry_id!=entry_id_tmp){
         wx.navigateTo({
           url: `/pages/entryDetail/entryDetail?entry_id=${entry_id_tmp}`,
         })
