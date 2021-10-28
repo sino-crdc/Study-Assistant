@@ -7,6 +7,7 @@ import { navTo } from '../../utils/common';
 Page({
     data: {
         type: '',
+        add:false,
         entry_id: '',
         rawMD: '',
         backup: '',
@@ -16,7 +17,8 @@ Page({
         const _ts = this;
         _ts.setData({
             type: options.type,
-            entry_id: options.entry_id
+            entry_id: options.entry_id,
+            add: options.add,
         });
         const eventChannel = this.getOpenerEventChannel();
         eventChannel.on('onL', data=>{
@@ -77,6 +79,18 @@ Page({
             this.setView(1);
         }); 
     },
+    onOkk(){
+        const type=this.data.type;
+        let curPages =  getCurrentPages();
+        let prevPage =curPages[curPages.length-2];
+        prevPage.setData({
+            [`llist.${type}`]:this.data.rawMD
+        });
+        wx.navigateBack({
+            delta: 1
+          })
+        // navTo({page: 'previewEdit'}, success_callback);
+    },
     onUpload(){
         this.setView(0);
         Dialog.confirm({
@@ -98,7 +112,7 @@ Page({
         var {type, entry_id, rawMD} = this.data;
         try {
             const res = await request({
-                url: '/entryedit',
+                url: '/entry/editentry',
                 method: 'POST',
                 data: {
                     'type': type,
@@ -108,14 +122,16 @@ Page({
                 },
             });
             console.log('uploading');
-            if (res && res.data.data.status=='okk'){
+            console.log(res);
+            if (res && res.data.data.status=='success'){
                 Toast.success('提交成功！');
                 wx.navigateBack({
-                  delta: -1
+                  delta: 1
                 })
             } else {console.log('err'), Toast.fail('提交失败！')}
-        } catch {
+        } catch(err) {
             console.log('err');
+            console.log(err);
             Toast.fail('提交失败！');
         };
     },

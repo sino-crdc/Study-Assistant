@@ -1,11 +1,11 @@
 const getId=(params)=>{
-    const Url = "https://amourestunart.asia/getEntryId";
+    const Url = "https://amourestunart.asia/entry/getentryid";
     return new Promise((resolve,reject)=>{
         wx.request({
           ...params,
           url: Url,
           success:(result)=>{
-              resolve(result.data.data.entry_id);
+              resolve(result);
           },
           fail:(err)=>{
               reject(err);
@@ -16,8 +16,14 @@ const getId=(params)=>{
 
 const getEntryId = async (title)=>{
     try{
-        const res = getId(title);
-        return res;
+        const res = await getId({
+            data: {
+                title:title,
+            },
+            method:"GET",
+        });
+        console.log(res);
+        return res.data.data.entry_id;
     }catch{
         console.log("net err");
         return 0;

@@ -9,7 +9,7 @@ Page({
   },
   //搜索框内容改变
   onChange(e) {
-    this.setData({ keyword: e.detail.value });
+    this.setData({ keyword: e.detail });
   },
   onClick() {
     this.search(this.data.keyword);

@@ -36,6 +36,9 @@ Page({
       pageState.empty();
     }
   },
+  onShow(){
+    this.showDetail(this.data.entry_id,this.data.user_id);
+  },
   //*Done
   showDetail: async function (entry_id, user_idd) {
     const pageState = pageStates(this);
@@ -77,7 +80,6 @@ Page({
     var type = e.currentTarget.id;
     var entry_id = this.data.entry_id;
     const _ts = this;
-    //Todo
     const success_callback = (res) => {
       if (type == "title") {
         res.eventChannel.emit(
@@ -153,11 +155,13 @@ Page({
   nav: async function (e) {
     if (e.currentTarget.dataset.data.tag == "navigator") {
       var entry = e.currentTarget.dataset.data.attrs.href;
-      var entry_id_tmp = getEntryId(entry);
-      navTo({
-        page: "entryDetail",
-        args: `entry_id=${entry_id_tmp}`,
-      });
+      var entry_id_tmp = await getEntryId(entry);
+      console.log(entry_id_tmp)
+      if (entry_id!=entry_id_tmp){
+        wx.navigateTo({
+          url: `/pages/entryDetail/entryDetail?entry_id=${entry_id_tmp}`,
+        })
+      }
     }
   },
   //*Done
@@ -215,5 +219,11 @@ Page({
       }
     }
   },
-  onEditThisEntry() {},
+  onEditThisEntry() {
+    const ent = this.data.entryDetail;
+    navTo({
+      page: "addEntry",
+      args: `?ent=${ent}`,
+    })
+  },
 });

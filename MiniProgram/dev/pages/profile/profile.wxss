@@ -92,8 +92,8 @@ page {
 }
 .func_wrap button {
   height: 160rpx;
-  width: 200rpx;
-  margin: 0 60rpx;
+  width: 180rpx;
+  margin: 0 40rpx;
   border-radius: 16rpx;
   background-color: var(--boardColorLight);
   display: flex;
@@ -109,7 +109,7 @@ page {
   color: var(--buttonColorLight);
 }
 .func_wrap button .func_item .itm_text {
-  font-size: 28rpx;
+  font-size: 22rpx;
 }
 .func_wrap button::after {
   border: 0;

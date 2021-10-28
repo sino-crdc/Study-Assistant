@@ -58,5 +58,13 @@ Page({
         delUser
       });
     }).catch(()=>{})
+  },
+  onAdd(){
+    if (!this.data.isLogin){
+      Toast({message: '无法使用,请先登录~',position: 'bottom'});
+    } else {
+      // Toast({position: 'bottom', message: '该功能未开放，敬请期待。'});
+      navTo({page: 'addEntry'});
+    }
   }
 });

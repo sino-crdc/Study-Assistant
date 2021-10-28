@@ -34,6 +34,12 @@
       <view class="itm_text">我的编辑</view>
     </view>
   </button>
+  <button bind:tap="onAdd" hover-class="btn_hover">
+    <view class="func_item">
+      <van-icon size="28" name="column" class="itm"></van-icon>
+      <view class="itm_text">新建词条</view>
+    </view>
+  </button>
 </view>
 
 <view class="menu">

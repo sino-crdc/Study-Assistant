@@ -42,7 +42,7 @@
 .remark .myicon,
 .example .myicon,
 .source .myicon {
-  margin: 0 108rpx -6rpx auto;
+  margin: 0 40rpx -6rpx auto;
   font-size: 48rpx;
   color: var(--buttonColorLight);
 }

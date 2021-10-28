@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "新建",
+  "usingComponents": {
+    "towxml": "/utils/towxml/towxml",
+    "van-dialog": "/components/vant/dialog/index",
+    "van-toast": "/components/vant/toast/index",
+    "split": "/components/split-line/split-line",
+    "van-empty": "/components/vant/empty/index",
+    "van-icon": "/components/vant/icon/index",
+    "van-button": "/components/vant/button/index"
+  }
+}
