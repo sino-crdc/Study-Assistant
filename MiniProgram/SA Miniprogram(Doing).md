@@ -27,7 +27,7 @@ Tab栏图标
   ```json
   @props:{
       color:#c4c4c4
-  }
+  },
   @usedby:{}
   ```
 
@@ -38,7 +38,7 @@ Tab栏图标
       title,    //entry标题
       flag,     //是否显示checkbox
       //desc,   //Todo
-  }
+  },
   @usedby:{
       
   }
@@ -79,34 +79,34 @@ Tab栏图标
         data:['user_id','collection'],
         method:'POST',
     },
-]
+],
 @global:{
     set:['userCollection','need_submit'],
     get:['user_id','userCollection','need_submit']
-}
-@usejs:['navTo','request','pageStates']
-@usecomponents:[]
+},
+@usejs:['navTo','request','pageStates'],
+@usecomponents:[],
 @navigator:[]
 ```
 
 ### searchEntry
 
 ```json
-@request:[
+{@request:[
     {
         url:'/entrysearch',
         data:['keyword'],
         method:'GET',
     }
-]
+],
 @usejs:['request','navTO','pageStates']
-@usecomponents:['van-search','van-empty','van-skeleton','entry-item']
+@usecomponents:['van-search','van-empty','van-skeleton','entry-item'],
 @navigator:[
     {
         page:'entryDetail',
         args:['entry']
     }
-]
+]}
 ```
 
 ### profile
@@ -169,13 +169,18 @@ Tab栏图标
         data:['entry_id'],
         method:'POST',
     }
-]
+],
 @global:{
     set:[],
     get:['isLogin']
-}
-@navigator:[{page:'editEntry',args:['type','entry_id']}]
-@usejs:['request','Toast','navTo','pageStates']
+},
+@navigator:[{page:'editEntry',args:['type','entry_id']}],
+@usejs:['request','Toast','navTo','pageStates'],
 @usecomponents:['towxml','split','van-empty','van-icon','van-toast']
+```
+
+### editEntry
+
+```json
 ```
 
