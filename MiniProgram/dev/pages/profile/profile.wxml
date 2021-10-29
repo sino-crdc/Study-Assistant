@@ -1,5 +1,5 @@
 <view class="login_wrap">
-  <view wx:if="{{ !userinfo.avatarUrl }}" class="login" bind:tap="onLogin">
+  <view wx:if="{{ !isLogin }}" class="login" bind:tap="onLogin">
     <view class="text_wrap">
       <view class="ex1">点击登录</view>
       <view class="ex2">登录后可以使用收藏、编辑</view>
@@ -10,17 +10,19 @@
   </view>
   <view wx:else class="login">
     <view class="text_wrap">
-      <view class="ex1">{{ userinfo.nickName }}</view>
+      <!-- <open-data class="ex1" type="userNickName"></open-data> -->
+      <view class="ex1">{{ userinfo.nick_name }}</view>
       <view class="ex2">可以使用收藏、编辑功能</view>
     </view>
     <view class="user_icon_wrap">
-      <image class="user_icon" src="{{ userinfo.avatarUrl }}" />
+      <!-- <open-data class="user_icon" type="userAvatarUrl"></open-data> -->
+      <image class="user_icon" src="{{ userinfo.avatar_url }}" />
     </view>
   </view>
 </view>
 
 <view class="func_wrap">
-  <button bind:tap="onFav" hover-class="btn_hover">
+  <button bind:tap="onCollection" hover-class="btn_hover">
     <view class="func_item">
       <van-icon size="28" name="star" class="itm"></van-icon>
       <view class="itm_text">收藏</view>
@@ -30,6 +32,12 @@
     <view class="func_item">
       <van-icon size="28" name="column" class="itm"></van-icon>
       <view class="itm_text">我的编辑</view>
+    </view>
+  </button>
+  <button bind:tap="onAdd" hover-class="btn_hover">
+    <view class="func_item">
+      <van-icon size="28" name="column" class="itm"></van-icon>
+      <view class="itm_text">新建词条</view>
     </view>
   </button>
 </view>

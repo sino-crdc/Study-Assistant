@@ -1,0 +1,67 @@
+.wrap {
+  display: flex;
+  margin: 0 20rpx;
+  align-items: center;
+  .tt {
+    font-size: 48rpx;
+    margin: 0 20rpx;
+  }
+  .must{
+    font-size: 20rpx;
+    color: red;
+  }
+  van-icon {
+    margin-left: 18rpx;
+  }
+  .myicon {
+    margin: 0 30rpx -6rpx auto;
+    font-size: 48rpx;
+    color: var(--buttonColorLight);
+  }
+  &:first-child{
+    margin-top: 30rpx;
+  }
+}
+
+.tow {
+  margin-top: -36rpx;
+}
+.toww{
+  margin-left: 10rpx;
+}
+.raw{
+  display: flex;
+  background-color: #eee;
+  border-radius: 8rpx;
+  height: 60rpx;
+  width: 85%;
+  margin: 0 30rpx 0 30rpx;
+}
+.up{
+  display: flex;
+  margin: 20rpx ;
+  justify-content: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  page {
+    background-color: var(--pageColorDark);
+  }
+
+  .title {
+    .chinese {
+      color: var(--commentColorLight);
+    }
+  }
+
+  .myicon {
+    color: var(--buttonColorDark);
+  }
+
+  .author {
+    background-color: var(--boardColorDark);
+  }
+  .wrap {
+    background-color: var(--boardColorDark);
+  }
+}

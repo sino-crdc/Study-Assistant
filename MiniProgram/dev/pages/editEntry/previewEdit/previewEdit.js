@@ -1,4 +1,5 @@
 import { navTo } from "../../../utils/common";
+import getEntryId from "../../../utils/getEntryId";
 
 const app = getApp();
 
@@ -20,11 +21,9 @@ Page({
             events:{
               tap:(e)=>{
                 if (e.currentTarget.dataset.data.tag=='navigator'){
-                  var voc = e.currentTarget.dataset.data.attrs.href;
-                  navTo({page: 'entryDeatil', args: `?voc=${voc}`});
-                  // wx.navigateTo({
-                  //   url: '../vocdetail/vocdetail?voc=' + voc,
-                  // })
+                  var entry = e.currentTarget.dataset.data.attrs.href;
+                  var entry_id_tmp = getEntryId(entry);
+                  navTo({page: 'entryDeatil', args: `?entry_id=${entry_id_tmp}`});
                 }
               }
             }

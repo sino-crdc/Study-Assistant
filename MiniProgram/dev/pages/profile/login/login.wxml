@@ -7,7 +7,7 @@
   要使用小程序，请允许我们访问您的用户信息。
 </view>
 
-<button type="primary" bind:tap="onLogin" class="btn">
+<button type="primary" bind:tap="getInfo" class="btn">
   允许访问用户信息
 </button>
 <button type="default" bind:tap="onClick" class="btn">

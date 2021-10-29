@@ -18,7 +18,9 @@
 </view>
 
 <view wx:if="{{ pageState.state=='finish' }}" wx:for="{{ resultList }}">
-  <voc-item bind:tap="navToDetail" data-voc_id="{{ item.id }}" title="{{ item.title }}" meta="{{ item.meta }}"/>
+  <!-- 簡短描述 -->
+  <!-- <voc-item bind:tap="navToDetail" data-entry_id="{{ item.entry_id }}" title="{{ item.entry_title }}" desc="{{ item.entry_desc }}"/> -->
+  <entry-item bind:tap="navToDetail" data-entry_id="{{ item.entry_id }}" title="{{ item.entry_title }}"/>
 </view>
 
 

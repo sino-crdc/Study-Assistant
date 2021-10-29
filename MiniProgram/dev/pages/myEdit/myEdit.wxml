@@ -8,8 +8,8 @@
 
     <view data-voc="{{ item.title }}" class="voc_wrap" bind:tap="{{ onDetail }}" wx:for="{{ user_edit }}"
         wx:key="{{ item.id }}">
-        <voc-item title="{{ item.title }}" meta="{{ item.meta }}" flag="{{ false }}">
-        </voc-item>
+        <entry-item title="{{ item.title }}" meta="{{ item.meta }}" flag="{{ false }}">
+        </entry-item>
         <view class="divider">
             <view></view>
         </view>

@@ -1,41 +1,51 @@
-import { navTo } from '../../../utils/common';
-import { login } from '../../../utils/login';
-import { request } from '../../../utils/request'
+import { navTo } from "../../../utils/common";
+import { login } from "../../../utils/login";
+import { request } from "../../../utils/request";
+import { convertUserInfo } from "../../../utils/common";
 
 Page({
-  data: {
-  },
-  myLogin: async function (code){
+  data: {},
+  myLogin: async function (code, userinfo) {
     let res = await request({
-      url: '/login',
-      data: {code},
-      method: 'post'
+      url: "/login",
+      data: { code: code, userinfo: userinfo },
+      method: "POST",
     });
+    console.log(res);
     return res;
   },
-  async onLogin(){
+  getInfo() {
+    wx.getUserProfile({
+      desc: "用于收藏等功能",
+      success: (res) => {
+        const userinfo = convertUserInfo(res.userInfo);
+        wx.setStorageSync("userinfo", userinfo);
+        console.log(userinfo);
+        this.onLogin(userinfo);
+      },
+      fail: (err) => {
+        //Todo
+      },
+    });
+  },
+  async onLogin(userinfo) {
     try {
       const code = await login();
-      const info = await this.myLogin(code);
-      console.log(info);
+      const info = await this.myLogin(code.code, userinfo);
+      wx.setStorageSync("user_id", info.data.data.user_id);
+      wx.setStorageSync("isLogin", true);
+      wx.navigateBack({
+        delta: 1,
+      });
     } catch {
-      //ToDo err
-    };
-    wx.getUserProfile({
-      desc: '用于收藏等功能',
-      success: (res) => {
-        const userInfo = res.userInfo;
-        wx.setStorageSync('userinfo', userInfo);
-        console.log(userInfo);
-        const info = wx.getStorageSync('userinfo');
-        console.log(info);
-        wx.navigateBack({
-          delta: 1
-        })
-      }
-    })
-  }, 
-  onClick(){
-    navTo({page: 'index'});
-  }
+      console.log("login err");
+      wx.setStorageSync("isLogin", false);
+      wx.navigateBack({
+        delta: 1,
+      });
+    }
+  },
+  onClick() {
+    navTo({ page: "index" });
+  },
 });

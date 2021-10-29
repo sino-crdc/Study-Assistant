@@ -4,18 +4,25 @@
   margin: 20rpx 40rpx 20rpx;
   flex-direction: column;
 }
-.wrap .title {
+.wrap .title_wrap {
+  display: flex;
+}
+.wrap .title_wrap .title {
   font-size: 36rpx;
   width: 60%;
   margin-bottom: 8rpx;
 }
-.wrap .meta_wrap {
+.wrap .title_wrap .chbox {
+  margin-left: auto;
+  margin-right: 12rpx;
+}
+.wrap .desc_wrap {
   display: flex;
 }
-.wrap .meta_wrap .chbox {
+.wrap .desc_wrap .chbox {
   margin-left: 10rpx;
 }
-.wrap .meta {
+.wrap .desc {
   width: 100%;
   margin-left: 6rpx;
   color: #888888;

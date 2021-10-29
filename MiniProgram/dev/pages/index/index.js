@@ -16,7 +16,7 @@ Page({
     }
   },
   //重显自动置空
-  onLoad () {
+  onShow () {
     this.setData({keyword: ''})
   }
 });
