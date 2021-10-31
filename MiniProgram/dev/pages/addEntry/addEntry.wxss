@@ -26,15 +26,12 @@
   margin-top: -36rpx;
 }
 .toww {
-  margin-left: 10rpx;
+  margin-top: 20rpx;
 }
 .raw {
   display: flex;
-  background-color: #eee;
-  border-radius: 8rpx;
-  height: 60rpx;
-  width: 85%;
-  margin: 0 30rpx 0 30rpx;
+  background-color: #fff;
+  margin: 15rpx 0 15rpx 0;
 }
 .up {
   display: flex;
