@@ -3,6 +3,7 @@ import Toast from "../../components/vant/toast/toast";
 import { navTo } from "../../utils/common";
 import pageStates from "../../utils/pageState";
 import getEntryId from "../../utils/getEntryId";
+import { errors } from "../../utils/config";
 
 const app = getApp();
 
@@ -36,8 +37,8 @@ Page({
       pageState.empty();
     }
   },
-  onShow(){
-    this.showDetail(this.data.entry_id,this.data.user_id);
+  onShow() {
+    this.showDetail(this.data.entry_id, this.data.user_id);
   },
   //*Done
   showDetail: async function (entry_id, user_idd) {
@@ -70,9 +71,13 @@ Page({
       });
       this.setTowxml();
     } catch (err) {
-      pageState.error();
-      console.log("error in 'entryDetail.js:71'");
-      console.log(err);
+      if (res.data == errors.no_entry) {
+        pageState.empty();
+      } else {
+        pageState.error();
+        console.log("error in 'entryDetail.js:74'");
+        console.log(err);
+      }
     }
   },
   //?Doing
@@ -156,22 +161,21 @@ Page({
     if (e.currentTarget.dataset.data.tag == "navigator") {
       var entry = e.currentTarget.dataset.data.attrs.href;
       var entry_id_tmp = await getEntryId(entry);
-      console.log(entry_id_tmp)
-      if (this.data.entry_id!=entry_id_tmp){
+      console.log(entry_id_tmp);
+      if (this.data.entry_id != entry_id_tmp) {
         wx.navigateTo({
           url: `/pages/entryDetail/entryDetail?entry_id=${entry_id_tmp}`,
-        })
+        });
       }
     }
   },
   //*Done
   isShow: function (e) {
-    var t = e.currentTarget.id;
-    var s = this.data.show[t];
-    var r = "show." + t;
+    var type = e.currentTarget.id;
     this.setData({
-      [r]: !s,
+      [`show.${type}`]: !this.data.show[type],
     });
+    console.log(this.data.show[type]);
   },
   //?Doing
   async onCollectThisEntry() {
@@ -191,8 +195,8 @@ Page({
         } else {
           Toast({ message: "取消收藏失败！", position: "bottom" });
         }
-      } catch(err) {
-        console.log("error in 'entryDetail.js:191'")
+      } catch (err) {
+        console.log("error in 'entryDetail.js:191'");
         console.log(err);
         Toast({ message: "取消收藏失败！", position: "bottom" });
       }
@@ -224,6 +228,6 @@ Page({
     navTo({
       page: "addEntry",
       args: `?ent=${ent}`,
-    })
+    });
   },
 });

@@ -31,11 +31,9 @@ Page({
     this.setTowxml()
   },
   isShow: function (e) {
-    var t = e.currentTarget.id;
-    var s = this.data.show[t];
-    var r = "show." + t;
+    var type = e.currentTarget.id;
     this.setData({
-      [r]: !s,
+      [`show.${type}`]: !this.data.show[type],
     });
   },
   //?Doing
