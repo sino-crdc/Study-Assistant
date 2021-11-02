@@ -6,8 +6,7 @@
   field-class="field"
   input-class="input"
   custom-class="custom"
-  left-icon=''
-  input-align="center"
+  left-icon='NULL'
   use-action-slot
   >
     <view class="ss iconfont icon-sousuo" slot="action" bind:tap="onClick">

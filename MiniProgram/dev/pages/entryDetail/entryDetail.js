@@ -86,14 +86,7 @@ Page({
     var entry_id = this.data.entry_id;
     const _ts = this;
     const success_callback = (res) => {
-      if (type == "title") {
-        res.eventChannel.emit(
-          "onL",
-          _ts.data.entryDetail.title + "\n" + _ts.data.entryDetail.chinese
-        );
-      } else {
-        res.eventChannel.emit("onL", _ts.data.entryDetail[type]);
-      }
+      res.eventChannel.emit("onL", _ts.data.entryDetail[type]);
     };
     navTo(
       {
@@ -161,7 +154,6 @@ Page({
     if (e.currentTarget.dataset.data.tag == "navigator") {
       var entry = e.currentTarget.dataset.data.attrs.href;
       var entry_id_tmp = await getEntryId(entry);
-      console.log(entry_id_tmp);
       if (this.data.entry_id != entry_id_tmp) {
         wx.navigateTo({
           url: `/pages/entryDetail/entryDetail?entry_id=${entry_id_tmp}`,

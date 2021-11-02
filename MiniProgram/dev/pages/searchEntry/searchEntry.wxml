@@ -6,8 +6,7 @@
   bind:change="onChange"
   shape="round"
   background="{{ theme=='light'?'#fff':'#191919' }}"
-  left-icon=""
-  input-align="center">
+  left-icon="NULL">
     <view class="ss iconfont icon-sousuo" slot="action" bind:tap="onClick">
       搜索
     </view>

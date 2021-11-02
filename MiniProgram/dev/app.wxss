@@ -20,8 +20,8 @@ page{
     --buttonColorLight: #515151;
     --buttonHoverColorLight: #f4f4f4;
     /* Color Dark */
-    --pageColorDark: #020202;
-    --boardColorDark: #333;
+    --pageColorDark: #2f3136;
+    --boardColorDark: #414449;
     --commentColorDark: #ccc;
     --buttonColorDark: #e6e6e6;
     --buttonHoverColorDark: #222;

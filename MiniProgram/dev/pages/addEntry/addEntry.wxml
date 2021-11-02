@@ -1,9 +1,10 @@
+<van-notice-bar mode="closeable" background="#ecf9ff" color="#9ccefd" text="标有*号的是必填项"/>
 <block wx:for="{{llist}}" wx:for-index="type" wx:for-item="raw">
   <view class="wrap">
     <van-icon size="20" id="{{type}}" bind:click="isShow" name="{{show[type]?'arrow-up':'arrow-down'}}" />
     <view class="tt">{{type}}</view>
     <view wx:if="{{type=='title'||type=='source'||type=='content'}}" class="must">*</view>
-    <view id="{{type}}" bind:tap="onEdit" wx:if="{{ show[type] }}" class="iconfont icon-edit myicon"></view>
+    <view id="{{type}}" bind:tap="onEdit" class="iconfont icon-edit myicon"></view>
   </view>
   <view class="raw">
     <!-- <view wx:if="{{ show[type]&&type!='title'&&type!='chinese'&&type!='source'}}" class="tow"> -->
@@ -11,17 +12,11 @@
       <view wx:if="{{type=='title'||type=='chinese'||type=='source'}}" class="toww">{{detail[type]}}</view>
       <towxml wx:else nodes="{{ detail[type] }}" />
     </view>
-    <!-- <view wx:elif="{{type=='title'||type=='chinese'||type=='source'}}" class="toww">
-      <view>
-        {{llist[type]}}
-      </view>
-    </view>
-    <view class="toww" wx:else></view> -->
   </view>
 </block>
 
 <view class="up">
-  <van-button type="primary" bind:click="onUp">上传</van-button>
+  <button class="btn" hover_class="btn_hover" bind:tap="onUp">上传</button>
 </view>
 
 <!-- <van-empty wx:if="{{ pageState.state=='error' }}" image="network" description="网络错误" />

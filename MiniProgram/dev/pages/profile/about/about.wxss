@@ -7,7 +7,7 @@ page {
   text-align: center;
 }
 .title {
-  font-size: 64rpx;
+  font-size: 56rpx;
   text-align: center;
 }
 .titleee {
@@ -38,7 +38,7 @@ page {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 50rpx 0 46rpx 0;
+  margin: 30rpx 0 40rpx 0;
 }
 .logo_wrap .logo {
   border-radius: 50%;

@@ -56,7 +56,7 @@
 }
 .wrap {
   display: flex;
-  background-color: var(--pageColorLight);
+  background-color: var(--buttonColorLight);
   align-items: center;
   height: 100rpx;
 }
@@ -92,12 +92,12 @@
     color: var(--commentColorLight);
   }
   .myicon {
-    color: var(--buttonColorDark);
+    color: var(--buttonColorLight);
   }
   .author {
     background-color: var(--boardColorDark);
   }
   .wrap {
-    background-color: var(--boardColorDark);
+    background-color: var(--pageColorDark);
   }
 }

@@ -7,6 +7,6 @@
     "split": "/components/split-line/split-line",
     "van-empty": "/components/vant/empty/index",
     "van-icon": "/components/vant/icon/index",
-    "van-button": "/components/vant/button/index"
+    "van-notice-bar": "/components/vant/notice-bar/index"
   }
 }

@@ -9,7 +9,7 @@
   }
   
   .divider view {
-    width: 85%;
+    width: 90%;
     height: 4rpx;
     margin-left: 20rpx;
     background-color: #c4c4c4;

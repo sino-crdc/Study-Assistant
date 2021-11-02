@@ -19,14 +19,14 @@
   font-size: 48rpx;
   color: var(--buttonColorLight);
 }
-.wrap:first-child {
-  margin-top: 30rpx;
+.wrap:first-of-type {
+  margin-top: 40rpx;
 }
 .tow {
   margin-top: -36rpx;
 }
 .toww {
-  margin-top: 20rpx;
+  margin: 20rpx 46rpx 0 36rpx;
 }
 .raw {
   display: flex;
@@ -37,6 +37,19 @@
   display: flex;
   margin: 20rpx ;
   justify-content: center;
+}
+.btn {
+  background-color: #9ccefd;
+  border-radius: 10rpx;
+  color: #ecf9ff;
+}
+.btn::after {
+  border: 0;
+  border-radius: 10rpx;
+}
+.btn_hover {
+  background-color: #6c9ecd !important;
+  opacity: 0.9 !important;
 }
 @media (prefers-color-scheme: dark) {
   page {
