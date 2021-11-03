@@ -1,6 +1,6 @@
 /*正文样式*/
 .h2w-dark {
-  color:#ddd;
+  color:#c0c0b7;
   background-color:#2f3136;
 }
 
