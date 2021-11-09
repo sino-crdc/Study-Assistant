@@ -1,0 +1,79 @@
+.wrap {
+    display: flex;
+    margin: 0 20rpx;
+    align-items: center;
+    .tt {
+      font-size: 48rpx;
+      margin: 0 20rpx;
+    }
+    .must{
+      font-size: 20rpx;
+      color: red;
+    }
+    van-icon {
+      margin-left: 18rpx;
+    }
+    .myicon {
+      margin: 0 30rpx -6rpx auto;
+      font-size: 48rpx;
+      color: var(--buttonColorLight);
+    }
+    &:first-of-type{
+      margin-top: 40rpx;
+    }
+  }
+  
+  .tow {
+    margin-top: -28rpx;
+  }
+  .toww{
+    margin: 20rpx 46rpx 0 60rpx;
+  }
+  .raw{
+    display: flex;
+    background-color: #fff;
+    margin: 15rpx 0 15rpx 0;
+  }
+  .up{
+    display: flex;
+    margin: 20rpx ;
+    justify-content: center;
+  }
+  
+  .btn{
+    background-color: #9ccefd;
+    border-radius: 10rpx;
+    color: #ecf9ff;
+    &::after{
+      border: 0;
+      border-radius: 10rpx;
+    }
+  }
+  .btn_hover{
+    background-color: #6c9ecd !important;
+    opacity: 0.9 !important;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    page {
+      background-color: var(--pageColorDark);
+    }
+  
+    .title {
+      .chinese {
+        color: var(--commentColorLight);
+      }
+    }
+  
+    .myicon {
+      color: var(--buttonColorDark);
+    }
+  
+    .author {
+      background-color: var(--boardColorDark);
+    }
+    .wrap {
+      background-color: var(--boardColorDark);
+    }
+  }
+  

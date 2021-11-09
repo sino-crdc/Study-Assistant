@@ -1,4 +1,4 @@
-const version = "0.2.4";
+const version = "0.3.1";
 const contact = {
   email: "zzzsy@bk.ru",
   wx_id: "zzzsy_8",
@@ -16,6 +16,7 @@ const pages = {
   searchEntry: "/pages/searchEntry/searchEntry",
   myEdit: "/pages/myEdit/myEdit",
   addEntry: "/pages/addEntry/addEntry",
+  updateEntry: "/pages/updateEntry/updateEntry",
 };
 const errors = {
   no_entry: "Entry matching query does not exist."

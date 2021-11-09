@@ -10,7 +10,8 @@
     "pages/entryDetail/entryDetail",
     "pages/searchEntry/searchEntry",
     "pages/myEdit/myEdit",
-    "pages/addEntry/addEntry"
+    "pages/addEntry/addEntry",
+    "pages/updateEntry/updateEntry"
   ],
   "window": {
     "backgroundTextStyle": "light",

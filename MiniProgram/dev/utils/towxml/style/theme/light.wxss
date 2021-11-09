@@ -8,6 +8,7 @@
 .h2w-light .h2w__h1,
 .h2w-light .h2w__h2 {
     border-color:#eee;
+    color:#272727
 }
 
 

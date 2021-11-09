@@ -23,10 +23,10 @@
   margin-top: 40rpx;
 }
 .tow {
-  margin-top: -36rpx;
+  margin-top: -28rpx;
 }
 .toww {
-  margin: 20rpx 46rpx 0 36rpx;
+  margin: 40rpx 46rpx 0 36rpx;
 }
 .raw {
   display: flex;

@@ -216,10 +216,15 @@ Page({
     }
   },
   onEditThisEntry() {
-    const ent = this.data.entryDetail;
-    navTo({
-      page: "addEntry",
-      args: `?ent=${ent}`,
-    });
+    const detail = JSON.stringify(this.data.entryDetail);
+    const success_callback = (res) => {
+      res.eventChannel.emit("onM", detail);
+    };
+    navTo(
+      {
+        page: "updateEntry",
+      },
+      success_callback
+    );
   },
 });

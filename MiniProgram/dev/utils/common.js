@@ -47,6 +47,17 @@ const convertUserInfo = (userInfo) => {
   return userinfo;
 };
 
+const convertDetail = (datail) => {
+  let edDetail = {};
+  edDetail.title = datail.title;
+  edDetail.content = datail.content;
+  edDetail.proof = datail.proof;
+  edDetail.remark = datail.remark;
+  edDetail.example = datail.example;
+  edDetail.source = datail.source;
+  edDetail.chinese = datail.chinese;
+  return edDetail;
+};
 const getVersion = () => {
   return version;
 };
@@ -55,4 +66,4 @@ const getContact = ()=>{
   return contact;
 }
 
-export { navTo, convertUserInfo, getVersion, getContact };
+export { navTo, convertUserInfo, getVersion, getContact, convertDetail };
