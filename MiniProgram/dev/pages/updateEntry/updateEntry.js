@@ -32,10 +32,13 @@ Page({
     const eventChannel = await this.getOpenerEventChannel();
     await eventChannel.on("onM", (data) => {
       const lllist = JSON.parse(data);
+      const entry_id = lllist.id;
+      console.log("hhhid\n",entry_id)
       const llist = convertDetail(lllist);
       console.log('dfghjk\n',llist)
       _ts.setData({
         llist:llist,
+        entry_id
       });
       _ts.setTowxml()
     });
@@ -84,6 +87,7 @@ Page({
       var res = await request({
         url: "/entry/updateentry",
         data: {
+          entry_id: entry_id,
           entry: entry,
           user_id: wx.getStorageSync("user_id"),
         },
