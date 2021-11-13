@@ -1,3 +1,6 @@
+page {
+  background-color: var(--pageColorLight);
+}
 .title {
   margin: 20rpx 20rpx 10rpx;
   display: flex;
@@ -27,6 +30,7 @@
   .bt {
     font-size: 48rpx;
     margin: 0 20rpx;
+    color: #272727;
   }
   van-icon {
     margin-left: 18rpx;
@@ -87,21 +91,31 @@
   page {
     background-color: var(--pageColorDark);
   }
-
+  .sour {
+    color: #c0c0b7;
+  }
   .title {
     .chinese {
       color: var(--commentColorLight);
     }
   }
-
+  .content,
+  .proof,
+  .remark,
+  .example,
+  .source {
+    .bt {
+      color: #eee;
+    }
+  }
   .myicon {
-    color: var(--buttonColorDark);
+    color: var(--buttonColorLight);
   }
 
   .author {
     background-color: var(--boardColorDark);
   }
   .wrap {
-    background-color: var(--boardColorDark);
+    background-color: var(--pageColorDark);
   }
 }

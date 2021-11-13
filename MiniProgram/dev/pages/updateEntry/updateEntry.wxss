@@ -29,7 +29,7 @@ page {
   margin-top: -28rpx;
 }
 .toww {
-  margin: 40rpx 46rpx 0 36rpx;
+  margin: 20rpx 46rpx 0 60rpx;
 }
 .raw {
   display: flex;
@@ -61,15 +61,15 @@ page {
   .title .chinese {
     color: var(--commentColorLight);
   }
+  .notice {
+    background-color: #336699 !important;
+    color: #ffcccc !important;
+  }
   .myicon {
     color: var(--buttonColorDark);
   }
   .author {
     background-color: var(--boardColorDark);
-  }
-  .notice {
-    background-color: #336699 !important;
-    color: #ffcccc !important;
   }
   .raw,
   .wrap {

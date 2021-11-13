@@ -1,7 +1,7 @@
 /*正文样式*/
 .h2w-dark {
-  color:#ddd;
-  background-color:#000;
+  color:#c0c0c0;
+  background-color:#2f3136;
 }
 
 /**标题**/
@@ -36,6 +36,11 @@
     border-color:#1b1c18;
 }
 
+.h2w__b,
+.h2w__strong {
+    font-weight: bold;
+    color: #8aa2d3;
+}
 
 /**块元素**/
 .h2w-dark .h2w__blockquote {

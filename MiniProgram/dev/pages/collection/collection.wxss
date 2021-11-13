@@ -81,6 +81,14 @@ page {
   page {
     background-color: var(--pageColorDark);
   }
+  .btn_wrap .edit,
+  .btn_wrap .cal,
+  .btn_wrap .sel {
+    background-color: #333;
+  }
+  .btn_wrap .del {
+    background-color: #fe0000;
+  }
   .wrap {
     background-color: var(--boardColorDark);
   }

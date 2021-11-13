@@ -1,3 +1,7 @@
+
+page {
+  background-color: var(--pageColorLight);
+}
 .wrap {
   display: flex;
   margin: 0 20rpx;
@@ -18,29 +22,40 @@
     font-size: 48rpx;
     color: var(--buttonColorLight);
   }
-  &:first-child{
-    margin-top: 30rpx;
+  &:first-of-type{
+    margin-top: 40rpx;
   }
 }
 
 .tow {
-  margin-top: -36rpx;
+  margin-top: -28rpx;
 }
 .toww{
-  margin-left: 10rpx;
+  margin: 40rpx 46rpx 0 36rpx;
 }
 .raw{
   display: flex;
-  background-color: #eee;
-  border-radius: 8rpx;
-  height: 60rpx;
-  width: 85%;
-  margin: 0 30rpx 0 30rpx;
+  background-color: var(--pageColorLight);
+  margin: 15rpx 0 15rpx 0;
 }
 .up{
   display: flex;
   margin: 20rpx ;
   justify-content: center;
+}
+
+.btn{
+  background-color: #9ccefd;
+  border-radius: 10rpx;
+  color: #ecf9ff;
+  &::after{
+    border: 0;
+    border-radius: 10rpx;
+  }
+}
+.btn_hover{
+  background-color: #6c9ecd !important;
+  opacity: 0.9 !important;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -61,7 +76,17 @@
   .author {
     background-color: var(--boardColorDark);
   }
-  .wrap {
-    background-color: var(--boardColorDark);
+  .notice{
+    background-color: #336699 !important;
+    color: #ffcccc !important;
   }
+  .raw,
+  .wrap {
+    background-color: var(--pageColorDark);
+  }
+  .dialog{
+    --dialog-background-color: var(--pageColorDark) !important;
+    --dialog-button-bccolor: var(--pageColorDark) !important;
+    --dialog-button-color: var(--textColorDark) !important;
+}
 }

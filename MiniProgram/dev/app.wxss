@@ -14,15 +14,17 @@ page{
     font-size: 28rpx;
     --themeColor:#1296db;
     /* Color Light */
-    --pageColorLight: #f4f4f4;
+    --pageColorLight: #f2f2f7;
+    --textColorLight: #515151;
     --boardColorLight: #fff;
     --commentColorLight: #888;
     --buttonColorLight: #515151;
-    --buttonHoverColorLight: #f4f4f4;
+    --buttonHoverColorLight: #f9f9f9;
     /* Color Dark */
-    --pageColorDark: #020202;
-    --boardColorDark: #333;
+    --pageColorDark: #2f3136;
+    --boardColorDark: #414449;
     --commentColorDark: #ccc;
     --buttonColorDark: #e6e6e6;
-    --buttonHoverColorDark: #222;
+    --buttonHoverColorDark: #333;
+    --textColorDark: #c0c0c0;
 }

@@ -289,6 +289,7 @@
 .h2w__b,
 .h2w__strong {
     font-weight: bold;
+    color: #272727;
 }
 
 .h2w__i,

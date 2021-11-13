@@ -1,13 +1,14 @@
 /*正文样式*/
 .h2w-light {
-  color:#333;
-  background-color:white;
+  color:#515151;
+  background-color:#f2f2f7;
 }
 
 /**标题**/
 .h2w-light .h2w__h1,
 .h2w-light .h2w__h2 {
     border-color:#eee;
+    color:#272727
 }
 
 
@@ -43,7 +44,7 @@
 
 /**内连元素**/
 .h2w-light .h2w__a {
-    color:#1aad16; border-color:#b9d9b8;
+    color:#1296db; border-color:#a2d3db;
 }
 
 .h2w-light .h2w__hr {

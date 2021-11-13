@@ -89,13 +89,21 @@ Page({
         wx.navigateBack({
             delta: 1
           })
-        // navTo({page: 'previewEdit'}, success_callback);
     },
+    onTest(){
+        if (this.data.rawMD.trim()&&(this.data.type=="content"||this.data.type=="title"||this.data.type=="source")){
+          return true
+        }else{
+          Toast({ message: "必填项为空！", position: "bottom" });
+          return false
+        }
+      },
     onUpload(){
         this.setView(0);
         Dialog.confirm({
             message: '确认上传吗？',
         }).then(()=>{
+            this.onTest();
             this.onUP();
         }).catch(()=>{
 

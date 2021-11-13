@@ -2,8 +2,6 @@
 
 [TOC]
 
-
-
 ## assets
 
 ### icon
@@ -11,7 +9,7 @@
 Tab栏图标
 
 > 蓝色：#1296DB
->
+> 
 > 灰色：#BCBCBC
 
 ### images
@@ -23,7 +21,7 @@ Tab栏图标
 ## components
 
 + split-line
-
+  
   ```json
   @props:{
       color:#c4c4c4
@@ -32,7 +30,7 @@ Tab栏图标
   ```
 
 + entry-item
-
+  
   ```json
   @args:{
       title,    //entry标题
@@ -40,12 +38,12 @@ Tab栏图标
       //desc,   //Todo
   },
   @usedby:{
-      
+  
   }
   ```
 
 + vant
-
+  
   | components | used by | theme |
   | ---------- | ------- | ----- |
   | button     |         |       |
@@ -147,6 +145,7 @@ Tab栏图标
 #### about
 
 ```json
+
 ```
 
 ### index
@@ -162,7 +161,7 @@ Tab栏图标
 
 ### entryDetail
 
-```json
+```js
 @request:[
     {
         url:'/entrydetail',
@@ -182,5 +181,10 @@ Tab栏图标
 ### editEntry
 
 ```json
+
 ```
+$\frac{1}{\pi}$
+
+
+
 

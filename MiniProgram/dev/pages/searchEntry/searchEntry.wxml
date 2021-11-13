@@ -5,16 +5,14 @@
   bind:search="onClick"
   bind:change="onChange"
   shape="round"
-  background="{{ theme=='light'?'#fff':'#191919' }}"
-  left-icon=""
-  input-align="center">
+  background="{{ theme=='light'?'#f1f1f7':'#191919' }}"
+  left-icon="NULL">
     <view class="ss iconfont icon-sousuo" slot="action" bind:tap="onClick">
       搜索
     </view>
 </van-search>
 
 <view wx:if="{{ pageState.state=='loading' }}" class="sk" wx:for="{{ 7 }}">
-  <van-skeleton title row="2"></van-skeleton>
 </view>
 
 <view wx:if="{{ pageState.state=='finish' }}" wx:for="{{ resultList }}">

@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "新建",
+  "navigationBarTitleText": "更新",
   "usingComponents": {
     "towxml": "/utils/towxml/towxml",
     "van-dialog": "/components/vant/dialog/index",
