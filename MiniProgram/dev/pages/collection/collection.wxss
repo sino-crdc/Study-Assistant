@@ -81,6 +81,9 @@ page {
   page {
     background-color: var(--pageColorDark);
   }
+  .edit {
+    background-color: var(--pageColorDark);
+  }
   .wrap {
     background-color: var(--boardColorDark);
   }

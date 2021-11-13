@@ -1,3 +1,6 @@
+page {
+  background-color: var(--pageColorLight);
+}
 .title {
   margin: 20rpx 20rpx 10rpx;
   display: flex;
@@ -57,7 +60,7 @@
 }
 .wrap {
   display: flex;
-  background-color: #fff;
+  background-color: var(--pageColorLight);
   align-items: center;
   height: 100rpx;
 }
@@ -95,7 +98,11 @@
   .title .chinese {
     color: var(--commentColorLight);
   }
-  .bt {
+  .content .bt,
+  .proof .bt,
+  .remark .bt,
+  .example .bt,
+  .source .bt {
     color: #eee;
   }
   .myicon {

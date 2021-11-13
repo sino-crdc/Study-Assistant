@@ -31,7 +31,7 @@
 <textarea wx:if="{{ flag==1 }}" bind:input="onChange" class="markdown" value="{{ rawMD }}" placeholder="开始你的编写" maxlength="-1">
 </textarea>
 <view wx:if="{{ flag==0 }}" class="markdown_p">{{ rawMD }}</view>
-<van-dialog id="van-dialog" />
+<van-dialog class="dialog" id="van-dialog" />
 
 <view class="func_wrap">
     <button bind:tap="onPreview" hover-class="btn_hover">

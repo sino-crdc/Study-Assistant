@@ -1,3 +1,6 @@
+page {
+  background-color: var(--pageColorLight);
+}
 .title {
   margin: 20rpx 20rpx 10rpx;
   display: flex;
@@ -51,7 +54,7 @@
 
 .wrap {
   display: flex;
-  background-color: #fff;
+  background-color: var(--pageColorLight);
   align-items: center;
   height: 100rpx;
   van-icon {
@@ -88,7 +91,7 @@
   page {
     background-color: var(--pageColorDark);
   }
-  .sour{
+  .sour {
     color: #c0c0b7;
   }
   .title {
@@ -96,8 +99,14 @@
       color: var(--commentColorLight);
     }
   }
-  .bt{
-    color:#eee;
+  .content,
+  .proof,
+  .remark,
+  .example,
+  .source {
+    .bt {
+      color: #eee;
+    }
   }
   .myicon {
     color: var(--buttonColorLight);

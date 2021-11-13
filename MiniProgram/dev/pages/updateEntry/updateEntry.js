@@ -32,15 +32,16 @@ Page({
     const eventChannel = await this.getOpenerEventChannel();
     await eventChannel.on("onM", (data) => {
       const lllist = JSON.parse(data);
+      console.log("jhjhj\n", lllist);
       const entry_id = lllist.id;
-      console.log("hhhid\n",entry_id)
+      console.log("hhhid\n", entry_id);
       const llist = convertDetail(lllist);
-      console.log('dfghjk\n',llist)
+      console.log("dfghjk\n", llist);
       _ts.setData({
-        llist:llist,
-        entry_id
+        llist: llist,
+        entry_id,
       });
-      _ts.setTowxml()
+      _ts.setTowxml();
     });
   },
   onShow() {
@@ -77,12 +78,14 @@ Page({
           this.onUpp();
         })
         .catch((err) => {
-          console.log(err);
+          console.log("err in upadte.js:81", err);
+          Toast({ message: "更新词条失败！", position: "bottom" });
         });
     }
   },
   async onUpp() {
     const entry = this.data.llist;
+    const entry_id = this.data.entry_id;
     try {
       var res = await request({
         url: "/entry/updateentry",
@@ -91,17 +94,20 @@ Page({
           entry: entry,
           user_id: wx.getStorageSync("user_id"),
         },
-        method: "UPDATE",
+        method: "POST",
       });
     } catch (err) {
-      console.log(err);
+      console.log("err in upadte.js:100", err);
+      Toast({ message: "更新词条失败！", position: "bottom" });
     }
     console.log(res);
-    if (res.data.data.status == "success") {
+    if (res.data.data && res.data.data.status == "success") {
       Toast({ message: "更新词条成功！", position: "bottom" });
       wx.navigateBack({
         delta: 1,
       });
+    } else {
+      Toast({ message: "更新词条失败！", position: "bottom" });
     }
   },
   onTest() {
