@@ -1,3 +1,6 @@
+page {
+  background-color: var(--pageColorLight);
+}
 .wrap {
   display: flex;
   margin: 0 20rpx;
@@ -30,7 +33,7 @@
 }
 .raw {
   display: flex;
-  background-color: #fff;
+  background-color: var(--pageColorLight);
   margin: 15rpx 0 15rpx 0;
 }
 .up {
@@ -64,7 +67,17 @@
   .author {
     background-color: var(--boardColorDark);
   }
+  .notice {
+    background-color: #336699 !important;
+    color: #ffcccc !important;
+  }
+  .raw,
   .wrap {
-    background-color: var(--boardColorDark);
+    background-color: var(--pageColorDark);
+  }
+  .dialog {
+    --dialog-background-color: var(--pageColorDark) !important;
+    --dialog-button-bccolor: var(--pageColorDark) !important;
+    --dialog-button-color: var(--textColorDark) !important;
   }
 }

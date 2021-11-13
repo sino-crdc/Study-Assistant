@@ -61,13 +61,23 @@ page {
   .title .chinese {
     color: var(--commentColorLight);
   }
+  .notice {
+    background-color: #336699 !important;
+    color: #ffcccc !important;
+  }
   .myicon {
     color: var(--buttonColorDark);
   }
   .author {
     background-color: var(--boardColorDark);
   }
+  .raw,
   .wrap {
-    background-color: var(--boardColorDark);
+    background-color: var(--pageColorDark);
+  }
+  .dialog {
+    --dialog-background-color: var(--pageColorDark) !important;
+    --dialog-button-bccolor: var(--pageColorDark) !important;
+    --dialog-button-color: var(--textColorDark) !important;
   }
 }

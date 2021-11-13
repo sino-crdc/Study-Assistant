@@ -180,5 +180,6 @@ page {
   }
   .btn_hover {
     background-color: var(--buttonHoverColorDark) !important;
+    opacity: 0.6 !important;
   }
 }

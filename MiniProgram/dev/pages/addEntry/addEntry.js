@@ -74,6 +74,7 @@ Page({
       });
     }catch(err){
       console.log(err);
+      Toast({ message: "新建词条失败！", position: "bottom" });
     }
     console.log(res)
     if (res.data.data.status=='success'){

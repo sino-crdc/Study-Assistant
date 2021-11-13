@@ -26,5 +26,5 @@ page{
     --commentColorDark: #ccc;
     --buttonColorDark: #e6e6e6;
     --buttonHoverColorDark: #333;
-    --textColorLight: #c0c0c0;
+    --textColorDark: #c0c0c0;
 }

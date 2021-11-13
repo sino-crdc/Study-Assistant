@@ -1,107 +1,113 @@
 page {
-    background-color: var(--pageColorLight);
+  background-color: var(--pageColorLight);
 }
 
 .wrap {
+  display: flex;
+  background-color: var(--boardColorLight);
+  margin: 40rpx 20rpx 0;
+  border-radius: 16rpx;
+  flex-direction: column;
+
+  .fav_wrap {
+    width: 100%;
+    height: 80rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .fav {
+      font-size: 32rpx;
+      margin: 10rpx 0 0 20rpx;
+    }
+  }
+
+  .func_wrap {
     display: flex;
     background-color: var(--boardColorLight);
-    margin: 40rpx 20rpx 0;
-    border-radius: 16rpx;
-    flex-direction: column;
+    height: 80rpx;
+    align-items: center;
+    justify-content: space-between;
 
-    .fav_wrap {
-        width: 100%;
-        height: 80rpx;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .fav {
-            font-size: 32rpx;
-            margin: 10rpx 0 0 20rpx;
-        }
+    .func {
+      font-size: 32rpx;
+      margin: 10rpx 0 0 40rpx;
     }
-
-    .func_wrap {
-        display: flex;
-        background-color: var(--boardColorLight);
-        height: 80rpx;
-        align-items: center;
-        justify-content: space-between;
-
-        .func {
-            font-size: 32rpx;
-            margin: 10rpx 0 0 40rpx;
-        }
-    }
+  }
 }
 
 .btn_wrap {
-    display: flex;
-    align-items: center;
-    margin-right: 14rpx;
-    .edit,
-    .cal,
-    .sel,
-    .del {
-        font-size: 24rpx;
-        height: 56rpx;
-        width: 110rpx;
-        background-color: #eee;
-        border-radius: 12rpx;
+  display: flex;
+  align-items: center;
+  margin-right: 14rpx;
+  .edit,
+  .cal,
+  .sel,
+  .del {
+    font-size: 24rpx;
+    height: 56rpx;
+    width: 110rpx;
+    background-color: #eee;
+    border-radius: 12rpx;
 
-        &::after {
-            border: 0;
-            border-radius: 12rpx;
-        }
+    &::after {
+      border: 0;
+      border-radius: 12rpx;
     }
+  }
 
-    .del {
-        background-color: #fe0000;
-        color: #fff;
-    }
+  .del {
+    background-color: #fe0000;
+    color: #fff;
+  }
 
-    .sel{
-        margin-right: 20rpx;
-        width: 150rpx;
-        font-size: 22rpx;
-    }
+  .sel {
+    margin-right: 20rpx;
+    width: 150rpx;
+    font-size: 22rpx;
+  }
 }
 
 .btn_hover {
-    background-color: #dcdcdc !important;
-    opacity: 0.9 !important;
+  background-color: #dcdcdc !important;
+  opacity: 0.9 !important;
 }
 
 .divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 8rpx 0 8rpx;
-    view {
-        width: 90%;
-        height: 2rpx;
-        background-color: var(--pageColorLight);
-    }
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 8rpx 0 8rpx;
+  view {
+    width: 90%;
+    height: 2rpx;
+    background-color: var(--pageColorLight);
+  }
 }
 
-@media (prefers-color-scheme: dark){
-    page{
-        background-color: var(--pageColorDark);
+@media (prefers-color-scheme: dark) {
+  page {
+    background-color: var(--pageColorDark);
+  }
+  .btn_wrap {
+    .edit,
+    .cal,
+    .sel{
+      background-color: #333;
     }
-    .edit{
-        background-color: var(--pageColorDark);
+    .del{
+        background-color: #fe0000;
     }
-    .wrap{
-        background-color: var(--boardColorDark);
-        .func_wrap{
-            background-color: var(--boardColorDark);
-        }
+  }
+  .wrap {
+    background-color: var(--boardColorDark);
+    .func_wrap {
+      background-color: var(--boardColorDark);
     }
-    .divider{
-        view{
-            background-color: var(--pageColorDark);
-        }
+  }
+  .divider {
+    view {
+      background-color: var(--pageColorDark);
     }
+  }
 }

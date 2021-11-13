@@ -76,7 +76,6 @@
       loading="{{ loading.cancel }}"
       class="van-dialog__button van-hairline--right"
       custom-class="van-dialog__cancel"
-      custom-style="color: {{ cancelButtonColor }}"
       bind:click="onCancel"
     >
       {{ cancelButtonText }}

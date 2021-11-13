@@ -1,7 +1,7 @@
-const version = "0.3.2";
+const version = "0.3.6";
 const contact = {
   email: "zzzsy@bk.ru",
-  wx_id: "zzzsy_8",
+  wx_id: "zsyyy_8",
   qq: "2273231189",
 };
 const pages = {

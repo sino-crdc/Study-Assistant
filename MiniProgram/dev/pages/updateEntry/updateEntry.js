@@ -79,7 +79,6 @@ Page({
         })
         .catch((err) => {
           console.log("err in upadte.js:81", err);
-          Toast({ message: "更新词条失败！", position: "bottom" });
         });
     }
   },

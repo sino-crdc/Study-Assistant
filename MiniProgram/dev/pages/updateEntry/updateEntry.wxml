@@ -1,4 +1,4 @@
-<van-notice-bar mode="closeable" background="#ecf9ff" color="#9ccefd" text="标有*号的是必填项"/>
+<van-notice-bar class="notice" mode="closeable" background="#ecf9ff" color="#9ccefd" text="标有*号的是必填项"/>
 <block wx:for="{{llist}}" wx:for-index="type" wx:for-item="raw">
   <view class="wrap">
     <van-icon size="20" id="{{type}}" bind:click="isShow" name="{{show[type]?'arrow-up':'arrow-down'}}" />
@@ -22,5 +22,5 @@
 <!-- <van-empty wx:if="{{ pageState.state=='error' }}" image="network" description="网络错误" />
 <van-empty wx:if="{{ pageState.state=='empty' }}" image="default" description="未收录此词条" /> -->
 
-<van-dialog id="van-dialog" />
+<van-dialog class="dialog" id="van-dialog" />
 <van-toast id="van-toast" />
